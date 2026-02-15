@@ -1,0 +1,21 @@
+﻿# Virtual environments
+.venv/
+venv/
+
+# IDE/editor
+.vscode/
+
+# Runtime outputs
+logs/
+
+# Local database/cache artifacts
+duckdb/
+*.duckdb
+*.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Notebook checkpoints
+.ipynb_checkpoints/
