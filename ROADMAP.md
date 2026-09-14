@@ -34,20 +34,24 @@ Checked against `data/staged/mart_ipo_analytics_20260215.csv` (snapshot 2026-02-
 
 ## Phase 0 — Reset repo and environment
 
-- [ ] Commit the current untracked ML scaffolding to branch `archive/ml-scaffold` (safety copy — it is untracked, so deletion is otherwise irreversible). Return to `main`.
-- [ ] Delete from `main`: `src/models.py`, `src/evaluation.py`, `src/features.py`, `notebooks/01_eda_analysis.ipynb`, `notebooks/02_feature_engineering.ipynb`, `notebooks/03_modeling.ipynb`, `notebooks/04_evaluation_and_results.ipynb`, `notebooks/modeling.ipynb`, `reports/project_report.md`.
-- [ ] Replace `README.md` with a short, honest work-in-progress stub (what it is, current status, link to this roadmap). No results, no placeholders.
-- [ ] Rebuild `.venv` on Python 3.11.
-- [ ] Pin `requirements.txt` to exact versions. Remove `xgboost`, `lightgbm`, `shap`, `imbalanced-learn`. Add `yfinance`, `scipy`, `statsmodels`, `plotly`, `streamlit`, `pyarrow`, `pytest`, `ruff`.
-- [ ] Raw data convention: one folder per scrape — `data/raw/2026-01-22/`, `data/raw/2026-02-15/`. Move the `*_22_01_26.csv` files into the first. Scrapers never overwrite an existing snapshot.
-- [ ] `pipeline.py`:
-  - [ ] CLI flags `--snapshot YYYY-MM-DD` and `--skip-scrape` (rebuild from saved raw files without hitting any site).
-  - [ ] Move `setup_logging()` out of import time into `main`.
-  - [ ] Open SQL files with `encoding="utf-8"`.
-- [ ] `.gitignore`: add `models/`, `data/duckdb/`. (Mart gets a committed Parquet export in Phase 1.)
-- [ ] Commits: `chore: archive and remove ML scaffold`, `build: pin environment`, `refactor: dated raw snapshots + pipeline CLI`.
+- [x] Commit the current untracked ML scaffolding to branch `archive/ml-scaffold` (safety copy — it is untracked, so deletion is otherwise irreversible). Return to `main`.
+- [x] Delete from `main`: `src/` (models, evaluation, features, config), `notebooks/01–04_*.ipynb`, `notebooks/modeling.ipynb`, `reports/project_report.md`. `src/config.py` is recreated in Phase 3.
+- [x] Replace `README.md` with a short, honest work-in-progress stub (what it is, current status, link to this roadmap). No results, no placeholders.
+- [x] Rebuild `.venv` on Python 3.11.
+- [x] Pin `requirements.txt` to exact versions (direct dependencies only). Removed `xgboost`, `lightgbm`, `shap`, `imbalanced-learn`, `seaborn`, `beautifulsoup4` (unused). Added `yfinance`, `scipy`, `statsmodels`, `plotly`, `streamlit`, `pyarrow`, `pytest`, `ruff`.
+- [x] Raw data convention: one folder per scrape — `data/raw/2026-01-22/`, `data/raw/2026-01-30/`, `data/raw/2026-02-15/`. Scraping refuses to overwrite an existing snapshot or to write into a past date.
+- [x] `pipeline.py`:
+  - [x] CLI flags `--snapshot YYYY-MM-DD` and `--skip-scrape` (rebuild from saved raw files without hitting any site).
+  - [x] Move `setup_logging()` out of import time into `main`.
+  - [x] Open SQL files (and the log file) with `encoding="utf-8"`.
+  - [x] Mart export is named after the snapshot date, not the run date.
+- [x] `.gitignore`: add `models/` (`data/duckdb/` was already covered by `duckdb/` and `*.duckdb`).
+- [x] Commits per step.
 
 **Done when:** a fresh venv installs cleanly and `python pipeline.py --snapshot 2026-02-15 --skip-scrape` reproduces the current mart.
+
+> ✅ **Verified 2026-09-14:** rebuilding 2026-02-15 reproduces `mart_ipo_analytics_20260215.csv` exactly (690 rows, identical apart from `etl_processed_timestamp`). Rebuilding 2026-01-30 gives 729 rows vs the original 728 — the extra IPO (OMFURN) is recovered by the deterministic subscription dedupe fix.
+> Carried into Phase 7: `ruff` currently reports style findings in `pipeline.py` (f-string `str(e)`, `logger.error(exc_info=True)`, naive datetimes); pick the rule set when adding CI.
 
 ---
 
