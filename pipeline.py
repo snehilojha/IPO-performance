@@ -26,6 +26,8 @@ from pathlib import Path
 
 import duckdb
 
+from scrapers import IST
+
 # Add project root to path
 PROJECT_ROOT = Path(__file__).parent
 sys.path.append(str(PROJECT_ROOT))
@@ -136,7 +138,7 @@ def setup_logging():
     log_dir = CONFIG['log_dir']
     log_dir.mkdir(exist_ok=True, parents=True)
 
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    timestamp = datetime.now(IST).strftime('%Y%m%d_%H%M%S')
     log_file = log_dir / f'pipeline_{timestamp}.log'
 
     logging.basicConfig(
@@ -173,7 +175,7 @@ class IPODataPipeline:
             return
 
         # Scrapers always fetch today's data, so a past date would mislabel it
-        if self.snapshot != date.today():
+        if self.snapshot != datetime.now(IST).date():
             raise ValueError(
                 f"Cannot scrape into snapshot {self.snapshot}: scraping captures today's data. "
                 "Use --skip-scrape to rebuild from an existing snapshot."
@@ -235,8 +237,8 @@ class IPODataPipeline:
                 scraper.save_to_csv(data, output_path)
 
                 logger.info(f"{scraper_name}: Saved {len(data)} records to {filename}")
-            except Exception as e:
-                logger.error(f"{scraper_name} failed: {str(e)}", exc_info=True)
+            except Exception:
+                logger.exception(f"{scraper_name} failed")
                 failed_scrapers.append(scraper_name)
 
         if failed_scrapers:
@@ -393,7 +395,7 @@ class IPODataPipeline:
 
     def run(self):
         """Execute complete pipeline"""
-        start_time = datetime.now()
+        start_time = datetime.now(IST)
 
         logger.info("+" + "-" * 68 + "+")
         logger.info("|" + " " * 20 + "IPO ANALYTICS PIPELINE" + " " * 26 + "|")
@@ -407,7 +409,7 @@ class IPODataPipeline:
             self.build()
 
             # Calculate duration
-            end_time = datetime.now()
+            end_time = datetime.now(IST)
             duration = end_time - start_time
 
             logger.info("+" + "-" * 68 + "+")
@@ -420,7 +422,7 @@ class IPODataPipeline:
             logger.error("+" + "-" * 68 + "+")
             logger.error("|" + " " * 25 + "PIPELINE FAILED" + " " * 28 + "|")
             logger.error("+" + "-" * 68 + "+")
-            logger.error(f"Error: {str(e)}")
+            logger.error(f"Error: {e}")
             raise
 
         finally:
@@ -435,7 +437,7 @@ def parse_args(argv=None):
     parser.add_argument(
         '--snapshot',
         type=date.fromisoformat,
-        default=date.today(),
+        default=datetime.now(IST).date(),
         help="Snapshot date (YYYY-MM-DD); raw files live in data/raw/<snapshot>/. Defaults to today.",
     )
     parser.add_argument(

@@ -31,6 +31,8 @@ import duckdb
 import pandas as pd
 import requests
 
+from scrapers import IST
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 HEADERS = {
@@ -118,7 +120,7 @@ def parse_index_close(text: str, index_name: str = 'Nifty 50') -> dict | None:
         return None
     row = row.iloc[0]
     return {
-        'trade_dt': datetime.strptime(row['Index Date'].strip(), '%d-%m-%Y').date(),
+        'trade_dt': pd.to_datetime(row['Index Date'].strip(), format='%d-%m-%Y').date(),
         'open': float(row['Open Index Value']),
         'high': float(row['High Index Value']),
         'low': float(row['Low Index Value']),
@@ -200,7 +202,7 @@ class NSEPriceScraper:
 
         if text is None:
             # A missing file for a recent day may just not be published yet; only remember old ones
-            if (date.today() - day).days > 3:
+            if (datetime.now(IST).date() - day).days > 3:
                 no_trading_path.parent.mkdir(parents=True, exist_ok=True)
                 no_trading_path.touch()
             return
