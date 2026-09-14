@@ -67,6 +67,8 @@ Raw data is kept as dated snapshots in `data/raw/` (2026-01-22, 2026-01-30, 2026
 | [02_subscription_vs_returns](notebooks/02_subscription_vs_returns.ipynb) | Does subscription predict the listing gain? QIB vs retail vs NII demand, whether listing pops persist, and hot vs cold years. Rank correlations and median differences with bootstrap CIs, within-year checks, median regression and a verdict table |
 | [03_listing_gain_model](notebooks/03_listing_gain_model.ipynb) | Will an IPO open above its issue price? One logistic regression per segment, trained on listings to 2023 and tested on 2024 onwards, against three baselines (base rate, "subscription > 10×", subscription alone). ROC, calibration, coefficients, a `> 10%` version and a simple backtest with the allotment caveat |
 
+Notebooks read the latest mart export through `src/data.py` (set `IPO_SNAPSHOT=YYYY-MM-DD` to pick another) and save their charts to `reports/figures/`. Statistics helpers are in `src/stats.py`.
+
 ## Dashboard
 
 A Streamlit app over the committed exports, with no scraping, DuckDB or model at runtime. Mainboard and SME are shown side by side in every view.
@@ -83,8 +85,6 @@ streamlit run app/streamlit_app.py
 ```
 
 To deploy on Streamlit Community Cloud, use `app/streamlit_app.py` as the entrypoint and Python 3.11; it installs `app/requirements.txt`.
-
-Notebooks read the latest mart export through `src/data.py` (set `IPO_SNAPSHOT=YYYY-MM-DD` to pick another) and save their charts to `reports/figures/`. Statistics helpers are in `src/stats.py`.
 
 ## Running it
 
