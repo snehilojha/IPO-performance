@@ -1,11 +1,12 @@
 # IPO Analysis — Indian IPOs, 2016–2025
 
-> **Status: work in progress.** The data warehouse, including listing-day prices and split-adjusted returns, is built and checked. The data overview and core analysis notebooks are done; the model, the dashboard and the final write-up are still to come. See [ROADMAP.md](ROADMAP.md) for the plan.
+> **Status: work in progress.** The data warehouse, including listing-day prices and split-adjusted returns, is built and checked. The data overview, core analysis and model notebooks are done; the dashboard and the final write-up are still to come. See [ROADMAP.md](ROADMAP.md) for the plan.
 
-**Early findings** (snapshot 2026-02-15; details and confidence intervals in [notebook 02](notebooks/02_subscription_vs_returns.ipynb)):
+**Early findings** (snapshot 2026-02-15; details and confidence intervals in [notebook 02](notebooks/02_subscription_vs_returns.ipynb) and [notebook 03](notebooks/03_listing_gain_model.ipynb)):
 - **Subscription strongly predicts the listing-day gain in both segments** (rank correlation 0.76 mainboard, 0.70 SME), and not just because of hot years. Mainboard IPOs subscribed 3.5× or less open at a median of −1%; those subscribed 79× or more open at +45%.
 - **It says nothing about what happens after listing day.** Someone buying at the listing-day close typically trailed NIFTY over the next year (median −16 pp SME; −8 pp mainboard, which is borderline once the number of tests is accounted for), however big the pop or the subscription.
 - **Who bids matters differently by segment.** For mainboard, QIB demand is a stronger signal than retail demand. For recent SME IPOs, QIB demand is the weakest of the three categories.
+- **A small model adds little to subscription alone.** Trained on 2016–2023 and tested on 2024–25 listings, a logistic regression ranks which IPOs will open above issue price well (AUC 0.83 mainboard, 0.82 SME). For mainboard it is no better than the subscription multiple on its own; for SME, NII demand improves it slightly. Its probabilities came out too optimistic in 2024–25 (mean forecast 87% vs 78% actual for SME), because subscription multiples rose while a given multiple listed positive less often.
 
 ## What this is
 
@@ -64,6 +65,7 @@ Raw data is kept as dated snapshots in `data/raw/` (2026-01-22, 2026-01-30, 2026
 |---|---|
 | [01_data_overview](notebooks/01_data_overview.ipynb) | Coverage and structural gaps, return distributions, base rates by year and segment, why `return_since_issue_pct` can't be compared across years, survivorship, and what the data can and can't support |
 | [02_subscription_vs_returns](notebooks/02_subscription_vs_returns.ipynb) | Does subscription predict the listing gain? QIB vs retail vs NII demand, whether listing pops persist, and hot vs cold years. Rank correlations and median differences with bootstrap CIs, within-year checks, median regression and a verdict table |
+| [03_listing_gain_model](notebooks/03_listing_gain_model.ipynb) | Will an IPO open above its issue price? One logistic regression per segment, trained on listings to 2023 and tested on 2024 onwards, against three baselines (base rate, "subscription > 10×", subscription alone). ROC, calibration, coefficients, a `> 10%` version and a simple backtest with the allotment caveat |
 
 Notebooks read the latest mart export through `src/data.py` (set `IPO_SNAPSHOT=YYYY-MM-DD` to pick another) and save their charts to `reports/figures/`. Statistics helpers are in `src/stats.py`.
 
@@ -88,6 +90,7 @@ pytest
 # Re-run a notebook and save its outputs
 jupyter nbconvert --to notebook --execute --inplace notebooks/01_data_overview.ipynb
 jupyter nbconvert --to notebook --execute --inplace notebooks/02_subscription_vs_returns.ipynb   # ~2 minutes (bootstraps)
+jupyter nbconvert --to notebook --execute --inplace notebooks/03_listing_gain_model.ipynb        # ~1 minute
 ```
 
 ## Known issues

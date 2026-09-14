@@ -228,18 +228,40 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 
 ## Phase 5 — One small model (`notebooks/03_listing_gain_model.ipynb`)
 
-- [ ] Target: `listing_gain_pct > 0`; sensitivity version at `> 10`.
-- [ ] Features — pre-listing only: log subscription (total, QIB, NII, retail), `has_qib_category`, `segment`, log issue size, issue price, listing month.
-- [ ] **Time split before any fitting:** train = listed ≤ 2023, test = 2024–2025.
-- [ ] `sklearn` `Pipeline(ColumnTransformer(impute → scale / one-hot), LogisticRegression)` — every transform fit on train only.
-- [ ] Baselines to beat: majority class; rule "total subscription > 10×".
-- [ ] Metrics: ROC-AUC, Brier score, calibration plot; coefficients interpreted in plain language.
-- [ ] Simple backtest: median and mean listing return when applying where `p > threshold` vs applying to every IPO.
-- [ ] Caveats written out:
-  - allotment probability collapses in heavily oversubscribed issues, so backtest returns aren't achievable as stated;
-  - final-day subscription is only partly known when the apply decision is made.
+- [x] Target: `listing_gain_pct > 0`; sensitivity version at `> 10`.
+- [x] Features — pre-listing only: log2 subscription (total, QIB, NII, retail), log2 issue size, log2 issue price. See *Changed from the plan* for `segment`, `has_qib_category`, SME QIB and listing month.
+- [x] **Time split before any fitting:** train = listed ≤ 2023 (261 mainboard, 293 SME); test = listed from 2024-01-01 to the snapshot (187, 296; includes one SME listing on 2026-01-02).
+- [x] `sklearn` `Pipeline(ColumnTransformer(median impute → scale / one-hot), LogisticRegression)` — every transform fit on train only.
+- [x] Baselines to beat: training base rate (majority class as a probability); rule "total subscription > 10×". *Added:* subscription alone (logistic on log2 total), which ranks IPOs like every "> N×" rule at once.
+- [x] Metrics: ROC-AUC, Brier score, calibration plot; coefficients as odds multipliers per doubling with 1,000-refit bootstrap CIs. *Added:* `src/stats.py` `bootstrap_auc()`, `bootstrap_auc_diff()`, `bootstrap_brier_diff()` (vectorised, paired on the same resamples; 2 new tests).
+- [x] Simple backtest: median and mean listing gain when applying where `p > 0.5 / 0.7 / 0.9` vs every IPO, for the model and subscription alone; applied − skipped median with CI when ≥ 10 IPOs are skipped.
+- [x] Caveats written out: allotment (median retail subscription of the picks is shown), final-day subscription, no costs, one two-year test period.
+
+### Changed from the plan
+- **One model per segment, no `segment` input.** Mainboard and SME are never pooled.
+- **Inputs chosen on the training years only**, with forward-moving validation years 2021–2023, before the test period was scored:
+  - listing month made both segments worse (AUC −0.02 to −0.03), so it is left out;
+  - the default C = 1 is kept (AUC moves ≤ 0.02 between C = 0.1 and 10).
+- **No QIB input for SME, no `has_qib_category`.** SME QIB figures cover 24% of training IPOs vs 81% of test IPOs, so either would mostly encode the period. `has_qib_category` is always true for mainboard.
+- **Planned model kept for mainboard** even though validation showed it no better than total subscription alone, so the test scores the plan rather than a model picked for scoring best.
+- *Added:* a table of the share of positive listings by subscription band, training vs test, to explain the calibration drift.
+
+### Charts — 4, saved to `reports/figures/03_*.png`
+- [x] ROC curves in the test period (model, subscription alone, the 10× rule as a point).
+- [x] Calibration in the test period (five equal groups, Wilson intervals).
+- [x] Odds multiplier per doubling of each input.
+- [x] Listing gain by predicted-probability quintile (share positive and share at the SME cap annotated).
 
 **Done when:** results table vs baselines is reported honestly (including if the model doesn't beat them). No further models.
+
+> ✅ **Verified 2026-09-14** (snapshot 2026-02-15): `jupyter nbconvert --execute` runs all 35 cells in about a minute with no errors or stderr; two runs give identical outputs. `pytest`: 56 passed.
+> **Beats the naive baselines:** Brier vs training base rate −0.039 [−0.067, −0.011] mainboard, −0.024 [−0.034, −0.014] SME; AUC vs the 10× rule +0.11 / +0.12.
+> **Not subscription alone for mainboard:** AUC 0.835 vs 0.831 (+0.004 [−0.012, +0.020]), Brier +0.005 [−0.001, +0.010].
+> **Slightly, for SME:** AUC 0.820 vs 0.798 (+0.022 [−0.008, +0.052]), Brier −0.006 [−0.012, −0.001], carried by NII demand (odds ×1.45 [1.20, 1.76] per doubling). Same pattern for `> 10%`.
+> **Rankings transfer, probabilities don't:** mean forecast 78% vs 73% positive (mainboard) and 87% vs 78% (SME). Median subscription rose 17× → 39× and 9× → 88×, while a given multiple listed positive less often (SME 3–10×: 75% → 49%).
+> **Backtest:** p > 0.9 picks about half of each segment, with median listing gain +26.7% (mainboard) and +55.0% (SME) against +10.5% and +19.1% for every IPO. Subscription alone matches it, and the picks' median retail subscription is 28× and 194×.
+> Carried into Phase 6: the Findings page can show the model verdict in one line (subscription is the signal; SME NII adds a little; probabilities need recalibrating). No model at runtime.
+> Carried into Phase 7: the builder for notebook 03 is also outside the repo.
 
 ---
 
