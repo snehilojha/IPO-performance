@@ -10,7 +10,7 @@ import pandas as pd
 import pytest
 
 from src.config import available_snapshots, resolve_snapshot
-from src.data import horizon_elapsed, load_funnel, load_mart
+from src.data import at_listing_ceiling, horizon_elapsed, listing_ceiling_pct, load_funnel, load_mart
 from src.plotting import asinh_bins, save_fig
 
 matplotlib.use('Agg')
@@ -66,6 +66,20 @@ def test_horizon_elapsed_uses_calendar_months(mart_dir):
     # AAA listed 2025-01-31: one year lands on the snapshot; BBB is still short of a year
     assert horizon_elapsed(df, '1y').tolist() == [True, False]
     assert horizon_elapsed(df, '1m').tolist() == [True, True]
+
+
+def test_listing_ceiling_periods_and_tick_tolerance():
+    df = pd.DataFrame({
+        'segment': ['SME', 'SME', 'SME', 'SME', 'MAINBOARD', 'SME'],
+        'listing_dt': pd.to_datetime(['2018-03-01', '2018-03-01', '2020-01-01', '2024-07-04', '2024-08-01',
+                                      '2025-01-01']),
+        'issue_price': [51.0, 51.0, 100.0, 36.0, 100.0, 100.0],
+        'listing_open': [61.20, 61.10, 250.0, 68.35, 190.0, np.nan],
+    })
+    assert listing_ceiling_pct(df).tolist()[:2] == [20, 20]
+    assert np.isnan(listing_ceiling_pct(df)[2]) and np.isnan(listing_ceiling_pct(df)[4])
+    # 51 x 1.2 = 61.20 (at the ceiling); 61.10 is two ticks below; 36 x 1.9 = 68.40, one tick below counts
+    assert at_listing_ceiling(df).tolist() == [True, False, False, True, False, False]
 
 
 def test_load_funnel_pivots_segments(tmp_path, mart_dir):

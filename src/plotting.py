@@ -55,7 +55,7 @@ def asinh_bins(values, n_bins: int = 40, linear_width: float = ASINH_LINEAR_WIDT
     return linear_width * np.sinh(np.linspace(low, high, n_bins + 1))
 
 
-def percent_axis(ax: plt.Axes, axis: str = 'x'):
-    """Tick labels as +12% / -5%"""
-    formatter = mpl.ticker.FuncFormatter(lambda v, _: f'{v:+.0f}%' if v else '0%')
+def percent_axis(ax: plt.Axes, axis: str = 'x', suffix: str = '%'):
+    """Tick labels as +12% / -5%, or +12 pp with suffix=' pp' for differences between returns"""
+    formatter = mpl.ticker.FuncFormatter(lambda v, _: f'{v:+.0f}{suffix}' if v else f'0{suffix}')
     (ax.xaxis if axis == 'x' else ax.yaxis).set_major_formatter(formatter)
