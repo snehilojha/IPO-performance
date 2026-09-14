@@ -1,0 +1,4 @@
+symbol,series,company,isin,face_value,ex_date,record_date,subject,source_index
+TMB,EQ,Tamilnad Mercantile Bank Limited,INE668A01016,10,10-Jan-2024,10-Jan-2024,Bonus 1:1,equities
+TIRUPATIFL,EQ,Tirupati Forge Limited,INE0TF001014,10,10-Jan-2025,10-Jan-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+ETERNAL,EQ,Eternal Limited,INE758T01015,1,01-May-2024,02-May-2024,Scheme Of Arrangement - Bonus Ncrps 1:10,equities

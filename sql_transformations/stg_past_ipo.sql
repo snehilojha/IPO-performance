@@ -1,7 +1,7 @@
 -- One row per equity issue in the NSE past-issues feed.
 -- Non-equity security types (DEBT, NCDs, REITs, InvITs, warrants) are dropped here.
 -- Issues that are not IPOs (FPOs, withdrawn, partly-paid, follow-ons) are kept but carry an
--- exclusion_reason, so the join funnel can count them.
+-- exclusion_reason, so the join funnel can count them. Whether an IPO listed is decided in int_ipo_listing.
 
 CREATE OR REPLACE TABLE stg_past_ipo AS
 WITH parsed AS (
@@ -105,6 +105,5 @@ SELECT
     COALESCE(
         name_or_seed_exclusion,
         CASE WHEN issue_seq > 1 THEN 'follow_on' END
-    ) AS exclusion_reason,
-    exclusion_reason IS NULL AND listing_dt_reported IS NOT NULL AS is_listed_ipo
+    ) AS exclusion_reason
 FROM ranked;

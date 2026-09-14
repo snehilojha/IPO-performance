@@ -49,6 +49,12 @@ THRESHOLDS = {
     'min_mart_rows': 1000,
     'min_subscription_coverage': 0.90,
     'min_market_coverage': 0.90,
+    # Phase 2: prices
+    'min_listing_price_coverage_mainboard': 0.85,
+    'min_listing_price_coverage_sme': 0.75,
+    'min_listing_base_price_match': 0.98,
+    'price_max_stale_days': 30,
+    'max_unexplained_price_gaps': 15,
 }
 
 # Raw CSV -> DuckDB table. Columns listed here are added as NULL when a scrape lacks them
@@ -69,7 +75,17 @@ RAW_TABLES = [
         'sid', 'ticker', 'name', 'sector', 'subindustry', 'market_cap', 'last_price',
         'pe', 'roe', 'pb', '4w_return_pct', '1d_return_pct',
     ]),
+    ('nse_prices.parquet', 'raw_nse_prices', [
+        'trade_dt', 'symbol', 'series', 'isin', 'open', 'close', 'prev_close', 'volume',
+    ]),
+    ('nifty50.csv', 'raw_nifty50', ['trade_dt', 'open', 'high', 'low', 'close']),
+    ('corporate_actions.csv', 'raw_corporate_actions', [
+        'symbol', 'series', 'company', 'isin', 'face_value', 'ex_date', 'record_date', 'subject', 'source_index',
+    ]),
 ]
+
+# Written by scrapers/nse_price_scraper.py (needs ipo_metadata.csv from the same snapshot)
+PRICE_FILES = ('nse_prices.parquet', 'nifty50.csv', 'corporate_actions.csv')
 
 # Seed CSV -> DuckDB table with typed columns
 SEED_TABLES = [
@@ -80,6 +96,11 @@ SEED_TABLES = [
       'subscription_ipo_end_dt': 'DATE', 'note': 'VARCHAR'}),
     ('manual_ticker_matches.csv', 'seed_manual_ticker_matches',
      {'ticker': 'VARCHAR', 'tickertape_sid': 'VARCHAR', 'decision': 'VARCHAR', 'note': 'VARCHAR'}),
+    ('manual_corporate_actions.csv', 'seed_manual_corporate_actions',
+     {'symbol': 'VARCHAR', 'ex_dt': 'DATE', 'action_type': 'VARCHAR', 'share_factor': 'DOUBLE', 'note': 'VARCHAR'}),
+    ('manual_listings.csv', 'seed_manual_listings',
+     {'ticker': 'VARCHAR', 'ipo_end_dt': 'DATE', 'trading_symbol': 'VARCHAR', 'decision': 'VARCHAR',
+      'note': 'VARCHAR'}),
 ]
 
 STAGING_MODELS = [
@@ -87,11 +108,17 @@ STAGING_MODELS = [
     ('stg_past_ipo.sql', 'stg_past_ipo'),
     ('stg_ipo_subscription.sql', 'stg_ipo_subscription'),
     ('stg_tickertape.sql', 'stg_tickertape'),
+    ('stg_nse_prices.sql', 'stg_nse_prices'),
+    ('stg_nifty50.sql', 'stg_nifty50'),
+    ('stg_corporate_actions.sql', 'stg_corporate_actions'),
 ]
 
 MART_MODELS = [
+    ('int_ipo_listing.sql', 'int_ipo_listing'),
+    ('int_ipo_price_history.sql', 'int_ipo_price_history'),
     ('int_ipo_subscription_match.sql', 'int_ipo_subscription_match'),
     ('int_ipo_market_match.sql', 'int_ipo_market_match'),
+    ('int_ipo_horizon_returns.sql', 'int_ipo_horizon_returns'),
     ('mart_ipo_analytics.sql', 'mart_ipo_analytics'),
     ('audit_join_funnel.sql', 'audit_join_funnel'),
 ]
@@ -214,6 +241,12 @@ class IPODataPipeline:
 
         if failed_scrapers:
             raise RuntimeError(f"Scrapers failed: {', '.join(failed_scrapers)}")
+
+        # Prices need the IPO symbols from ipo_metadata.csv, so they are fetched last
+        from scrapers.nse_price_scraper import NSEPriceScraper
+        logger.info("Running NSE price history scraper...")
+        price_scraper = NSEPriceScraper(self.snapshot, raw_dir=raw_dir)
+        price_scraper.save(price_scraper.scrape())
         logger.info("Stage 1 completed successfully\n")
 
     def stage_2_load_raw_tables(self):
@@ -225,14 +258,18 @@ class IPODataPipeline:
         for csv_file, table_name, expected_columns in RAW_TABLES:
             csv_path = self.raw_dir / csv_file
             if not csv_path.exists():
-                raise FileNotFoundError(f"Raw file missing from snapshot: {csv_path}")
+                hint = ""
+                if csv_file in PRICE_FILES:
+                    hint = (" Price files are added to an existing snapshot with: "
+                            f"python -m scrapers.nse_price_scraper --snapshot {self.snapshot.isoformat()}")
+                raise FileNotFoundError(f"Raw file missing from snapshot: {csv_path}.{hint}")
 
-            # All text: types are cast explicitly in staging, so they don't depend on what the sniffer sees
+            # CSVs load as text: types are cast explicitly in staging, so they don't depend on the sniffer.
+            # Parquet files are typed by the scraper.
             logger.info(f"Loading {csv_file} into {table_name}...")
-            self.duckdb_conn.execute(f"""
-                CREATE OR REPLACE TABLE {table_name} AS
-                SELECT * FROM read_csv('{csv_path.as_posix()}', header=true, all_varchar=true)
-            """)
+            reader = (f"read_parquet('{csv_path.as_posix()}')" if csv_path.suffix == '.parquet'
+                      else f"read_csv('{csv_path.as_posix()}', header=true, all_varchar=true)")
+            self.duckdb_conn.execute(f"CREATE OR REPLACE TABLE {table_name} AS SELECT * FROM {reader}")
 
             existing = {row[0] for row in self.duckdb_conn.execute(f"DESCRIBE {table_name}").fetchall()}
             for column in expected_columns:

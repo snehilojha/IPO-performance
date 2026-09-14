@@ -1,0 +1,4 @@
+symbol,ex_dt,action_type,share_factor,note
+JSLL,2025-06-12,split,5,Face value split Rs 10 to Rs 2 (record date 2025-06-12); missing from the NSE corporate actions API; new ISIN INE0J5801029 from that day
+GICL,2025-10-15,bonus,2,Bonus 1:1 (record date 2025-10-15); missing from the NSE corporate actions API; new ISIN INE947T01022 from that day
+GICL,2025-10-15,split,2,Face value split Rs 10 to Rs 5 alongside the 1:1 bonus (record date 2025-10-15)

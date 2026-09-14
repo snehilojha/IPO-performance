@@ -1,0 +1,2 @@
+ticker,ipo_end_dt,trading_symbol,decision,note
+CAMS,2020-09-23,CAMS,reject,Listed on BSE on 2020-10-01; first NSE trade on 2020-10-05 has a previous close of 1401.60 (not the issue price of 1230) so it is not the listing day

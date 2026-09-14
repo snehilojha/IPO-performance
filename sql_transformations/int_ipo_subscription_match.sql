@@ -5,9 +5,10 @@
 
 CREATE OR REPLACE TABLE int_ipo_subscription_match AS
 WITH ipo AS (
-    SELECT ticker, ipo_end_dt, segment, company_name_norm
-    FROM stg_past_ipo
-    WHERE is_listed_ipo
+    SELECT i.ticker, i.ipo_end_dt, i.segment, i.company_name_norm
+    FROM stg_past_ipo i
+    JOIN int_ipo_listing l USING (ticker, ipo_end_dt)
+    WHERE l.is_listed AND i.exclusion_reason IS NULL
 ),
 
 manual AS (
