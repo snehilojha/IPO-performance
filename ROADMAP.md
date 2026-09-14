@@ -154,17 +154,25 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 
 ## Phase 3 — Data overview notebook (`notebooks/01_data_overview.ipynb`)
 
-- [ ] Shared helpers:
-  - `src/config.py` — paths, snapshot date
-  - `src/data.py` — `load_mart()` from `data/mart/mart_ipo_analytics_<snapshot>.parquet`
-  - `src/plotting.py` — one chart style, `save_fig()` → `reports/figures/`
-- [ ] Coverage: join funnel, IPO count by year × segment, missingness by segment (QIB is structural for SME).
-- [ ] Distributions of `listing_gain_pct` and `excess_return_1y_pct` (log/symlog axis, median marked).
-- [ ] Base rates by year and segment: share positive, median, IQR.
-- [ ] One chart showing why `return_since_issue_pct` can't be compared across years (median return by listing year next to holding period).
-- [ ] Closing markdown: what this data can and can't support.
+- [x] Shared helpers:
+  - `src/config.py` — paths, `available_snapshots()`, `resolve_snapshot()` (argument → `$IPO_SNAPSHOT` → latest export)
+  - `src/data.py` — `load_mart()` converts DuckDB's DATE / DECIMAL / nullable BOOLEAN columns to datetime, float and nullable boolean, and adds `listing_year`; `load_funnel()`; `horizon_elapsed()` (same calendar-month rule as the SQL)
+  - `src/plotting.py` — one chart style, segment colours, `save_fig()` → `reports/figures/`, `asinh_bins()`
+- [x] *Found before starting — warehouse fix:* 62 SME IPOs (almost all 2017) match a Chittorgarh record that has no subscription numbers, so they showed `has_subscription_data = true` and `has_qib_category = false`. *Added:* `has_subscription_figures` (1,048 IPOs: 450 mainboard, 598 SME), `has_qib_category` is NULL when there are no figures, funnel step 12. Test added and seen failing first; the rebuilt mart differs from the previous one only in those two columns.
+- [x] Coverage: join funnel, IPO count by year × segment, availability of every analysis field by segment (horizon returns as a share of those due), and a year × segment table showing the structural gaps: SME QIB category below 17% of issues in every year to 2022, then 46% / 76% / 90% in 2023–2025; application counts only from 2023 in both segments.
+- [x] Distributions of `listing_gain_pct` and `excess_return_1y_pct` on an asinh axis, median marked, one panel per segment.
+- [x] Base rates by listing year and segment: share opening above issue, median and IQR listing gain, median 1-year excess return (only for fully elapsed cohorts); cohorts under 20 IPOs marked.
+- [x] Chart showing why `return_since_issue_pct` can't be compared across years: median return since issue, median holding period and median fixed 1-year return by listing year. Spearman ρ(holding days, return since issue) = 0.34 / 0.36; with the 1-year return, 0.04 / −0.04.
+- [x] *Added:* survivorship section — which horizon returns are missing and why, and the returns recorded by the 34 stocks that stopped trading.
+- [x] Closing markdown: what this data can and can't support.
+- [x] *Found — second SME listing ceiling:* no SME listing opened above +20% before 26 Apr 2018 (134 listings, 46 at exactly +20%), consistent with the 20% daily price band applying on listing day. No circular found, so it is described as an observed ceiling, not a documented rule. Together with the +90% cap since July 2024, 89 SME listing gains sit exactly at a ceiling.
 
 **Done when:** notebook runs top to bottom, outputs saved in the file.
+
+> ✅ **Verified 2026-09-14** (snapshot 2026-02-15): `jupyter nbconvert --execute` runs all 31 cells with no errors or warnings; 5 figures written to `reports/figures/01_*.png`. All 21 checks pass after the warehouse fix. `pytest`: 43 passed (8 new in `tests/test_data.py`).
+> Headline base rates: opened above issue 71% mainboard / 78% SME; median listing gain +9.6% / +10.2%; median 1-year return over NIFTY +17.0 pp / +2.5 pp (60% / 52% beat the index).
+> Carried into Phase 4: treat listing gains at a ceiling as censored (use medians, ranks and threshold shares, not means or OLS); SME subscription analysis effectively starts in 2018; SME QIB analysis only from 2023; never use Tickertape valuation fields as explanations (measured at the snapshot).
+> Carried into Phase 7: `ruff` flags import order in `tests/test_data.py`, because it treats `duckdb` as a local package (there is a `duckdb/` folder at the repo root).
 
 ---
 

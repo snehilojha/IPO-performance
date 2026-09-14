@@ -1,6 +1,6 @@
 # IPO Analysis — Indian IPOs, 2016–2025
 
-> **Status: work in progress.** The data warehouse — including listing-day prices and split-adjusted returns — is built and checked; the analysis has not been written yet. No findings are claimed here until they are backed by executed notebooks. See [ROADMAP.md](ROADMAP.md) for the plan.
+> **Status: work in progress.** The data warehouse, including listing-day prices and split-adjusted returns, is built and checked, and the data overview notebook is done. The core analysis has not been written yet. No findings are claimed here until they are backed by executed notebooks. See [ROADMAP.md](ROADMAP.md) for the plan.
 
 ## What this is
 
@@ -41,7 +41,8 @@ Raw data is kept as dated snapshots in `data/raw/` (2026-01-22, 2026-01-30, 2026
 | IPOs (excl. FPOs, withdrawn, partly-paid, follow-ons) | 457 | 697 | 1,154 |
 | Listed on NSE = mart rows | 452 | 691 | 1,143 |
 | With listing-day prices | 450 | 691 | 1,141 |
-| With subscription data | 450 | 660 | 1,110 |
+| With a subscription record | 450 | 660 | 1,110 |
+| With subscription figures (the record has numbers) | 450 | 598 | 1,048 |
 | With market data | 449 | 679 | 1,128 |
 | With listing prices and subscription data | 448 | 660 | 1,108 |
 | With a 1-year return (listed ≥ 1 year before the snapshot and still trading) | 356 | 573 | 929 |
@@ -51,6 +52,14 @@ Raw data is kept as dated snapshots in `data/raw/` (2026-01-22, 2026-01-30, 2026
 **Returns.** Every return is measured from the issue price and adjusted for bonuses and splits by following the security through renames and ISIN changes. Horizons (1m, 6m, 1y, 3y) are counted from the listing date; NIFTY 50 is measured over the same money-at-risk period (issue close → horizon). Adjusted returns match Yahoo Finance's split-adjusted prices on a sample of 18 IPOs with corporate actions.
 
 **Matching.** IPOs are matched to subscription records on issue close date (±3 days) plus company-name similarity, and to Tickertape stocks mainly through their current NSE symbol. Cases the rules can't settle were reviewed by hand and recorded in `data/seeds/`.
+
+## Notebooks
+
+| Notebook | What it covers |
+|---|---|
+| [01_data_overview](notebooks/01_data_overview.ipynb) | Coverage and structural gaps, return distributions, base rates by year and segment, why `return_since_issue_pct` can't be compared across years, survivorship, and what the data can and can't support |
+
+Notebooks read the latest mart export through `src/data.py` (set `IPO_SNAPSHOT=YYYY-MM-DD` to pick another) and save their charts to `reports/figures/`.
 
 ## Running it
 
@@ -69,16 +78,20 @@ python pipeline.py
 
 # Tests (build the warehouse from small fixture files)
 pytest
+
+# Re-run a notebook and save its outputs
+jupyter nbconvert --to notebook --execute --inplace notebooks/01_data_overview.ipynb
 ```
 
 ## Known issues
 
 - Returns are price returns: dividends are not included (nor are they in the NIFTY 50 price index used as the benchmark).
 - Demergers are not adjusted. A large one shows up as an unexplained price gap (QUESS, SHANKARA); returns measured across such a gap are left empty (`price_gap_dt`).
-- From 2024-07-04 NSE caps an SME IPO's opening price at 90% over the issue price, so later SME listing gains are truncated (`listing_capped`).
+- SME listing gains are truncated in two periods. From 2024-07-04 NSE caps an SME IPO's opening price at 90% over the issue price (`listing_capped`, 43 IPOs). Before 26 Apr 2018 no SME listing opened above +20% (46 at exactly +20%); this is observed in the data, but no circular was found for it.
 - CAMS, PROTEAN and NSDL listed on BSE only at IPO: CAMS and PROTEAN have no listing prices; NSDL is not in the mart.
-- Horizon returns are empty when the stock stopped trading on NSE before the horizon (delisted, suspended or moved), which biases long-horizon averages towards survivors.
-- Chittorgarh has no subscription data for most 2016–17 SME issues.
+- A horizon return is empty when the stock had no NSE trade in the 30 days before the horizon date. This affects 11 of 940 due 1-year returns and 20 of 494 due 3-year returns, all SME and mostly thinly traded 2016–2019 stocks.
+- Chittorgarh has no SME subscription records for 2016 and lists most 2017 SME issues without numbers (`has_subscription_figures`), so SME subscription analysis effectively starts in 2018.
+- Tickertape fields (market cap, P/E, ROE, P/B) describe each company at the snapshot date, not at listing.
 
 ## Disclaimer
 
