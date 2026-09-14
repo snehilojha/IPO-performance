@@ -4,13 +4,18 @@ import numpy as np
 import pandas as pd
 import pytest
 from scipy.stats import spearmanr
+from sklearn.metrics import brier_score_loss, roc_auc_score
 
 from src.stats import (
+    bootstrap_auc,
+    bootstrap_auc_diff,
+    bootstrap_brier_diff,
     bootstrap_median,
     bootstrap_median_diff,
     bootstrap_spearman,
     bootstrap_spearman_diff,
     decile_table,
+    roc_auc,
     spearman,
     stratified_spearman,
     stratified_spearman_group_diff,
@@ -105,6 +110,31 @@ def test_stratified_spearman_skips_small_strata(rng):
     assert stratified_spearman(df, 'x', 'y', 'g', min_n=10, n_boot=N_BOOT).n == 30
     with pytest.raises(ValueError):
         stratified_spearman(df, 'x', 'y', 'g', min_n=100, n_boot=N_BOOT)
+
+
+def test_roc_auc_matches_sklearn_with_ties_and_missing(rng):
+    y = rng.integers(0, 2, 300).astype(float)
+    score = np.round(y + rng.normal(size=300), 1)  # rounding creates ties
+    score[:4] = np.nan
+    keep = ~np.isnan(score)
+    assert roc_auc(y, score) == pytest.approx(roc_auc_score(y[keep], score[keep]))
+    result = bootstrap_auc(y, score, n_boot=N_BOOT)
+    assert result.estimate == pytest.approx(roc_auc_score(y[keep], score[keep]))
+    assert result.ci_low < result.estimate < result.ci_high and result.n == 296
+
+
+def test_auc_and_brier_diffs_detect_the_better_forecast(rng):
+    y = rng.integers(0, 2, 500).astype(float)
+    sharp = np.clip(0.5 + 0.8 * (y - 0.5) + rng.normal(scale=0.15, size=500), 0.01, 0.99)
+    vague = np.clip(0.5 + 0.1 * (y - 0.5) + rng.normal(scale=0.15, size=500), 0.01, 0.99)
+    auc = bootstrap_auc_diff(y, sharp, vague, n_boot=N_BOOT)
+    assert auc.estimate == pytest.approx(roc_auc_score(y, sharp) - roc_auc_score(y, vague))
+    assert auc.ci_low > 0
+    brier = bootstrap_brier_diff(y, sharp, vague, n_boot=N_BOOT)
+    assert brier.estimate == pytest.approx(brier_score_loss(y, sharp) - brier_score_loss(y, vague))
+    assert brier.ci_high < 0
+    same = bootstrap_auc_diff(y, sharp, sharp, n_boot=N_BOOT)
+    assert same.estimate == 0 and same.ci_low == 0 == same.ci_high
 
 
 def test_decile_table_groups_and_summaries():

@@ -143,6 +143,56 @@ def _stratified_draws(df, x, y, strata, min_n, n_boot, rng) -> tuple[float, np.n
     return point, combined, sum(sizes)
 
 
+def _rowwise_auc(y: np.ndarray, score: np.ndarray) -> np.ndarray:
+    """
+    ROC AUC of each row of score against the same row of 0/1 labels y, from the rank-sum (Mann-Whitney) form:
+    the chance a random positive scores above a random negative, ties counting half. NaN if a row has one class.
+    """
+    ranks = rankdata(score, axis=-1)
+    positives = y.sum(axis=-1)
+    negatives = y.shape[-1] - positives
+    with np.errstate(invalid='ignore', divide='ignore'):
+        return ((ranks * y).sum(axis=-1) - positives * (positives + 1) / 2) / (positives * negatives)
+
+
+def _labels_and_scores(y, *scores) -> tuple[np.ndarray, ...]:
+    arrays = [np.asarray(y, dtype=float), *(np.asarray(s, dtype=float) for s in scores)]
+    keep = np.logical_and.reduce([np.isfinite(a) for a in arrays])
+    return tuple(a[keep] for a in arrays)
+
+
+def roc_auc(y, score) -> float:
+    y, score = _labels_and_scores(y, score)
+    return float(_rowwise_auc(y, score))
+
+
+def bootstrap_auc(y, score, n_boot: int = N_BOOT, seed: int = SEED, ci: float = 0.95) -> Estimate:
+    """ROC AUC of score for 0/1 labels y with a bootstrap CI (resamples with only one class are ignored)"""
+    y, score = _labels_and_scores(y, score)
+    idx = np.random.default_rng(seed).integers(0, len(y), size=(n_boot, len(y)))
+    return _interval(roc_auc(y, score), _rowwise_auc(y[idx], score[idx]), len(y), ci)
+
+
+def bootstrap_auc_diff(y, score_a, score_b, n_boot: int = N_BOOT, seed: int = SEED, ci: float = 0.95) -> Estimate:
+    """AUC(score_a) - AUC(score_b) on the same labels, resampling rows together (a paired comparison)"""
+    y, score_a, score_b = _labels_and_scores(y, score_a, score_b)
+    idx = np.random.default_rng(seed).integers(0, len(y), size=(n_boot, len(y)))
+    point = roc_auc(y, score_a) - roc_auc(y, score_b)
+    draws = _rowwise_auc(y[idx], score_a[idx]) - _rowwise_auc(y[idx], score_b[idx])
+    return _interval(point, draws, len(y), ci)
+
+
+def bootstrap_brier_diff(y, prob_a, prob_b, n_boot: int = N_BOOT, seed: int = SEED, ci: float = 0.95) -> Estimate:
+    """
+    Brier score (mean squared error of a predicted probability) of prob_a minus prob_b on the same labels,
+    resampling rows together. Negative means prob_a is the better forecast.
+    """
+    y, prob_a, prob_b = _labels_and_scores(y, prob_a, prob_b)
+    loss_diff = (prob_a - y) ** 2 - (prob_b - y) ** 2
+    idx = np.random.default_rng(seed).integers(0, len(y), size=(n_boot, len(y)))
+    return _interval(loss_diff.mean(), loss_diff[idx].mean(axis=1), len(y), ci)
+
+
 def decile_table(df: pd.DataFrame, by: str, value: str, q: int = 10, at_ceiling: str | None = None) -> pd.DataFrame:
     """
     Split rows into q equal-count groups on `by` and summarise `value` in each: median and IQR, share above
