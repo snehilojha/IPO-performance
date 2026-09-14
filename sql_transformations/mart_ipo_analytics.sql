@@ -97,7 +97,7 @@ base AS (
         sub.applications,
         -- Many SME issues have no QIB category at all; that is a level, not a zero.
         -- Unknown (NULL) when there are no subscription figures to tell.
-        CASE WHEN sub.total_x IS NOT NULL THEN sub.qib_x IS NOT NULL END AS has_qib_category,
+        CASE WHEN sub.total_x IS NOT NULL THEN sub.qib_reported END AS has_qib_category,
 
         mm.tickertape_sid IS NOT NULL                AS has_market_data,
         mm.match_method                              AS market_match_method,

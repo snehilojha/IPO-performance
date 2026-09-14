@@ -19,13 +19,16 @@ WITH unified AS (
             TRY_STRPTIME(TRIM(COALESCE("Closing Date", "Close Date")), '%b %d, %Y')::DATE
         )                                                                 AS ipo_end_dt,
         TRY_CAST("Total Issue Amount (Incl.Firm reservations) (Rs.cr.)" AS DOUBLE) AS issue_size_cr,
-        TRY_CAST("QIB (x)" AS DOUBLE)                                     AS qib_x,
-        TRY_CAST("NII (x)" AS DOUBLE)                                     AS nii_x,
-        TRY_CAST("sNII (x)" AS DOUBLE)                                    AS snii_x,
-        TRY_CAST("bNII (x)" AS DOUBLE)                                    AS bnii_x,
-        TRY_CAST("Retail (x)" AS DOUBLE)                                  AS retail_x,
-        TRY_CAST("Employee (x)" AS DOUBLE)                                AS employee_x,
-        TRY_CAST("Total (x)" AS DOUBLE)                                   AS total_x,
+        -- 9999 is Chittorgarh's placeholder for a figure it doesn't have (e.g. Salasar Techno's QIB, 2017):
+        -- the category exists (qib_reported) but the multiple is unknown.
+        TRY_CAST("QIB (x)" AS DOUBLE) IS NOT NULL                         AS qib_reported,
+        NULLIF(TRY_CAST("QIB (x)" AS DOUBLE), 9999)                       AS qib_x,
+        NULLIF(TRY_CAST("NII (x)" AS DOUBLE), 9999)                       AS nii_x,
+        NULLIF(TRY_CAST("sNII (x)" AS DOUBLE), 9999)                      AS snii_x,
+        NULLIF(TRY_CAST("bNII (x)" AS DOUBLE), 9999)                      AS bnii_x,
+        NULLIF(TRY_CAST("Retail (x)" AS DOUBLE), 9999)                    AS retail_x,
+        NULLIF(TRY_CAST("Employee (x)" AS DOUBLE), 9999)                  AS employee_x,
+        NULLIF(TRY_CAST("Total (x)" AS DOUBLE), 9999)                     AS total_x,
         CAST(parse_number(Applications) AS BIGINT)                        AS applications
     FROM raw_ipo_subscription
 )

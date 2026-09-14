@@ -127,6 +127,14 @@ def test_subscription_record_without_figures(db):
     assert row['has_qib_category'] is None
 
 
+def test_placeholder_subscription_multiple_is_null(db):
+    # Chittorgarh shows 9999 for a QIB figure it doesn't have (Salasar Techno, 2017); the category still exists
+    row = mart_row(db, 'FORGE')
+    assert row['subscription_qib_x'] is None
+    assert row['has_qib_category'] is True
+    assert row['subscription_total_x'] == 6.5
+
+
 def test_non_equity_and_non_ipo_issues_excluded(db):
     security_types = {row[0] for row in db.execute("SELECT DISTINCT security_type FROM stg_past_ipo").fetchall()}
     assert security_types <= {'EQ', 'BE', 'SME'}
