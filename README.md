@@ -6,7 +6,7 @@ Every mainboard and SME IPO listed on NSE from 2016 to January 2026 (1,143 IPOs)
 - **It says nothing about the year after listing day.** Someone buying at the listing-day close typically trailed NIFTY over the next year (median −8 pp mainboard, −16 pp SME), however big the pop or the subscription.
 - **A small model adds little.** Tested on 2024–25 listings, a logistic regression is no better than the subscription multiple alone for mainboard, and only slightly better for SME.
 
-**Dashboard:** not deployed yet. Run it locally with `streamlit run app/streamlit_app.py` (see [Reproduce](#reproduce)). · **Plain-language summary:** [reports/findings.md](reports/findings.md)
+**Dashboard:** [snehilojha-ipo-performance-appstreamlit-app-ctowzl.streamlit.app](https://snehilojha-ipo-performance-appstreamlit-app-ctowzl.streamlit.app/) (may take a minute to wake up) · **Plain-language summary:** [reports/findings.md](reports/findings.md)
 
 ## Pipeline
 
@@ -154,7 +154,6 @@ The notebooks are the source files. Re-executing them on the same export gives i
 
 ## Next steps
 
-- Deploy the dashboard on Streamlit Community Cloud (entrypoint `app/streamlit_app.py`, Python 3.11) and link it at the top.
 - Update the Chittorgarh scraper for its current API, then take a fresh snapshot.
 - Add seed matches for IRCTC and AU Small Finance Bank.
 - Recalibrate the model on recent listings before reading its probabilities literally.

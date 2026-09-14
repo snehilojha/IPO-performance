@@ -45,7 +45,7 @@ Investors who were *allotted* shares at the issue price did better, but mostly b
 
 ## Where to look next
 
-- **Dashboard** (link or run command in the [README](../README.md)): search any IPO, or filter by year, sector and size.
+- **[Dashboard](https://snehilojha-ipo-performance-appstreamlit-app-ctowzl.streamlit.app/):** search any IPO, or filter by year, sector and size.
 - **Full analysis with confidence intervals:** [notebook 02](../notebooks/02_subscription_vs_returns.ipynb) and [notebook 03](../notebooks/03_listing_gain_model.ipynb).
 
 *For education only. Not investment advice.*

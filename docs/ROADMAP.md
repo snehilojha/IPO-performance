@@ -1,6 +1,6 @@
 # IPO Analysis — Roadmap
 
-How this project was finished, phase by phase: the plan, what changed from it, and how each phase was verified. Phases 0–7 are done apart from the steps that need the owner's accounts (deploying the dashboard, GitHub repo settings). Paths are relative to the repo root.
+How this project was finished, phase by phase: the plan, what changed from it, and how each phase was verified. Phases 0–7 are done. Paths are relative to the repo root.
 
 **End state:** a trustworthy warehouse → a clearly stated question answered with the right statistics → one small, honest model → a live Streamlit dashboard → a README that leads with the finding.
 
@@ -275,7 +275,7 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
   - **IPO lookup** — search any of the 1,143 IPOs: issue and listing prices, rank within its segment, subscription by category (says when a figure is missing and why), returns vs NIFTY at 1m / 6m / 1y / 3y for allottee and listing-day buyer (says whether a return is not yet due, missing or BSE-only). `?ticker=SYMBOL` links to an IPO.
   - **Findings** — the four notebook 02 answers and the model verdict, with seven saved charts. The text is fixed to snapshot 2026-02-15 and the page warns if a different snapshot is loaded.
 - [x] `app/requirements.txt` (runtime only: pandas, numpy, pyarrow, scipy, matplotlib, plotly, streamlit) and `.streamlit/config.toml`.
-- [ ] Deploy to Streamlit Community Cloud; put the public link at the top of the README. *Needs the commits pushed and a Streamlit account: entrypoint `app/streamlit_app.py`, Python 3.11.*
+- [x] Deployed to Streamlit Community Cloud (entrypoint `app/streamlit_app.py`, Python 3.11): https://snehilojha-ipo-performance-appstreamlit-app-ctowzl.streamlit.app/, linked at the top of the README.
 
 ### Changed from the plan
 - **Mainboard and SME are never in one chart series or one KPI.** Every chart is split by segment, including the filtered ones.
@@ -287,7 +287,7 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 
 > ✅ **Verified locally 2026-09-14** (snapshot 2026-02-15): `streamlit run app/streamlit_app.py` serves all four pages; each was rendered in headless Edge and checked by eye. `pytest`: 66 passed (6 unit tests for `src/dashboard.py`, plus each page run through Streamlit's `AppTest`, the lookup with an IPO selected). The page tests also pass in a fresh venv with only `app/requirements.txt` installed. Unfiltered Overview and Explore numbers match notebooks 01 and 02.
 > Found while checking lookups: **IRCTC (2019) has no subscription record**, one of the two mainboard IPOs the Chittorgarh match misses. Not fixed here, because a seed fix changes the mart and every notebook's numbers; it belongs in a separate warehouse fix.
-> Deploy not done: needs a push and the owner's Streamlit account.
+> ✅ **Deployed 2026-09-14:** the public link loads in headless Edge and the Overview page shows the snapshot's numbers (452 mainboard, 691 SME IPOs).
 
 ---
 
@@ -296,7 +296,7 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 - [x] **README**, in this order:
   1. One-line summary.
   2. Headline findings in the first three lines.
-  3. Dashboard link *(a run command until it is deployed)*.
+  3. Dashboard link.
   4. Pipeline diagram: scrapers → raw snapshots → `stg_` → `int_` → `mart_` → checks → notebooks / app.
   5. Coverage and join funnel.
   6. Data dictionary for every mart column: type, source, definition, and the date each return is measured to.
@@ -318,7 +318,7 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 - [x] `reports/findings.md` — one page for a non-technical reader.
 - [x] CI: `.github/workflows/ci.yml` runs `ruff` and `pytest` on Python 3.11, installing `requirements.txt`, with no scraping.
 - [x] Git: work landed as logical per-phase commits.
-- [ ] GitHub settings, which need the owner's account:
+- [x] GitHub settings:
   - repo description;
   - topics: `sql`, `duckdb`, `etl`, `analytics-engineering`, `web-scraping`, `streamlit`, `ipo`, `indian-stock-market`;
   - pin the repo.
@@ -340,7 +340,7 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 > - **Fresh clone on Linux** (WSL Ubuntu, Python 3.11.16, only `requirements.txt`, the steps CI runs): `ruff check .` clean and `pytest` 66 passed. `python pipeline.py --snapshot 2026-02-15 --skip-scrape` passed all 22 checks in 5 seconds and rewrote the mart exports and join funnel with no change git could see.
 > - **Notebooks after the lint edits:** all three re-execute with identical text outputs, no errors or stderr, and byte-identical figures.
 > - **Sources, one request each:** NSE past issues, bhavcopy, index close, corporate actions and Tickertape all respond; Chittorgarh does not return data.
-> - **Still open, needing the owner:** deploy the dashboard (Phase 6); set the GitHub description, topics and pin; push, so the first CI run happens on GitHub.
+> - **On GitHub:** pushed, and the first CI run passed (ruff and pytest). Description, the eight topics and the profile pin are set. The dashboard is deployed (Phase 6).
 
 ---
 
