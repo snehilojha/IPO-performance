@@ -1,0 +1,23 @@
+step,stage,description,segment,n
+1,raw_nse_issues,All rows in the NSE past-issues feed,ALL,1412
+2,equity_issues,"Security type EQ, BE or SME",ALL,1170
+2,equity_issues,"Security type EQ, BE or SME",MAINBOARD,467
+2,equity_issues,"Security type EQ, BE or SME",SME,703
+3,ipos,"Excluding FPOs, withdrawn, partly-paid and follow-on issues",ALL,1154
+3,ipos,"Excluding FPOs, withdrawn, partly-paid and follow-on issues",MAINBOARD,457
+3,ipos,"Excluding FPOs, withdrawn, partly-paid and follow-on issues",SME,697
+4,listed_ipos,IPO has a listing date,ALL,1132
+4,listed_ipos,IPO has a listing date,MAINBOARD,450
+4,listed_ipos,IPO has a listing date,SME,682
+5,mart_rows,Rows in mart_ipo_analytics,ALL,1132
+5,mart_rows,Rows in mart_ipo_analytics,MAINBOARD,450
+5,mart_rows,Rows in mart_ipo_analytics,SME,682
+6,with_subscription_data,Matched to a Chittorgarh subscription record,ALL,1099
+6,with_subscription_data,Matched to a Chittorgarh subscription record,MAINBOARD,448
+6,with_subscription_data,Matched to a Chittorgarh subscription record,SME,651
+7,with_market_data,Matched to a Tickertape stock,ALL,1087
+7,with_market_data,Matched to a Tickertape stock,MAINBOARD,442
+7,with_market_data,Matched to a Tickertape stock,SME,645
+8,with_both,Subscription and market data,ALL,1057
+8,with_both,Subscription and market data,MAINBOARD,440
+8,with_both,Subscription and market data,SME,617
