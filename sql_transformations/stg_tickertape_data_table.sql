@@ -25,7 +25,7 @@ SELECT
       market_cap AS current_market_cap,
       last_price AS last_price,
       COALESCE(pe,0) AS current_pe_ratio,
-      COALESCE(roe,0) AS current_roe_ration,
+      COALESCE(roe,0) AS current_roe_ratio,
       COALESCE(pb,0) AS current_pb_ratio,
       "4w_return_pct" AS return_last_4w_pct,
       "1d_return_pct" AS return_last_1d_pct

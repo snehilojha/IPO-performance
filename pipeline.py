@@ -1,7 +1,7 @@
 """
 IPO Analytics Data Pipeline
 ============================
-End-to-end pipeline: Web Scraping → CSV → DuckDB → Staging → Analytics Mart
+End-to-end pipeline: Web Scraping -> CSV -> DuckDB -> Staging -> Analytics Mart
 
 Pipeline Stages:
 1. Web Scraping: Extract IPO data from sources
@@ -11,7 +11,6 @@ Pipeline Stages:
 5. Analytics Mart: Create final mart_ipo_analytics table
 """
 
-import os
 import sys
 import logging
 from datetime import datetime
@@ -154,7 +153,7 @@ class IPODataPipeline:
                     f"SELECT COUNT(*) FROM {table_name}"
                 ).fetchone()[0]
                 
-                logger.info(f"✓ {table_name}: Loaded {row_count} records")
+                logger.info(f"[OK] {table_name}: Loaded {row_count} records")
                 loaded_tables.append(table_name)
 
             except Exception as e:
@@ -175,14 +174,14 @@ class IPODataPipeline:
         
         # Execute transformation scripts in order
         transformation_scripts = [
-            'stg_past_ipo_table.sql',
-            'stg_pastipo_subscription_table.sql',
-            'stg_tickertape_data_table.sql',
+            ('stg_past_ipo_table.sql', 'stg_past_ipo_table_1'),
+            ('stg_pastipo_subscription_table.sql', 'stg_pastipo_subscription_table_1'),
+            ('stg_tickertape_data_table.sql', 'stg_tickertape_data_table_1'),
         ]
         
         processed_tables = []
 
-        for script_name in transformation_scripts:
+        for script_name, table_name in transformation_scripts:
             try:
                 script_path = transformations_dir / script_name
                 
@@ -197,9 +196,6 @@ class IPODataPipeline:
                     sql_script = f.read()
                 
                 self.duckdb_conn.execute(sql_script)
-                
-                # Extract table name from script name
-                table_name = script_name.replace('.sql', '')
                 
                 # Get row count
                 row_count = self.duckdb_conn.execute(
@@ -243,7 +239,7 @@ class IPODataPipeline:
                 "SELECT COUNT(*) FROM mart_ipo_analytics_1"
             ).fetchone()[0]
             
-            logger.info(f"✓ mart_ipo_analytics: Created with {row_count} records")
+            logger.info(f"[OK] mart_ipo_analytics: Created with {row_count} records")
             
             # Show sample statistics
             # stats = self.duckdb_conn.execute("""
@@ -293,9 +289,9 @@ class IPODataPipeline:
         """Execute complete pipeline"""
         start_time = datetime.now()
         
-        logger.info("╔" + "═" * 68 + "╗")
-        logger.info("║" + " " * 20 + "IPO ANALYTICS PIPELINE" + " " * 26 + "║")
-        logger.info("╚" + "═" * 68 + "╝")
+        logger.info("+" + "-" * 68 + "+")
+        logger.info("|" + " " * 20 + "IPO ANALYTICS PIPELINE" + " " * 26 + "|")
+        logger.info("+" + "-" * 68 + "+")
         logger.info(f"Pipeline started at: {start_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
         
         try:
@@ -313,16 +309,16 @@ class IPODataPipeline:
             end_time = datetime.now()
             duration = end_time - start_time
             
-            logger.info("╔" + "═" * 68 + "╗")
-            logger.info("║" + " " * 23 + "PIPELINE COMPLETED" + " " * 27 + "║")
-            logger.info("╚" + "═" * 68 + "╝")
+            logger.info("+" + "-" * 68 + "+")
+            logger.info("|" + " " * 23 + "PIPELINE COMPLETED" + " " * 27 + "|")
+            logger.info("+" + "-" * 68 + "+")
             logger.info(f"Duration: {duration}")
             logger.info(f"Completed at: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
             
         except Exception as e:
-            logger.error("╔" + "═" * 68 + "╗")
-            logger.error("║" + " " * 25 + "PIPELINE FAILED" + " " * 28 + "║")
-            logger.error("╚" + "═" * 68 + "╝")
+            logger.error("+" + "-" * 68 + "+")
+            logger.error("|" + " " * 25 + "PIPELINE FAILED" + " " * 28 + "|")
+            logger.error("+" + "-" * 68 + "+")
             logger.error(f"Error: {str(e)}")
             raise
         
