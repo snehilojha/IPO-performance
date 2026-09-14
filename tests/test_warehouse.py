@@ -115,6 +115,16 @@ def test_second_subscription_layout_parses_and_joins(db):
     assert row['subscription_total_x'] == 1.64
     assert row['applications'] == 211219
     assert row['has_qib_category'] is False
+    assert row['has_subscription_figures']
+
+
+def test_subscription_record_without_figures(db):
+    # Chittorgarh lists most 2016-17 SME issues with no subscription numbers at all
+    row = mart_row(db, 'DRL')
+    assert row['has_subscription_data']
+    assert row['issue_size_cr'] == 4.5
+    assert row['has_subscription_figures'] is False
+    assert row['has_qib_category'] is None
 
 
 def test_non_equity_and_non_ipo_issues_excluded(db):
@@ -310,6 +320,8 @@ def test_funnel_reports_price_coverage(db):
     ).fetchall())
     assert steps['mart_rows'] == 12
     assert steps['with_listing_price'] == 11
+    assert steps['with_subscription_data'] == 8
+    assert steps['with_subscription_figures'] == 7
 
 
 # ---- pipeline behaviour ----------------------------------------------------------------------------------

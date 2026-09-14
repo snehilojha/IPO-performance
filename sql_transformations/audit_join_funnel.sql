@@ -39,6 +39,9 @@ steps AS (
     UNION ALL
     SELECT 11, 'with_listing_price_and_subscription', 'Listing price and subscription data', segment, COUNT(*)
     FROM mart_ipo_analytics WHERE has_listing_price AND has_subscription_data GROUP BY segment
+    UNION ALL
+    SELECT 12, 'with_subscription_figures', 'Subscription record has a total subscription figure', segment, COUNT(*)
+    FROM mart_ipo_analytics WHERE has_subscription_figures GROUP BY segment
 )
 SELECT
     step,

@@ -30,3 +30,6 @@ step,stage,description,segment,n
 11,with_listing_price_and_subscription,Listing price and subscription data,ALL,1108
 11,with_listing_price_and_subscription,Listing price and subscription data,MAINBOARD,448
 11,with_listing_price_and_subscription,Listing price and subscription data,SME,660
+12,with_subscription_figures,Subscription record has a total subscription figure,ALL,1048
+12,with_subscription_figures,Subscription record has a total subscription figure,MAINBOARD,450
+12,with_subscription_figures,Subscription record has a total subscription figure,SME,598

@@ -1,5 +1,6 @@
 -- One row per listed equity IPO on NSE (mainboard and SME). Nothing is dropped for missing data:
 -- has_subscription_data / has_market_data / has_listing_price say what is available.
+-- has_subscription_figures: the matched subscription record has numbers (most 2016-17 SME records have none).
 -- All returns are price returns in percent, adjusted for bonuses and splits, not for dividends.
 -- Requires variables: snapshot_date, price_max_stale_days
 
@@ -82,6 +83,7 @@ base AS (
         END                                          AS listing_capped,
 
         sm.subscription_key IS NOT NULL              AS has_subscription_data,
+        COALESCE(sub.total_x IS NOT NULL, FALSE)     AS has_subscription_figures,
         sm.match_method                              AS subscription_match_method,
         sm.match_score                               AS subscription_match_score,
         sub.issue_size_cr,
@@ -94,7 +96,8 @@ base AS (
         sub.total_x                                  AS subscription_total_x,
         sub.applications,
         -- Many SME issues have no QIB category at all; that is a level, not a zero.
-        CASE WHEN sm.subscription_key IS NOT NULL THEN sub.qib_x IS NOT NULL END AS has_qib_category,
+        -- Unknown (NULL) when there are no subscription figures to tell.
+        CASE WHEN sub.total_x IS NOT NULL THEN sub.qib_x IS NOT NULL END AS has_qib_category,
 
         mm.tickertape_sid IS NOT NULL                AS has_market_data,
         mm.match_method                              AS market_match_method,
