@@ -267,15 +267,27 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 
 ## Phase 6 — Streamlit dashboard (`app/streamlit_app.py`)
 
-- [ ] Reads `data/mart/mart_ipo_analytics_<snapshot>.parquet` only — no scraping or DuckDB at runtime. Plotly charts, `@st.cache_data`.
-- [ ] Pages:
-  - **Overview** — KPI tiles (IPO count, median listing gain, % positive, by segment) and join funnel.
-  - **Explore** — filters (segment, year, sector, issue size); subscription vs listing gain scatter (log x); decile chart.
-  - **IPO lookup** — search a company: subscription breakdown, listing gain, returns vs NIFTY.
-  - **Findings** — Phase 4 verdicts with their charts.
-- [ ] Deploy to Streamlit Community Cloud (`app/requirements.txt`); put the public link at the top of the README.
+- [x] Reads the committed exports only — mart Parquet, join funnel CSV and `reports/figures/*.png` — with no scraping, DuckDB or model at runtime. Plotly charts, `@st.cache_data`.
+- [x] Table logic in `src/dashboard.py` (no Streamlit import), unit-tested in `tests/test_dashboard.py`; pages in `app/views/`, shared loading and formatting in `app/common.py`.
+- [x] Pages:
+  - **Overview** — KPI tiles by segment (IPOs, share opening above issue, median listing gain, median 1-year return vs NIFTY), IPOs and share positive by listing year (cohorts under 20 IPOs marked), join funnel.
+  - **Explore** — filters (segment, listing year, sector, issue size); subscription vs listing gain scatter on a log axis, one panel per segment, listings at a ceiling marked; median and IQR by equal-count subscription group (deciles, or fewer groups when a filter leaves under 150 IPOs); both tables in expanders.
+  - **IPO lookup** — search any of the 1,143 IPOs: issue and listing prices, rank within its segment, subscription by category (says when a figure is missing and why), returns vs NIFTY at 1m / 6m / 1y / 3y for allottee and listing-day buyer (says whether a return is not yet due, missing or BSE-only). `?ticker=SYMBOL` links to an IPO.
+  - **Findings** — the four notebook 02 answers and the model verdict, with seven saved charts. The text is fixed to snapshot 2026-02-15 and the page warns if a different snapshot is loaded.
+- [x] `app/requirements.txt` (runtime only: pandas, numpy, pyarrow, scipy, matplotlib, plotly, streamlit) and `.streamlit/config.toml`.
+- [ ] Deploy to Streamlit Community Cloud; put the public link at the top of the README. *Needs the commits pushed and a Streamlit account: entrypoint `app/streamlit_app.py`, Python 3.11.*
+
+### Changed from the plan
+- **Mainboard and SME are never in one chart series or one KPI.** Every chart is split by segment, including the filtered ones.
+- **Explore uses the notebooks' sample** (listing price and subscription figures, SME from 2018), so its unfiltered correlations match notebook 02 (0.76 / 0.70). The correlation is shown without an interval, and the caption says so.
+- **Findings shows the saved notebook charts rather than recomputing them**, so the page can't disagree with the notebooks and needs no bootstrap at runtime.
+- *Added:* the lookup page and `?ticker=` links.
 
 **Done when:** `streamlit run app/streamlit_app.py` works locally and the deployed link loads.
+
+> ✅ **Verified locally 2026-09-14** (snapshot 2026-02-15): `streamlit run app/streamlit_app.py` serves all four pages; each was rendered in headless Edge and checked by eye. `pytest`: 66 passed (6 unit tests for `src/dashboard.py`, plus each page run through Streamlit's `AppTest`, the lookup with an IPO selected). The page tests also pass in a fresh venv with only `app/requirements.txt` installed. Unfiltered Overview and Explore numbers match notebooks 01 and 02.
+> Found while checking lookups: **IRCTC (2019) has no subscription record**, one of the two mainboard IPOs the Chittorgarh match misses. Not fixed here, because a seed fix changes the mart and every notebook's numbers; it belongs in a separate warehouse fix.
+> Deploy not done: needs a push and the owner's Streamlit account.
 
 ---
 

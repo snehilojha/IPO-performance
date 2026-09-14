@@ -1,6 +1,6 @@
 # IPO Analysis — Indian IPOs, 2016–2025
 
-> **Status: work in progress.** The data warehouse, including listing-day prices and split-adjusted returns, is built and checked. The data overview, core analysis and model notebooks are done; the dashboard and the final write-up are still to come. See [ROADMAP.md](ROADMAP.md) for the plan.
+> **Status: work in progress.** The data warehouse, including listing-day prices and split-adjusted returns, is built and checked. The data overview, core analysis and model notebooks and a local Streamlit dashboard are done; deploying the dashboard and the final write-up are still to come. See [ROADMAP.md](ROADMAP.md) for the plan.
 
 **Early findings** (snapshot 2026-02-15; details and confidence intervals in [notebook 02](notebooks/02_subscription_vs_returns.ipynb) and [notebook 03](notebooks/03_listing_gain_model.ipynb)):
 - **Subscription strongly predicts the listing-day gain in both segments** (rank correlation 0.76 mainboard, 0.70 SME), and not just because of hot years. Mainboard IPOs subscribed 3.5× or less open at a median of −1%; those subscribed 79× or more open at +45%.
@@ -67,6 +67,23 @@ Raw data is kept as dated snapshots in `data/raw/` (2026-01-22, 2026-01-30, 2026
 | [02_subscription_vs_returns](notebooks/02_subscription_vs_returns.ipynb) | Does subscription predict the listing gain? QIB vs retail vs NII demand, whether listing pops persist, and hot vs cold years. Rank correlations and median differences with bootstrap CIs, within-year checks, median regression and a verdict table |
 | [03_listing_gain_model](notebooks/03_listing_gain_model.ipynb) | Will an IPO open above its issue price? One logistic regression per segment, trained on listings to 2023 and tested on 2024 onwards, against three baselines (base rate, "subscription > 10×", subscription alone). ROC, calibration, coefficients, a `> 10%` version and a simple backtest with the allotment caveat |
 
+## Dashboard
+
+A Streamlit app over the committed exports, with no scraping, DuckDB or model at runtime. Mainboard and SME are shown side by side in every view.
+
+| Page | What it shows |
+|---|---|
+| Overview | Headline numbers by segment, IPOs and share opening above issue by listing year, the join funnel |
+| Explore | Filter by segment, year, sector and issue size; subscription vs listing gain, and the median by subscription group |
+| IPO lookup | One IPO's subscription by category, listing day and returns against NIFTY 50; link with `?ticker=SYMBOL` |
+| Findings | The answers from notebooks 02 and 03 with their charts |
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+To deploy on Streamlit Community Cloud, use `app/streamlit_app.py` as the entrypoint and Python 3.11; it installs `app/requirements.txt`.
+
 Notebooks read the latest mart export through `src/data.py` (set `IPO_SNAPSHOT=YYYY-MM-DD` to pick another) and save their charts to `reports/figures/`. Statistics helpers are in `src/stats.py`.
 
 ## Running it
@@ -84,7 +101,10 @@ python pipeline.py --snapshot 2026-02-15 --skip-scrape
 # Scrape a fresh snapshot dated today, then build
 python pipeline.py
 
-# Tests (build the warehouse from small fixture files)
+# Dashboard
+streamlit run app/streamlit_app.py
+
+# Tests (build the warehouse from small fixture files; the dashboard tests use the committed mart)
 pytest
 
 # Re-run a notebook and save its outputs
