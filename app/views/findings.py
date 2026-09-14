@@ -37,7 +37,7 @@ st.markdown(
     '**Yes, strongly, in both segments.**\n'
     '- ρ = 0.76 [0.72, 0.79] for mainboard and 0.70 [0.65, 0.74] for SME; within a single year, 0.72 and 0.60, '
     'so it is not just hot years against cold ones.\n'
-    '- Mainboard IPOs subscribed 3.5× or less opened at a median of −1%. Those subscribed 79× or more opened at '
+    '- Mainboard IPOs subscribed 3.6× or less opened at a median of −1%. Those subscribed 79× or more opened at '
     '+45%, and every one of them opened above issue.\n'
     '- For SME the top-quartile median sits at the +90% ceiling, so its gap over the bottom quartile (+89 pp) is a '
     'lower bound.\n'
