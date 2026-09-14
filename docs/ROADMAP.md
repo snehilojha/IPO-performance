@@ -1,6 +1,6 @@
 # IPO Analysis — Roadmap
 
-The single source of truth for finishing this project. Work top to bottom, tick boxes as you go, and commit at the end of each phase. When Phase 7 is done, delete this file or move it to `docs/`.
+How this project was finished, phase by phase: the plan, what changed from it, and how each phase was verified. Phases 0–7 are done apart from the steps that need the owner's accounts (deploying the dashboard, GitHub repo settings). Paths are relative to the repo root.
 
 **End state:** a trustworthy warehouse → a clearly stated question answered with the right statistics → one small, honest model → a live Streamlit dashboard → a README that leads with the finding.
 
@@ -293,10 +293,10 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 
 ## Phase 7 — Packaging and polish
 
-- [ ] **README**, in this order:
+- [x] **README**, in this order:
   1. One-line summary.
   2. Headline findings in the first three lines.
-  3. Dashboard link.
+  3. Dashboard link *(a run command until it is deployed)*.
   4. Pipeline diagram: scrapers → raw snapshots → `stg_` → `int_` → `mart_` → checks → notebooks / app.
   5. Coverage and join funnel.
   6. Data dictionary for every mart column: type, source, definition, and the date each return is measured to.
@@ -305,13 +305,42 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
   9. Limitations.
   10. Reproduce: Python version, `--skip-scrape` rebuild, which sources are still live.
   11. Next steps.
-- [ ] **Limitations** to state explicitly: survivorship (Tickertape lists survivors; NSE prices stop at delisting), single snapshot date, NSE feed starts 2016, structural QIB missingness for SME, allotment caveat, share of fuzzy/manual matches, returns exclude dividends, demergers, the SME listing cap from 2024-07-04.
-- [ ] `reports/findings.md` — one page for a non-technical reader.
-- [ ] CI: GitHub Actions workflow running `ruff` and `pytest` on fixture data (no scraping).
-- [ ] Git: land work as logical per-phase commits. Set repo description and topics: `sql`, `duckdb`, `etl`, `analytics-engineering`, `web-scraping`, `streamlit`, `ipo`, `indian-stock-market`. Pin the repo.
-- [ ] Clean up: delete or move this roadmap to `docs/`; remove stale logs from the tree.
+- [x] **Limitations** stated explicitly:
+  - survivorship: Tickertape lists survivors, and NSE prices stop at delisting;
+  - a single snapshot date;
+  - the NSE feed starts in 2016;
+  - QIB data for SME is structurally missing;
+  - the allotment caveat;
+  - the share of fuzzy and manual matches;
+  - returns exclude dividends;
+  - demergers aren't adjusted;
+  - both SME listing ceilings.
+- [x] `reports/findings.md` — one page for a non-technical reader.
+- [x] CI: `.github/workflows/ci.yml` runs `ruff` and `pytest` on Python 3.11, installing `requirements.txt`, with no scraping.
+- [x] Git: work landed as logical per-phase commits.
+- [ ] GitHub settings, which need the owner's account:
+  - repo description;
+  - topics: `sql`, `duckdb`, `etl`, `analytics-engineering`, `web-scraping`, `streamlit`, `ipo`, `indian-stock-market`;
+  - pin the repo.
+- [x] Clean up: this roadmap moved to `docs/`. Logs, `models/` and the local `duckdb/` folder were never tracked (gitignored).
+
+### Changed from the plan
+- **The data dictionary is its own file, `docs/data_dictionary.md`.** 84 columns would bury the README, so the README keeps a table of the seven columns most analyses need and links to the full file.
+- **The notebooks are the source files.** The builder scripts used to write them are not committed, since two sources for one notebook would drift. The notebooks re-execute to identical outputs.
+- *Added:* `ruff.toml`. There was no project config, so the rule set was ruff's defaults and isort treated `duckdb` as first-party because of the local `duckdb/` folder. A clean clone would have sorted imports differently from a local run. The config pins `known-third-party` and a 120-column line length.
+- *Added — scraper fixes found while clearing ruff:*
+  - the NSE past-issues and Chittorgarh scrapers had their end dates hard-coded to 1 Jan 2026 and the year 2026, so a later scrape would silently miss newer issues; both now follow the scrape date;
+  - dates compared with NSE calendars are taken in IST;
+  - about 270 lines of commented-out earlier versions were removed from the three scrapers.
+- *Found — source check:* Chittorgarh's report API now answers "No params data found" for every year, so **a fresh scrape fails at the subscription step**. The committed snapshots still rebuild. The README's source table says so, and fixing the scraper is listed under next steps.
 
 **Done when:** someone can clone the repo, rebuild the mart from the saved snapshot, run the notebooks and the app, and see the headline finding within 30 seconds of opening the README.
+
+> ✅ **Verified 2026-09-14** (snapshot 2026-02-15):
+> - **Fresh clone on Linux** (WSL Ubuntu, Python 3.11.16, only `requirements.txt`, the steps CI runs): `ruff check .` clean and `pytest` 66 passed. `python pipeline.py --snapshot 2026-02-15 --skip-scrape` passed all 22 checks in 5 seconds and rewrote the mart exports and join funnel with no change git could see.
+> - **Notebooks after the lint edits:** all three re-execute with identical text outputs, no errors or stderr, and byte-identical figures.
+> - **Sources, one request each:** NSE past issues, bhavcopy, index close, corporate actions and Tickertape all respond; Chittorgarh does not return data.
+> - **Still open, needing the owner:** deploy the dashboard (Phase 6); set the GitHub description, topics and pin; push, so the first CI run happens on GitHub.
 
 ---
 
