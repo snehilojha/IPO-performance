@@ -1,0 +1,11 @@
+sid,ticker,name,sector,subindustry,market_cap,last_price,pe,roe,pb,4w_return_pct,1d_return_pct
+GST,GSTL,Globalspace Technologies Ltd,Information Technology,IT Services,70.0,20.52,-5.0,-3.0,1.1,2.0,0.5
+GSTL,GSTL,Globesecure Technologies Ltd,Information Technology,IT Services,90.0,23.20,12.0,8.0,1.5,1.0,-0.2
+ALPH,ALPHA,Alpha Motors Ltd,Consumer Discretionary,Automobiles,5000.0,210.00,30.0,15.0,4.0,3.0,1.0
+GOE,GOEL,Goel Food Products Ltd,Consumer Staples,Packaged Foods,40.0,36.00,,,,0.0,0.0
+MIG,MIGR,Migrated Industries Ltd,Industrials,Electrical Components,900.0,1000.00,40.0,20.0,6.0,5.0,2.0
+TIRU,TIRUPATIFL,Tirupati Forge Ltd,Materials,Iron & Steel,300.0,63.00,25.0,12.0,3.0,-1.0,0.3
+ZOM,ETERNAL,Eternal Ltd,Consumer Discretionary,Online Services,275000.0,285.20,500.0,1.0,8.0,-4.0,-1.0
+DRL,DRL,Disha Resources Ltd,Financials,Investment Banking,10.0,15.00,10.0,5.0,0.8,0.0,0.0
+FOL,FOLL,Follow Co Ltd,Industrials,Metals,60.0,150.00,20.0,10.0,2.0,0.0,0.0
+TMB,TMB,Tamilnad Mercantile Bank Ltd,Financials,Private Banks,10000.0,649.65,8.0,14.0,1.2,1.0,0.1

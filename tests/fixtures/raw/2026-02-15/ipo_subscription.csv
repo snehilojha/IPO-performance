@@ -1,0 +1,10 @@
+~id,Company,~URLRewrite_Folder_Name,Closing Date,Total Issue Amount (Incl.Firm reservations) (Rs.cr.),QIB (x),sNII (x),bNII (x),NII (x),Retail (x),Employee (x),Shareholder (x),Others (x),Total (x),Applications,~Issue_Close_Date,~Issue_Open_Date,~Highlight_Row,ipo_type,year,Company Name,Open Date,Close Date
+101,Alpha Motors Ltd.,alpha-motors-ipo,"Jun 05, 2023",500.00,50.00,15.00,25.00,20.00,10.00,,,,30.00,,2023-06-05,2023-06-01,,MAINBOARD,2023,,,
+102,Alpha Motion Limited,alpha-motion-ipo,"Jun 05, 2023",80.00,2.00,1.00,1.00,1.00,3.00,,,,2.00,,2023-06-05,2023-06-01,,MAINBOARD,2023,,,
+103,Alpha Motors Ltd.,alpha-motors-ipo,"Jun 05, 2023",500.00,50.00,15.00,25.00,20.00,10.00,,,,30.00,,2023-06-05,2023-06-01,,MAINBOARD,2024,,,
+104,Zomato Ltd,zomato-ipo,"Jul 16, 2021",9375.00,54.70,,,32.96,7.45,0.62,,,38.25,,2021-07-16,2021-07-14,,MAINBOARD,2021,,,
+105,Tirupati Forge Ltd.,tirupati-forge-ipo,"Jul 20, 2023",20.00,5.00,4.00,6.00,5.00,8.00,,,,6.50,,2023-07-20,2023-07-18,,MAINBOARD,2023,,,
+106,Tamilnad Mercantile Bank Ltd.,tmb-ipo,"Sep 07, 2022",831.60,1.62,,,2.94,3.72,,,,2.86,,2022-09-07,2022-09-05,,MAINBOARD,2022,,,
+201,,goel-food-ipo,,20.00,,,,1.20,2.10,,,,1.64,"2,11,219",,,,SME,2022,Goel Food Products Limited,"Jun 15, 2022","Jun 20, 2022"
+202,,globesecure-ipo,,10.00,,,,12.00,16.00,,,,14.17,"1,500",2022-05-25,2022-05-20,,SME,2022,Globesecure Technologies Ltd,"May 20, 2022","May 25, 2022"
+203,,migrated-ipo,,5.00,,,,4.00,6.00,,,,5.10,,2018-03-20,2018-03-15,,SME,2018,Migrated Industries Ltd,"Mar 15, 2018","Mar 20, 2018"
