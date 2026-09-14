@@ -6,18 +6,27 @@ step,stage,description,segment,n
 3,ipos,"Excluding FPOs, withdrawn, partly-paid and follow-on issues",ALL,1154
 3,ipos,"Excluding FPOs, withdrawn, partly-paid and follow-on issues",MAINBOARD,457
 3,ipos,"Excluding FPOs, withdrawn, partly-paid and follow-on issues",SME,697
-4,listed_ipos,IPO has a listing date,ALL,1132
-4,listed_ipos,IPO has a listing date,MAINBOARD,450
-4,listed_ipos,IPO has a listing date,SME,682
-5,mart_rows,Rows in mart_ipo_analytics,ALL,1132
-5,mart_rows,Rows in mart_ipo_analytics,MAINBOARD,450
-5,mart_rows,Rows in mart_ipo_analytics,SME,682
-6,with_subscription_data,Matched to a Chittorgarh subscription record,ALL,1099
-6,with_subscription_data,Matched to a Chittorgarh subscription record,MAINBOARD,448
-6,with_subscription_data,Matched to a Chittorgarh subscription record,SME,651
-7,with_market_data,Matched to a Tickertape stock,ALL,1087
-7,with_market_data,Matched to a Tickertape stock,MAINBOARD,442
-7,with_market_data,Matched to a Tickertape stock,SME,645
-8,with_both,Subscription and market data,ALL,1057
-8,with_both,Subscription and market data,MAINBOARD,440
-8,with_both,Subscription and market data,SME,617
+4,listed_ipos,"Traded on NSE after issue close, or has a listing date in the feed",ALL,1143
+4,listed_ipos,"Traded on NSE after issue close, or has a listing date in the feed",MAINBOARD,452
+4,listed_ipos,"Traded on NSE after issue close, or has a listing date in the feed",SME,691
+5,mart_rows,Rows in mart_ipo_analytics,ALL,1143
+5,mart_rows,Rows in mart_ipo_analytics,MAINBOARD,452
+5,mart_rows,Rows in mart_ipo_analytics,SME,691
+6,with_subscription_data,Matched to a Chittorgarh subscription record,ALL,1110
+6,with_subscription_data,Matched to a Chittorgarh subscription record,MAINBOARD,450
+6,with_subscription_data,Matched to a Chittorgarh subscription record,SME,660
+7,with_market_data,Matched to a Tickertape stock,ALL,1128
+7,with_market_data,Matched to a Tickertape stock,MAINBOARD,449
+7,with_market_data,Matched to a Tickertape stock,SME,679
+8,with_both,Subscription and market data,ALL,1096
+8,with_both,Subscription and market data,MAINBOARD,447
+8,with_both,Subscription and market data,SME,649
+9,with_listing_price,Listing-day open and close from the NSE bhavcopy,ALL,1141
+9,with_listing_price,Listing-day open and close from the NSE bhavcopy,MAINBOARD,450
+9,with_listing_price,Listing-day open and close from the NSE bhavcopy,SME,691
+10,with_return_1y,One year since listing has passed and the stock still traded,ALL,929
+10,with_return_1y,One year since listing has passed and the stock still traded,MAINBOARD,356
+10,with_return_1y,One year since listing has passed and the stock still traded,SME,573
+11,with_listing_price_and_subscription,Listing price and subscription data,ALL,1108
+11,with_listing_price_and_subscription,Listing price and subscription data,MAINBOARD,448
+11,with_listing_price_and_subscription,Listing price and subscription data,SME,660

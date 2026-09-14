@@ -1,0 +1,905 @@
+symbol,series,company,isin,face_value,ex_date,record_date,subject,source_index
+360ONE,EQ,360 ONE WAM LIMITED,INE466L01020,1,02-Mar-2023,02-Mar-2023,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+360ONE,EQ,360 ONE WAM LIMITED,INE466L01020,1,02-Mar-2023,02-Mar-2023,Bonus 1:1,equities
+AAATECH,SM,Aaa Technologies Limited,376100,10,14-Sep-2022,14-Sep-2022,BONUS 1:2,sme
+AAKASH,EQ,Aakash Exploration Services Limited,INE087Z01016,1,03-Feb-2022,04-Feb-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+AAKASH,SM,Aakash Exploration Services Limited,318995,10,26-Mar-2020,27-Mar-2020, BONUS 1:2,sme
+AARON,SM,Aaron Industries Limited,327523,10,03-Sep-2020,04-Sep-2020, BONUS 10:11,sme
+AARON,EQ,Aaron Industries Limited,INE721Z01010,10,25-Aug-2025,25-Aug-2025,Bonus 1:1,equities
+AARON,SM,Aaron Industries Limited,305621,10,29-Aug-2019,31-Aug-2019, BONUS 1:10,sme
+AARTECH,EQ,Aartech Solonics Limited,INE01C001018,5,09-Aug-2024,09-Aug-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+AARTECH,EQ,Aartech Solonics Limited,INE01C001018,5,09-Aug-2024,09-Aug-2024,Bonus 1:2,equities
+AARTIDRUGS,EQ,Aarti Drugs Limited,INE767A01016,10,30-Sep-2020,01-Oct-2020, Bonus 3:1,equities
+AARTIIND,EQ,Aarti Industries Limited,INE769A01020,5,22-Jun-2021,23-Jun-2021, Bonus 1:1,equities
+AARTIIND,EQ,Aarti Industries Limited,INE769A01020,5,27-Sep-2019,30-Sep-2019, Bonus 1:1,equities
+ABINFRA,EQ,A B Infrabuild Limited,INE00YB01017,1,17-Oct-2025,17-Oct-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+ABMINTLTD,EQ,ABM International Limited,INE251C01017,10,15-Mar-2017,16-Mar-2017, Bonus 5:1,equities
+ACCURACY,EQ,Accuracy Shipping Limited,INE648Z01015,1,15-Feb-2023,15-Feb-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+ACEINTEG,SM,Ace Integrated Solutions Limited,352513,10,07-Oct-2021,08-Oct-2021, BONUS 1:2,sme
+ACUTAAS,EQ,Acutaas Chemicals Limited,INE00FF01025,5,25-Apr-2025,25-Apr-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+ADANIPOWER,EQ,Adani Power Limited,INE814H01011,2,22-Sep-2025,22-Sep-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+ADFFOODS,EQ,ADF Foods Limited,INE982B01019,2,11-Sep-2023,11-Sep-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+ADVANIHOTR,EQ,Advani Hotels & Resorts (India) Limited,INE199C01026,2,20-Mar-2024,20-Mar-2024,Bonus 1:1,equities
+ADVENZYMES,EQ,Advanced Enzyme Technologies Limited,INE837H01012,2,25-May-2017,26-May-2017, Face Value Split From Rs 10/- Per Share To Rs 2/- Per Share,equities
+AFFLE,EQ,Affle 3i Limited,INE00WC01019,2,07-Oct-2021,08-Oct-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+AFIL,EQ,Akme Fintrade (India) Limited,INE916Y01019,1,17-Apr-2025,18-Apr-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+AGIIL,EQ,Agi Infra Limited,INE976R01017,1,07-Feb-2025,07-Feb-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+AGIIL,EQ,Agi Infra Limited,INE976R01017,1,10-Oct-2025,10-Oct-2025,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+AHLEAST,EQ,Asian Hotels (East) Limited,INE926K01017,10,06-Oct-2022,07-Oct-2022,Bonus 1:2,equities
+AIIL,EQ,Authum Investment & Infrastructure Limited,INE206F01022,1,13-Jan-2026,13-Jan-2026,Bonus 4:1,equities
+AILIMITED,SM,Abhishek Integrations Limited,393127,10,19-Jul-2023,19-Jul-2023,BONUS 1:1,sme
+AIRAN,SM,Airan Limited,282970,2,14-Aug-2018,17-Aug-2018, FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+AIRAN,SM,Airan Limited,296717,2,22-Apr-2019,23-Apr-2019, BONUS 1:1,sme
+AJANTPHARM,EQ,Ajanta Pharma Limited,INE031B01015,2,22-Jun-2022,23-Jun-2022,Bonus- 1:2,equities
+AJMERA,EQ,Ajmera Realty & Infra India Limited,INE298G01027,2,14-Jan-2026,15-Jan-2026,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+AJOONI,EQ,Ajooni Biotech Limited,INE820Y01013,2,07-Oct-2022,07-Oct-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+AJOONI,SM,Ajooni Biotech Limited,338975,10,10-Mar-2021,12-Mar-2021, BONUS 1:9,sme
+AKASH,SM,Akash Infra Projects Limited,294162,10,07-Mar-2019,08-Mar-2019, BONUS 1:1,sme
+AKG,SM,Akg Exim Limited,334729,10,07-Dec-2020,08-Dec-2020, BONUS 3:5,sme
+AKI,EQ,AKI India Limited,INE642Z01018,2,22-Jun-2023,22-Jun-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+AKSHAR,EQ,Akshar Spintex Limited,INE256Z01017,1,15-Feb-2024,15-Feb-2024,Bonus 1:5,equities
+AKSHAR,EQ,Akshar Spintex Limited,INE256Z01017,1,31-Jul-2023,31-Jul-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+ALANKIT,EQ,Alankit Limited,INE914E01024,1,19-Oct-2016,20-Oct-2016, Bonus 1:1,equities
+ALCODIS,SM,Alcokraft Distilleries Limited,431842,10,14-Oct-2024,14-Oct-2024,BONUS 1:4,sme
+ALKYLAMINE,EQ,Alkyl Amines Chemicals Limited,INE150B01013,2,11-May-2021,12-May-2021, Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+ALLCARGO,EQ,Allcargo Logistics Limited,INE418H01029,2,02-Jan-2024,02-Jan-2024,Bonus 3:1,equities
+ALMONDZ,EQ,Almondz Global Securities Limited,INE326B01027,1,23-Jul-2024,23-Jul-2024,Face Value Split (Sub-Division) - From Rs 6/- Per Share To Re 1/- Per Share,equities
+AMRUTANJAN,EQ,Amrutanjan Health Care Limited,INE098F01015,1,13-Apr-2018,16-Apr-2018, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+ANANDRATHI,EQ,Anand Rathi Wealth Limited,INE463V01026,5,05-Mar-2025,05-Mar-2025,Bonus 1:1,equities
+ANDHRAPAP,EQ,ANDHRA PAPER LIMITED,INE435A01028,2,11-Sep-2024,11-Sep-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+ANDHRSUGAR,EQ,The Andhra Sugars Limited,INE715B01013,2,30-Dec-2021,31-Dec-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+ANMOL,EQ,Anmol India Limited,INE02AR01019,10,18-Jul-2023,18-Jul-2023,Bonus 4:1,equities
+ANUHPHR,EQ,Anuh Pharma Limited,INE489G01022,5,15-Jul-2025,15-Jul-2025,Bonus 1:1,equities
+ANUP,EQ,The Anup Engineering Limited,INE294Z01018,10,23-Apr-2024,23-Apr-2024,Bonus 1:1,equities
+APCOTEXIND,EQ,Apcotex Industries Limited,INE116A01016,2,04-Jul-2019,05-Jul-2019, Face Value Split (Sub-Division) - From Rs 5 Per Share To Rs 2 Per Share,equities
+APLAPOLLO,EQ,APL Apollo Tubes Limited,INE702C01019,2,15-Dec-2020,16-Dec-2020, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+APLAPOLLO,EQ,APL Apollo Tubes Limited,INE702C01019,2,16-Sep-2021,18-Sep-2021, Bonus 1:1,equities
+APOLLO,EQ,Apollo Micro Systems Limited,INE713T01010,1,04-May-2023,04-May-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+APOLLOPIPE,EQ,Apollo Pipes Limited,INE126J01016,10,02-Dec-2021,04-Dec-2021, Bonus 2:1,equities
+APOLSINHOT,EQ,Apollo Sindoori Hotels Limited,INE451F01016,5,12-Oct-2018,15-Oct-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+APTECHT,EQ,Aptech Limited,INE266F01018,10,14-Jul-2023,14-Jul-2023,Bonus 2:5,equities
+ARCOTECH,EQ,Arcotech Limited,INE574I01027,2,22-Jun-2017,23-Jun-2017, Face Value Split From Rs 10/- Per Share To Rs 2/- Per Share,equities
+ARHAM,SM,Arham Technologies Limited,412866,10,03-May-2024,03-May-2024,BONUS 1:1,sme
+ARIHANTCAP,EQ,Arihant Capital Markets Limited,INE420B01028,1,12-Apr-2022,15-Apr-2022,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+ARTEMISMED,EQ,Artemis Medicare Services Limited,INE025R01013,1,23-Sep-2021,24-Sep-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+ARVEE,SM,Arvee Laboratories (India) Limited,332453,10,13-Oct-2020,14-Oct-2020, BONUS 1:1,sme
+ASCOM,SM,Ascom Leasing & Investments Limited,388170,10,06-Mar-2023,06-Mar-2023,BONUS 1:2,sme
+ASHOKA,EQ,Ashoka Buildcon Limited,INE442H01011,5,12-Jul-2018,13-Jul-2018, Bonus 1:2,equities
+ASHOKLEY,EQ,Ashok Leyland Limited,INE208A01029,1,16-Jul-2025,16-Jul-2025,Bonus 1:1,equities
+ASTRAL,EQ,Astral Limited,INE006I01012,1,14-Mar-2023,14-Mar-2023,Bonus 1:3,equities
+ASTRAL,EQ,Astral Limited,INE006I01012,1,16-Sep-2019,17-Sep-2019, Bonus 1:4,equities
+ASTRAL,EQ,Astral Limited,INE006I01012,1,18-Mar-2021,19-Mar-2021, Bonus 1:3,equities
+ATALREAL,SM,Atal Realtech Limited,374795,10,01-Sep-2022,02-Sep-2022,BONUS 2:1,sme
+ATALREAL,EQ,Atal Realtech Limited,INE0ALR01011,2,16-Nov-2023,16-Nov-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+ATLASCYCLE,EQ,Atlas Cycles (Haryana) Limited,INE446A01017,5,30-Oct-2017,31-Oct-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+AUBANK,EQ,AU Small Finance Bank Limited,INE949L01017,10,09-Jun-2022,10-Jun-2022,Bonus 1:1,equities
+AURIGROW,EQ,Auri Grow India Limited,INE925Y01036,1,20-Jan-2022,21-Jan-2022,Bonus 1:1,equities
+AURIGROW,EQ,Auri Grow India Limited,INE925Y01036,1,24-Mar-2022,25-Mar-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+AURIONPRO,EQ,Aurionpro Solutions Limited,INE132H01018,10,27-Jun-2024,27-Jun-2024,Bonus 1:1,equities
+AURUS,EQ,AURUS GEM CORPORATION LIMITED,INE142K01011,10,12-Jul-2017,13-Jul-2017, Bonus 2:5,equities
+AVADHSUGAR,EQ,Avadh Sugar & Energy Limited,INE349W01017,10,27-Jun-2019,30-Jun-2019, Bonus 1:1,equities
+AVANTIFEED,EQ,Avanti Feeds Limited,INE871C01012,1,26-Jun-2018,27-Jun-2018, Bonus 1:2/Face Value Split (Sub-Division) From Rs 2/- Per Share To Re 1/- Per Share,equities
+AVONMORE,EQ,Avonmore Capital & Management Services Limited,INE323B01016,1,28-Jun-2024,28-Jun-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 1/- Per Share,equities
+AVROIND,SM,AVRO INDIA LIMITED,360847,10,27-Jan-2022,28-Jan-2022,BONUS 21:10,sme
+AXITA,EQ,Axita Cotton Limited,INE02EZ01014,1,13-Feb-2026,13-Feb-2026,Bonus 1:10,equities
+AXITA,EQ,Axita Cotton Limited,INE02EZ01014,1,20-Sep-2024,20-Sep-2024,Bonus 1:3,equities
+AXITA,EQ,Axita Cotton Limited,INE02EZ01014,1,21-Oct-2022,21-Oct-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+AXITA,EQ,Axita Cotton Limited,INE02EZ01014,1,22-Dec-2023,25-Dec-2023,Bonus 1:3,equities
+BAJAJFINSV,EQ,Bajaj Finserv Limited,INE918I01018,1,13-Sep-2022,14-Sep-2022,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+BAJAJFINSV,EQ,Bajaj Finserv Limited,INE918I01018,1,13-Sep-2022,14-Sep-2022,Bonus 1:1,equities
+BAJFINANCE,EQ,Bajaj Finance Limited,INE296A01016,1,08-Sep-2016,10-Sep-2016, Bonus 1:1/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+BAJFINANCE,EQ,Bajaj Finance Limited,INE296A01016,1,16-Jun-2025,16-Jun-2025,Bonus 4:1,equities
+BAJFINANCE,EQ,Bajaj Finance Limited,INE296A01016,1,16-Jun-2025,16-Jun-2025,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+BALAXI,EQ,BALAXI PHARMACEUTICALS LIMITED,INE618N01014,2,30-May-2024,30-May-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+BALKRISIND,EQ,Balkrishna Industries Limited,INE787D01018,2,21-Dec-2017,23-Dec-2017, Bonus 1:1,equities
+BALMLAWRIE,EQ,Balmer Lawrie & Company Limited,INE164A01016,10,26-Dec-2016,27-Dec-2016, Bonus 3:1,equities
+BALMLAWRIE,EQ,Balmer Lawrie & Company Limited,INE164A01016,10,26-Dec-2019,28-Dec-2019, Bonus 1:2,equities
+BANCOINDIA,EQ,Banco Products (I) Limited,INE213C01025,2,30-Dec-2024,30-Dec-2024,Bonus 1:1,equities
+BANKA,SM,Banka BioLoo Limited,324816,10,08-Sep-2020,09-Sep-2020, BONUS 3:2 /DIVIDEND - RS 0.50 PER SHARE,sme
+BANSWRAS,EQ,Banswara Syntex Limited,INE629D01012,5,08-Sep-2022,09-Sep-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+BASML,EQ,Bannari Amman Spinning Mills Limited,INE186H01014,5,12-Feb-2021,15-Feb-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+BBL,EQ,Bharat Bijlee Limited,INE464A01028,5,24-Apr-2024,24-Apr-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+BBOX,EQ,Black Box Limited,INE676A01019,2,13-May-2022,17-May-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+BCG,EQ,Brightcom Group Limited,INE425B01027,2,15-Mar-2022,16-Mar-2022,Bonus 2:3,equities
+BCG,EQ,Brightcom Group Limited,INE425B01027,2,18-Aug-2021,20-Aug-2021, Bonus 1:4,equities
+BCLIND,EQ,Bcl Industries Limited,INE412G01016,1,27-Oct-2023,27-Oct-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+BDL,EQ,Bharat Dynamics Limited,INE171Z01018,5,24-May-2024,24-May-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+BEARDSELL,EQ,Beardsell Limited,INE520H01014,2,04-May-2017,05-May-2017, Bonus 1:5/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+BECTORFOOD,EQ,Mrs. Bectors Food Specialities Limited,INE495P01012,2,12-Dec-2025,12-Dec-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+BEL,EQ,Bharat Electronics Limited,INE263A01016,1,15-Sep-2022,16-Sep-2022,Bonus 2:1,equities
+BEL,EQ,Bharat Electronics Limited,INE263A01016,1,16-Mar-2017,17-Mar-2017, Face Value Split From Rs 10/- Per Share To Re 1/- Per Share,equities
+BEL,EQ,Bharat Electronics Limited,INE263A01016,1,28-Sep-2017,29-Sep-2017, Bonus 1:10,equities
+BEML,EQ,BEML Limited,INE258A01016,5,03-Nov-2025,03-Nov-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+BEPL,EQ,Bhansali Engineering Polymers Limited,INE922A01025,1,05-Jul-2023,05-Jul-2023,Bonus 1:2,equities
+BERGEPAINT,EQ,Berger Paints (I) Limited,INE463A01020,1,15-Jul-2016,18-Jul-2016, Bonus 2:5,equities
+BERGEPAINT,EQ,Berger Paints (I) Limited,INE463A01020,1,22-Sep-2023,23-Sep-2023,Bonus 1:5,equities
+BESTAGRO,EQ,Best Agrolife Limited,INE052T01013,1,16-Jan-2026,16-Jan-2026,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+BESTAGRO,EQ,Best Agrolife Limited,INE052T01013,1,16-Jan-2026,16-Jan-2026,Bonus 1:2,equities
+BEWLTD,SM,BEW Engineering Limited,432404,10,25-Oct-2024,25-Oct-2024,BONUS 3:1,sme
+BHAGCHEM,EQ,Bhagiradha Chemicals & Industries Limited,INE414D01019,1,02-May-2024,02-May-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 1/- Per Share,equities
+BHAGERIA,EQ,Bhageria Industries Limited,INE354C01019,5,17-Jul-2019,18-Jul-2019, Bonus 1:1,equities
+BHARATFORG,EQ,Bharat Forge Limited,INE465A01025,2,28-Sep-2017,30-Sep-2017, Bonus 1:1,equities
+BHARATGEAR,EQ,Bharat Gears Limited,INE561C01019,10,27-Sep-2022,28-Sep-2022,Bonus 1:2,equities
+BHARATRAS,EQ,Bharat Rasayan Limited,INE838B01013,5,12-Dec-2025,12-Dec-2025,Bonus 1:1,equities
+BHARATRAS,EQ,Bharat Rasayan Limited,INE838B01013,5,12-Dec-2025,12-Dec-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+BHEL,EQ,Bharat Heavy Electricals Limited,INE257A01018,2,28-Sep-2017,30-Sep-2017, Bonus 1:2  ,equities
+BIGBLOC,EQ,Bigbloc Construction Limited,INE412U01017,2,12-Sep-2024,12-Sep-2024,Bonus 1:1,equities
+BIGBLOC,EQ,Bigbloc Construction Limited,INE412U01017,2,15-Nov-2021,16-Nov-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+BILENERGY,EQ,Bil Energy Systems Limited,INE607L01011,1,11-Jan-2018,13-Jan-2018, Bonus 1:1,equities
+BIOCON,EQ,Biocon Limited,INE376G01013,5,12-Jun-2019,13-Jun-2019, Bonus 1:1,equities
+BIOCON,EQ,Biocon Limited,INE376G01013,5,15-Jun-2017,17-Jun-2017, Bonus 2:1,equities
+BLS,EQ,BLS International Services Limited,INE153T01019,1,08-Dec-2022,10-Dec-2022,Bonus 1:1,equities
+BLS,EQ,BLS International Services Limited,INE153T01019,1,13-May-2022,17-May-2022,Bonus 1:1,equities
+BLS,EQ,BLS International Services Limited,INE153T01019,1,26-Apr-2017,27-Apr-2017, Face Value Split From Rs 10/- Per Share To Re 1/- Per Share,equities
+BLUESTARCO,EQ,Blue Star Limited,INE472A01039,2,20-Jun-2023,20-Jun-2023,Bonus 1:1,equities
+BMETRICS,SM,Bombay Metrics Supply Chain Limited,431677,10,04-Oct-2024,04-Oct-2024,BONUS 1:1,sme
+BMETRICS,SM,Bombay Metrics Supply Chain Limited,385826,10,09-Jan-2023,09-Jan-2023,BONUS 3:1,sme
+BORORENEW,EQ,BOROSIL RENEWABLES LIMITED,INE666D01022,1,02-Aug-2018,03-Aug-2018, Bonus 3:1,equities
+BPCL,EQ,Bharat Petroleum Corporation Limited,INE029A01011,10,13-Jul-2016,14-Jul-2016, Bonus 1:1,equities
+BPCL,EQ,Bharat Petroleum Corporation Limited,INE029A01011,10,13-Jul-2017,15-Jul-2017, Bonus 1:2,equities
+BPCL,EQ,Bharat Petroleum Corporation Limited,INE029A01011,10,21-Jun-2024,22-Jun-2024,Bonus 1:1,equities
+BRIGADE,EQ,Brigade Enterprises Limited,INE791I01019,10,28-Aug-2019,29-Aug-2019, Bonus 1:2,equities
+BRITANNIA,EQ,Britannia Industries Limited,INE216A01014,1,22-Aug-2019,23-Aug-2019, Scheme Of Arangement- Bonus - 1 Debenture For 1 Equity Share Held,equities
+BRITANNIA,EQ,Britannia Industries Limited,INE216A01014,1,25-May-2021,27-May-2021, Scheme Of Arangement- Bonus - 1 Debenture For 1 Equity Share Held,equities
+BRITANNIA,EQ,Britannia Industries Limited,INE216A01014,1,29-Nov-2018,30-Nov-2018, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+BSE,EQ,BSE Limited,INE118H01025,2,21-Mar-2022,22-Mar-2022,Bonus 2:1,equities
+BSE,EQ,BSE Limited,INE118H01025,2,23-May-2025,23-May-2025,Bonus 2:1,equities
+BSHSL,SM,Bombay Super Hybrid Seeds Limited,311689,10,22-Oct-2019,23-Oct-2019, BONUS 1:5,sme
+BSHSL,EQ,Bombay Super Hybrid Seeds Limited,INE032Z01012,1,23-Sep-2022,26-Sep-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+BSHSL,SM,Bombay Super Hybrid Seeds Limited,326841,10,27-Aug-2020,28-Aug-2020, BONUS 1:3,sme
+BTML,EQ,Bodhi Tree Multimedia Limited,INE0EEJ01015,1,05-Apr-2024,05-Apr-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+BTML,SM,Bodhi Tree Multimedia Limited,378398,10,23-Sep-2022,23-Sep-2022,BONUS 4:1,sme
+CAMS,EQ,Computer Age Management Services Limited,INE596I01012,2,05-Dec-2025,05-Dec-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+CANBK,EQ,Canara Bank,INE476A01014,2,15-May-2024,15-May-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+CANFINHOME,EQ,Can Fin Homes Limited,INE477A01012,2,12-Oct-2017,13-Oct-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+CANTABIL,EQ,Cantabil Retail India Limited,INE068L01016,2,02-Nov-2023,02-Nov-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+CASTROLIND,EQ,Castrol India Limited,INE172A01027,5,21-Dec-2017,23-Dec-2017, Bonus 1:1,equities
+CCAVENUE,EQ,AvenuesAI Limited,INE483S01020,1,14-Mar-2022,15-Mar-2022,Bonus 1:1,equities
+CCAVENUE,EQ,AvenuesAI Limited,INE483S01020,1,18-Mar-2021,20-Mar-2021, Bonus 1:1,equities
+CCAVENUE,EQ,AvenuesAI Limited,INE483S01020,1,31-Aug-2017,01-Sep-2017, Annual General Meeting/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+CDSL,EQ,Central Depository Services (India) Limited,INE736A01011,10,23-Aug-2024,24-Aug-2024,Bonus 1:1,equities
+CELLECOR,SM,Cellecor Gadgets Limited,418962,1,09-Aug-2024,09-Aug-2024,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RE 1/- PER SHARE,sme
+CESC,EQ,CESC Limited,INE486A01013,1,17-Sep-2021,20-Sep-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+CGCL,EQ,Capri Global Capital Limited,INE180C01018,1,05-Mar-2024,05-Mar-2024,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+CGCL,EQ,Capri Global Capital Limited,INE180C01018,1,05-Mar-2024,05-Mar-2024,Bonus 1:1,equities
+CHOICEIN,EQ,Choice International Limited,INE102B01014,10,20-Feb-2024,20-Feb-2024,Bonus 1:1,equities
+CHOICEIN,EQ,Choice International Limited,INE102B01014,10,22-Sep-2022,23-Sep-2022,Bonus 1:1,equities
+CHOLAFIN,EQ,Cholamandalam Investment and Finance Company Limited,INE121A01016,2,14-Jun-2019,17-Jun-2019, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+CLEDUCATE,EQ,CL Educate Limited,INE201M01011,5,16-Dec-2022,16-Dec-2022,Bonus 1:1,equities
+CLEDUCATE,EQ,CL Educate Limited,INE201M01011,5,30-Sep-2021,01-Oct-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+CLOUD,SM,Varanium Cloud Limited,389855,5,12-May-2023,12-May-2023,BONUS 1:1,sme
+CLOUD,SM,Varanium Cloud Limited,389849,5,12-May-2023,12-May-2023,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 5/- PER SHARE,sme
+CNL,SM,Creative Newtech Limited,300563,10,25-Jun-2019,26-Jun-2019, BONUS 1 : 1,sme
+COASTCORP,EQ,Coastal Corporation Limited,INE377E01016,2,04-Mar-2025,04-Mar-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+COCHINSHIP,EQ,Cochin Shipyard Limited,INE704P01017,5,10-Jan-2024,10-Jan-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+COFORGE,EQ,Coforge Limited,INE591G01017,2,04-Jun-2025,04-Jun-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+COHANCE,EQ,Cohance Lifesciences Limited,INE03QK01018,1,25-Sep-2020,28-Sep-2020, Bonus 1:1,equities
+COMPINFO,EQ,Compuage Infocom Limited,INE070C01029,2,16-Feb-2017,17-Feb-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+CONCOR,EQ,Container Corporation of India Limited,INE111A01017,5,04-Feb-2019,05-Feb-2019, Bonus 1:4,equities
+CONCOR,EQ,Container Corporation of India Limited,INE111A01017,5,04-Jul-2025,04-Jul-2025,Bonus 1:4,equities
+CONCOR,EQ,Container Corporation of India Limited,INE111A01017,5,05-Apr-2017,06-Apr-2017, Bonus 1:4,equities
+CONCOR,EQ,Container Corporation of India Limited,INE111A01017,5,26-Jun-2018,27-Jun-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+CONTI,SM,Continental Seeds and Chemicals Limited,315685,10,13-Feb-2020,15-Feb-2020, BONUS 1:1.5,sme
+COOLCAPS,SM,Cool Caps Industries Limited,452550,2,04-Jul-2025,04-Jul-2025,BONUS 1:1,sme
+COOLCAPS,SM,Cool Caps Industries Limited,452518,2,04-Jul-2025,04-Jul-2025,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+CORALFINAC,EQ,Coral India Finance & Housing Limited,INE558D01013,2,03-Aug-2017,04-Aug-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+COSMOFIRST,EQ,COSMO FIRST LIMITED,INE757A01017,10,16-Jun-2022,18-Jun-2022,Bonus 1:2,equities
+CRESTO,SM,CRESTO TECHNO LIMITED,315500,10,11-Feb-2020,12-Feb-2020, BONUS 6:5,sme
+CROWN,SM,Crown Lifters Limited,356378,10,18-Oct-2021,20-Oct-2021, BONUS 4:1,sme
+CUB,EQ,City Union Bank Limited,INE491A01021,1,10-Jul-2018,11-Jul-2018, Bonus 1:10,equities
+CUB,EQ,City Union Bank Limited,INE491A01021,1,13-Jul-2017,15-Jul-2017, Bonus 1:10,equities
+CUPID,EQ,Cupid Limited,INE509F01011,1,04-Apr-2024,04-Apr-2024,Bonus 1:1,equities
+CUPID,EQ,Cupid Limited,INE509F01011,1,04-Apr-2024,04-Apr-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+CUPID,EQ,Cupid Limited,INE509F01011,1,11-Oct-2018,12-Oct-2018, Bonus 1:5,equities
+DAMODARIND,EQ,Damodar Industries Limited,INE497D01014,5,25-Oct-2018,26-Oct-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+DANGEE,EQ,Dangee Dums Limited,INE688Y01014,1,06-Sep-2022,07-Sep-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+DANGEE,EQ,Dangee Dums Limited,INE688Y01014,1,06-Sep-2022,07-Sep-2022,Bonus 1:2,equities
+DAVANGERE,EQ,Davangere Sugar Company Limited,INE179G01011,1,31-May-2024,31-May-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+DCI,SM,DC Infotech and Communication Limited,360508,10,10-Jan-2022,11-Jan-2022,BONUS 1:1,sme
+DECCANCE,EQ,Deccan Cements Limited,INE583C01013,5,11-Sep-2017,12-Sep-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share ,equities
+DEEPINDS,EQ,Deep Industries Limited,INE0FHS01016,5,10-Apr-2023,10-Apr-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+DELPHIFX,EQ,DELPHI WORLD MONEY LIMITED,INE726L01019,2,13-Feb-2026,14-Feb-2026,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+DELPHIFX,EQ,DELPHI WORLD MONEY LIMITED,INE726L01019,2,13-Feb-2026,14-Feb-2026,Bonus 2:1,equities
+DEVIT,EQ,Dev Information Technology Limited,INE060X01018,2,21-Aug-2025,21-Aug-2025,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+DEVIT,SM,Dev Information Technology Limited,357082,10,21-Oct-2021,22-Oct-2021, BONUS 1:1,sme
+DEVIT,EQ,Dev Information Technology Limited,INE060X01018,2,25-Nov-2022,25-Nov-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+DFMFOODS,EQ,DFM Foods Limited,INE456C01012,2,01-Nov-2018,02-Nov-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+DHARAN,EQ,DHARAN INFRA-EPC LIMITED,INE278R01034,1,02-Jul-2020,03-Jul-2020, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+DHARAN,EQ,DHARAN INFRA-EPC LIMITED,INE278R01034,1,04-Apr-2025,04-Apr-2025,Bonus 1:1,equities
+DHARAN,EQ,DHARAN INFRA-EPC LIMITED,INE278R01034,1,12-Aug-2021,13-Aug-2021, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+DHARAN,EQ,DHARAN INFRA-EPC LIMITED,INE278R01034,1,12-Aug-2021,13-Aug-2021, Bonus 4:1,equities
+DHARIWAL,SM,Dhariwalcorp Limited,467678,2,06-Feb-2026,06-Feb-2026,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+DIACABS,EQ,Diamond Power Infrastructure Limited,INE989C01020,1,03-Dec-2024,03-Dec-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+DIGIKORE,SM,Digikore Studios Limited,463280,10,24-Oct-2025,24-Oct-2025,BONUS 1:1,sme
+DIL,EQ,Debock Industries Limited,INE411Y01011,10,27-Oct-2022,27-Oct-2022,Bonus 1:1,equities
+DIRL,SM,Dhanuka Infra Realty Limited,272277,10,09-Jan-2018,10-Jan-2018, BONUS 1:1,sme
+DISHMAN,EQ,Dishman Pharmaceuticals and Chemicals Limited,INE353G01020,2,02-May-2016,03-May-2016, Bonus 1:1,equities
+DIXON,EQ,Dixon Technologies (India) Limited,INE935N01012,2,18-Mar-2021,19-Mar-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+DJML,EQ,DJ Mediaprint & Logistics Limited,INE0B1K01014,10,09-Aug-2024,09-Aug-2024,Bonus 2:1,equities
+DOLLAR,EQ,Dollar Industries Limited,INE325C01027,2,31-Aug-2017,01-Sep-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+DOLPHIN,EQ,Dolphin Offshore Enterprises (India) Limited,INE920A01029,1,25-Jan-2024,25-Jan-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+DPWIRES,EQ,D P Wires Limited,INE864X01013,10,08-Nov-2023,08-Nov-2023,Bonus 1:7,equities
+DRCSYSTEMS,EQ,DRC Systems India Limited,INE03RS01019,1,16-Mar-2022,17-Mar-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+DRCSYSTEMS,EQ,DRC Systems India Limited,INE03RS01019,1,27-Feb-2024,27-Feb-2024,Bonus 2:1,equities
+DRREDDY,EQ,Dr. Reddy's Laboratories Limited,INE089A01023,1,28-Oct-2024,28-Oct-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+DUCON,EQ,Ducon Infratechnologies Limited,INE741L01018,1,18-Apr-2022,19-Apr-2022,Bonus 1:10,equities
+DUGLOBAL,SM,DUDIGITAL GLOBAL LIMITED,390863,2,02-Jun-2023,02-Jun-2023,BONUS 3:1,sme
+DUGLOBAL,SM,DUDIGITAL GLOBAL LIMITED,368650,2,30-Jun-2022,01-Jul-2022,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS10/- PER SHARE TO RS 2/- PER SHARE,sme
+DVL,EQ,Dhunseri Ventures Limited,INE477B01010,10,05-Aug-2021,06-Aug-2021, Bonus 1:2,equities
+DWARKESH,EQ,Dwarikesh Sugar Industries Limited,INE366A01033,1,10-Aug-2017,-, Annual General Meeting/Dividend - Rs 10 Per Share/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share (Purpose Revised),equities
+DYCL,EQ,Dynamic Cables Limited,INE600Y01019,10,11-Jul-2025,11-Jul-2025,Bonus 1:1,equities
+EASEMYTRIP,EQ,Easy Trip Planners Limited,INE07O001018,1,21-Nov-2022,22-Nov-2022,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+EASEMYTRIP,EQ,Easy Trip Planners Limited,INE07O001018,1,21-Nov-2022,22-Nov-2022,Bonus 3:1,equities
+EASEMYTRIP,EQ,Easy Trip Planners Limited,INE07O001018,1,28-Feb-2022,02-Mar-2022,Bonus 1:1,equities
+EASEMYTRIP,EQ,Easy Trip Planners Limited,INE07O001018,1,29-Nov-2024,29-Nov-2024,Bonus 1:1,equities
+ECLERX,EQ,eClerx Services Limited,INE738I01010,10,21-Sep-2022,22-Sep-2022,Bonus 1:2,equities
+EICHERMOT,EQ,Eicher Motors Limited,INE066A01013,1,24-Aug-2020,25-Aug-2020, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+EIHAHOTELS,EQ,EIH Associated Hotels Limited,INE276C01014,10,13-Aug-2024,13-Aug-2024,Bonus 1:1,equities
+ELECON,EQ,Elecon Engineering Company Limited,INE205B01023,1,19-Jul-2024,19-Jul-2024,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+ELGIEQUIP,EQ,Elgi Equipments Limited,INE285A01027,1,24-Sep-2020,26-Sep-2020, Bonus 1:1,equities
+EMAMILTD,EQ,Emami Limited,INE548C01024,1,21-Jun-2018,22-Jun-2018, Bonus 1:1/Dividend- Rs 7 Per Share,equities
+EMKAYTOOLS,SM,Emkay Taps and Cutting Tools Limited,285505,10,24-Sep-2018,25-Sep-2018, BONUS 5:1,sme
+ENGINERSIN,EQ,Engineers India Limited,INE510A01010,5,30-Dec-2016,02-Jan-2017, Bonus 1:1,equities
+ENSER,SM,Enser Communications Limited,434799,2,03-Jan-2025,03-Jan-2025,BONUS 1:1,sme
+ENSER,SM,Enser Communications Limited,435577,2,07-Feb-2025,07-Feb-2025,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+EPL,EQ,EPL Limited,INE255A01020,2,20-Jun-2018,21-Jun-2018, Bonus 1:1,equities
+ESFL,SM,Essen Speciality Films Limited,434294,10,13-Dec-2024,13-Dec-2024,BONUS 1:5,sme
+ESSENTIA,EQ,Integra Essentia Limited,INE418N01035,1,03-Feb-2022,04-Feb-2022,Face Value Split (Sub-Division) - From Rs 3/- Per Share To Re 1/- Per Share,equities
+ESSENTIA,EQ,Integra Essentia Limited,INE418N01035,1,11-Jan-2024,11-Jan-2024,Bonus 1:1,equities
+EXXARO,EQ,Exxaro Tiles Limited,INE0GFE01018,1,13-Dec-2024,13-Dec-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+FCL,EQ,Fineotex Chemical Limited,INE045J01018,1,31-Oct-2025,31-Oct-2025,Bonus 4:1,equities
+FCL,EQ,Fineotex Chemical Limited,INE045J01018,1,31-Oct-2025,31-Oct-2025,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+FIEMIND,EQ,Fiem Industries Limited,INE737H01014,10,28-Feb-2024,28-Feb-2024,Bonus 1:1,equities
+FILATEX,EQ,Filatex India Limited,INE816B01019,1,27-Dec-2022,28-Dec-2022,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+FILATEX,EQ,Filatex India Limited,INE816B01019,1,27-Jun-2018,28-Jun-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+FILATFASH,EQ,Filatex Fashions Limited,INE185E01013,1,09-Aug-2024,09-Aug-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+FINPIPE,EQ,Finolex Industries Limited,INE183A01016,2,15-Apr-2021,16-Apr-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+FISCHER,EQ,Fischer Medical Ventures Limited,INE771F01025,1,12-Sep-2025,12-Sep-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+FOCUS,EQ,Focus Lighting and Fixtures Limited,INE593W01010,2,06-Oct-2023,06-Oct-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+FOCUS,SM,Focus Lighting and Fixtures Limited,302535,10,22-Jul-2019,23-Jul-2019, BONUS 2:1,sme
+FOURTHDIM,SM,Fourth Dimension Solutions Limited,250933,10,02-Feb-2017,03-Feb-2017, BONUS 1:1,sme
+GAEL,EQ,Gujarat Ambuja Exports Limited,INE036B01022,1,01-Oct-2020,05-Oct-2020, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+GAEL,EQ,Gujarat Ambuja Exports Limited,INE036B01022,1,15-Mar-2024,16-Mar-2024,Bonus 1:1,equities
+GAIL,EQ,GAIL (India) Limited,INE129A01019,10,06-Sep-2022,07-Sep-2022,Bonus 1:2,equities
+GAIL,EQ,GAIL (India) Limited,INE129A01019,10,09-Jul-2019,10-Jul-2019, Bonus 1:1,equities
+GAIL,EQ,GAIL (India) Limited,INE129A01019,10,09-Mar-2017,11-Mar-2017, Bonus 1:3,equities
+GAIL,EQ,GAIL (India) Limited,INE129A01019,10,27-Mar-2018,29-Mar-2018, Bonus 1:3,equities
+GALLISPAT,EQ,Gallantt Ispat Limited,INE528K01011,1,07-Aug-2018,08-Aug-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+GANESHHOU,EQ,GANESH HOUSING LIMITED,INE460C01014,10,14-Jul-2016,15-Jul-2016, Bonus 1:2,equities
+GANGAFORGE,SM,Ganga Forging Limited,336495,10,11-Jan-2021,12-Jan-2021, BONUS 1:3,sme
+GANGAFORGE,EQ,Ganga Forging Limited,INE691Z01015,1,13-Sep-2021,14-Sep-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+GARFIBRES,EQ,Garware Technical Fibres Limited,INE276A01018,10,03-Jan-2025,03-Jan-2025,Bonus 4:1,equities
+GATECH,EQ,GACM Technologies Limited,INE224E01028,1,10-Jan-2017,11-Jan-2017, Bonus 1:4,equities
+GAYAPROJ,EQ,Gayatri Projects Limited,INE336H01015,2,10-Feb-2017,13-Feb-2017, Face Value Split From Rs 10/- Per Share To Rs 2/- Per Share,equities
+GEEKAYWIRE,EQ,Geekay Wires Limited,INE669X01016,1,23-Oct-2023,23-Oct-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+GEEKAYWIRE,EQ,Geekay Wires Limited,INE669X01016,1,30-Oct-2025,30-Oct-2025,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+GENSOL,EQ,Gensol Engineering Limited,INE06H201014,10,17-Oct-2023,17-Oct-2023,Bonus 2:1,equities
+GICL,SM,Globe International Carriers Limited,382356,5,12-Oct-2022,12-Oct-2022,BONUS 1:1,sme
+GICL,SM,Globe International Carriers Limited,339105,5,18-Mar-2021,19-Mar-2021, BONUS 1:4,sme
+GICRE,EQ,General Insurance Corporation of India,INE481Y01014,5,12-Jul-2018,14-Jul-2018, Bonus 1:1/Dividend- Rs 13.5 Per Share,equities
+GIRIRAJ,SM,Giriraj Civil Developers Limited,406725,10,03-Nov-2023,03-Nov-2023,BONUS 4:1,sme
+GLAXO,EQ,GlaxoSmithKline Pharmaceuticals Limited,INE159A01016,10,11-Sep-2018,13-Sep-2018, Bonus 1:1,equities
+GLOBAL,EQ,Global Education Limited,INE291W01011,2,10-Dec-2024,10-Dec-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+GLOBAL,SM,Global Education Limited,333108,10,12-Nov-2020,16-Nov-2020, BONUS 31:10,sme
+GLOBAL,EQ,Global Education Limited,INE291W01011,2,19-Oct-2022,19-Oct-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+GLOBE,EQ,GLOBE ENTERPRISES (INDIA) LIMITED,INE581X01013,2,03-Aug-2021,04-Aug-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+GLOBE,EQ,GLOBE ENTERPRISES (INDIA) LIMITED,INE581X01013,2,03-Aug-2021,04-Aug-2021, Bonus 2:1,equities
+GMBREW,EQ,GM Breweries Limited,INE075D01018,10,21-May-2018,22-May-2018, Bonus 1:4,equities
+GMBREW,EQ,GM Breweries Limited,INE075D01018,10,24-May-2024,25-May-2024,Bonus 1:4,equities
+GMBREW,EQ,GM Breweries Limited,INE075D01018,10,30-May-2016,31-May-2016, Bonus 1:4,equities
+GMMPFAUDLR,EQ,GMM Pfaudler Limited,INE541A01023,2,11-Jul-2022,12-Jul-2022,Bonus 2:1,equities
+GNA,EQ,GNA Axles Limited,INE934S01014,10,01-Sep-2023,02-Sep-2023,Bonus 1:1,equities
+GODFRYPHLP,EQ,Godfrey Phillips India Limited,INE260B01010,2,16-Sep-2025,16-Sep-2025,Bonus 2:1,equities
+GODREJCP,EQ,Godrej Consumer Products Limited,INE102D01028,1,12-Sep-2018,14-Sep-2018, Bonus 1:2,equities
+GODREJCP,EQ,Godrej Consumer Products Limited,INE102D01028,1,22-Jun-2017,24-Jun-2017, Bonus 1:1,equities
+GOKULAGRO,EQ,Gokul Agro Resources Limited,INE314T01025,1,14-Oct-2025,14-Oct-2025,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+GOLDIAM,EQ,Goldiam International Limited,INE025B01017,2,28-Mar-2022,29-Mar-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+GOLDSTAR,SM,Goldstar Power Limited,393100,1,19-Jul-2023,19-Jul-2023,BONUS 1:4,sme
+GOLDSTAR,SM,Goldstar Power Limited,386046,1,20-Jan-2023,21-Jan-2023,BONUS 4:5,sme
+GOLDSTAR,SM,Goldstar Power Limited,386040,1,20-Jan-2023,21-Jan-2023,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RE 1/- PER SHARE,sme
+GOYALALUM,EQ,Goyal Aluminiums Limited,INE705X01018,1,25-Apr-2023,25-Apr-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+GPIL,EQ,Godawari Power And Ispat limited,INE177H01013,1,04-Oct-2024,04-Oct-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+GPIL,EQ,Godawari Power And Ispat limited,INE177H01013,1,26-Oct-2021,27-Oct-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+GPIL,EQ,Godawari Power And Ispat limited,INE177H01013,1,26-Oct-2021,27-Oct-2021, Bonus 1:1,equities
+GPTINFRA,EQ,GPT Infraprojects Limited,INE390G01014,10,03-Jul-2024,03-Jul-2024,Bonus 1:1,equities
+GPTINFRA,EQ,GPT Infraprojects Limited,INE390G01014,10,11-Nov-2022,12-Nov-2022,Bonus 1:1,equities
+GPTINFRA,EQ,GPT Infraprojects Limited,INE390G01014,10,13-Jul-2017,-, Bonus 1:1,equities
+GRASIM,EQ,Grasim Industries Limited,INE047A01013,2,06-Oct-2016,08-Oct-2016, Face Value Split From Rs 10 To Re 2,equities
+GREENLAM,EQ,Greenlam Industries Limited,INE544R01013,1,10-Feb-2022,11-Feb-2022,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+GREENLAM,EQ,Greenlam Industries Limited,INE544R01013,1,21-Mar-2025,21-Mar-2025,Bonus 1:1,equities
+GRINDWELL,EQ,Grindwell Norton Limited,INE536A01023,5,14-Jul-2016,15-Jul-2016, Bonus 1:1,equities
+GRMOVER,EQ,GRM Overseas Limited,INE192H01020,2,24-Dec-2025,24-Dec-2025,Bonus 2:1,equities
+GRPLTD,EQ,GRP Limited,INE137I01015,10,12-Aug-2024,12-Aug-2024,Bonus 3:1,equities
+GRUH,EQ,Gruh Finance Limited,INE580B01011,2,06-Jun-2018,07-Jun-2018, Bonus 1:1,equities
+GUJENERGY,EQ,GUJARAT ENERGY LIMITED,INE844O01030,2,15-Jan-2019,16-Jan-2019, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+GULPOLY,EQ,Gulshan Polyols Limited,INE255D01016,1,21-Jun-2023,21-Jun-2023,Bonus 1:5,equities
+GVPTECH,EQ,GVP Infotech Limited,INE382T01030,2,23-Jan-2023,23-Jan-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+HAL,EQ,Hindustan Aeronautics Limited,INE066F01012,5,28-Sep-2023,29-Sep-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+HARDWYN,EQ,Hardwyn India Limited,INE626Z01011,1,05-Jun-2023,05-Jun-2023,Bonus 1:3,equities
+HARDWYN,EQ,Hardwyn India Limited,INE626Z01011,1,05-Jun-2023,05-Jun-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+HARDWYN,EQ,Hardwyn India Limited,INE626Z01011,1,25-Jul-2022,26-Jul-2022,Bonus 1:2,equities
+HARDWYN,EQ,Hardwyn India Limited,INE626Z01011,1,27-Dec-2024,27-Dec-2024,Bonus 2:5,equities
+HATSUN,EQ,Hatsun Agro Product Limited,INE473B01035,1,09-Dec-2020,10-Dec-2020, Bonus 1:3,equities
+HATSUN,EQ,Hatsun Agro Product Limited,INE473B01035,1,13-Jul-2016,14-Jul-2016, Bonus 2:5,equities
+HCLTECH,EQ,HCL Technologies Limited,INE860A01027,2,05-Dec-2019,07-Dec-2019, Bonus 1:1,equities
+HDFCAMC,EQ,HDFC Asset Management Company Limited,INE127D01025,5,26-Nov-2025,26-Nov-2025,Bonus 1:1,equities
+HDFCBANK,EQ,HDFC Bank Limited,INE040A01018,1,19-Sep-2019,20-Sep-2019, Face Value Split (Sub-Division) - From Rs 2 Per Share To Rs 1 Per Share,equities
+HDFCBANK,EQ,HDFC Bank Limited,INE040A01018,1,26-Aug-2025,27-Aug-2025,Bonus 1:1,equities
+HECPROJECT,SM,HEC Infra Projects Limited,352519,10,07-Oct-2021,08-Oct-2021, BONUS 4:1,sme
+HEG,EQ,HEG Limited,INE545A01016,2,18-Oct-2024,18-Oct-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+HERITGFOOD,EQ,Heritage Foods Limited,INE978A01019,5,10-Oct-2017,11-Oct-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+HGS,EQ,Hinduja Global Solutions Limited,INE170I01016,10,22-Feb-2022,23-Feb-2022,Bonus 1:1,equities
+HIKAL,EQ,Hikal Limited,INE475B01014,2,22-Jun-2018,25-Jun-2018, Bonus 1:2,equities
+HINDCOMPOS,EQ,Hindustan Composites Limited,INE310C01011,5,25-May-2017,26-May-2017, Bonus 1:2/Face Value Split (Sub-Division) From Rs 10 Per Share To Rs 5 Per Share,equities
+HINDCON,EQ,Hindcon Chemicals Limited,INE642Y01011,2,10-Nov-2023,10-Nov-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+HINDPETRO,EQ,Hindustan Petroleum Corporation Limited,INE094A01015,10,11-Jul-2017,12-Jul-2017, Bonus 1:2/ Dividend - Rs 1.10 Per Share,equities
+HINDPETRO,EQ,Hindustan Petroleum Corporation Limited,INE094A01015,10,14-Sep-2016,15-Sep-2016, Bonus 2:1,equities
+HINDPETRO,EQ,Hindustan Petroleum Corporation Limited,INE094A01015,10,21-Jun-2024,21-Jun-2024,Bonus 1:2,equities
+HITECH,EQ,Hi-Tech Pipes Limited,INE106T01017,1,17-Mar-2023,17-Mar-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+HLEGLAS,EQ,HLE Glascoat Limited,INE461D01010,2,18-Oct-2022,19-Oct-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+HMAAGRO,EQ,HMA Agro Industries Limited,INE0ECP01016,1,29-Dec-2023,29-Dec-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+HNDFDS,EQ,Hindustan Foods Limited,INE254N01018,2,21-Jul-2022,22-Jul-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+HPAL,EQ,HP Adhesives Limited,INE0GSL01016,2,09-Nov-2023,09-Nov-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+ICICIBANK,EQ,ICICI Bank Limited,INE090A01013,2,20-Jun-2017,-, Annual General Meeting/Dividend - Rs 2.50 Per Share/Bonus 1:10 (Revised),equities
+IEX,EQ,Indian Energy Exchange Limited,INE022Q01012,1,03-Dec-2021,06-Dec-2021, Bonus 2:1,equities
+IEX,EQ,Indian Energy Exchange Limited,INE022Q01012,1,19-Oct-2018,22-Oct-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+IFGLEXPOR,EQ,IFGL Refractories Limited,INE133Y01011,10,18-Jul-2025,18-Jul-2025,Bonus 1:1,equities
+IGARASHI,EQ,Igarashi Motors India Limited,INE188B01013,10,27-Sep-2018,28-Sep-2018, Bonus 25:202,equities
+IGL,EQ,Indraprastha Gas Limited,INE203G01019,2,09-Nov-2017,10-Nov-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+IGL,EQ,Indraprastha Gas Limited,INE203G01019,2,31-Jan-2025,31-Jan-2025,Bonus 1:1,equities
+IMFA,EQ,Indian Metals & Ferro Alloys Limited,INE919H01018,10,07-Jan-2022,10-Jan-2022,Bonus 1:1,equities
+IMPAL,EQ,India Motor Parts and Accessories Limited,INE547E01014,10,25-Oct-2019,29-Oct-2019, Bonus 1:2,equities
+INDIAGLYCO,EQ,India Glycols Limited,INE560A01015,5,12-Aug-2025,12-Aug-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+INDIAMART,EQ,Indiamart Intermesh Limited,INE933S01016,10,21-Jun-2023,21-Jun-2023,Bonus 1:1,equities
+INDIANHUME,EQ,Indian Hume Pipe Company Limited,INE323C01022,2,09-Dec-2016,13-Dec-2016, Bonus 1:1,equities
+INDNIPPON,EQ,India Nippon Electricals Limited,INE092B01017,5,21-Mar-2018,22-Mar-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+INDOTHAI,EQ,Indo Thai Securities Limited,INE337M01013,1,18-Jul-2025,18-Jul-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+INFINITE,EQ,Infinite Computer Solutions (India) Limited,INE486J01014,10,01-Nov-2017,02-Nov-2017, Bonus 1:26,equities
+INFINIUM,SM,Infinium Pharmachem Limited,399193,10,13-Sep-2023,13-Sep-2023,BONUS 1:1,sme
+INFY,EQ,Infosys Limited,INE009A01021,5,04-Sep-2018,05-Sep-2018, Bonus 1:1,equities
+INM,SM,Interiors & More Limited,465517,10,05-Dec-2025,05-Dec-2025,BONUS 1:1,sme
+INNOVANA,SM,Innovana Thinklabs Limited,313607,10,17-Dec-2019,18-Dec-2019, BONUS 3:2,sme
+INNOVANA,SM,Innovana Thinklabs Limited,388794,10,29-Mar-2023,30-Mar-2023,BONUS 1:1,sme
+INOXWIND,EQ,Inox Wind Limited,INE066P01011,10,24-May-2024,25-May-2024,Bonus 3:1,equities
+INSECTICID,EQ,Insecticides (India) Limited,INE070I01018,10,30-Sep-2022,03-Oct-2022,Bonus 1:2,equities
+INVENTURE,EQ,Inventure Growth & Securities Limited,INE878H01016,1,24-Jun-2021,25-Jun-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+IOC,EQ,Indian Oil Corporation Limited,INE242A01010,10,15-Mar-2018,17-Mar-2018, Bonus 1:1,equities
+IOC,EQ,Indian Oil Corporation Limited,INE242A01010,10,18-Oct-2016,19-Oct-2016, Bonus 1:1,equities
+IOC,EQ,Indian Oil Corporation Limited,INE242A01010,10,30-Jun-2022,01-Jul-2022,Bonus 1:2,equities
+IOLCP,EQ,IOL Chemicals and Pharmaceuticals Limited,INE485C01011,2,11-Mar-2025,11-Mar-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+IONEXCHANG,EQ,ION Exchange (India) Limited,INE570A01014,1,12-Jun-2023,12-Jun-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+IPCALAB,EQ,IPCA Laboratories Limited,INE571A01020,1,10-Jan-2022,11-Jan-2022,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+IRB,EQ,IRB Infrastructure Developers Limited,INE821I01014,1,22-Feb-2023,22-Feb-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+IRCON,EQ,Ircon International Limited,INE962Y01013,2,03-Apr-2020,07-Apr-2020, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+IRCON,EQ,Ircon International Limited,INE962Y01013,2,20-May-2021,21-May-2021, Bonus 1:1,equities
+IRCTC,EQ,Indian Railway Catering And Tourism Corporation Limited,INE335Y01012,2,28-Oct-2021,29-Oct-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+IRISDOREME,EQ,Iris Clothings Limited,INE01GN01017,2,04-Jul-2025,04-Jul-2025,Bonus 1:1,equities
+IRISDOREME,EQ,Iris Clothings Limited,INE01GN01017,2,11-Aug-2023,11-Aug-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+IRISDOREME,SM,Iris Clothings Limited,332494,10,14-Oct-2020,15-Oct-2020, BONUS 5:2,sme
+ISHAN,SM,Ishan International Limited,409217,1,25-Jan-2024,25-Jan-2024,BONUS 2:1,sme
+ISHAN,SM,Ishan International Limited,409211,1,25-Jan-2024,25-Jan-2024,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RE 1/- PER SHARE,sme
+ITC,EQ,ITC Limited,INE154A01025,1,01-Jul-2016,04-Jul-2016, Bonus 1:2,equities
+JAGSNPHARM,EQ,Jagsonpal Pharmaceuticals Limited,INE048B01027,2,08-Jan-2025,08-Jan-2025,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+JAIBALAJI,EQ,Jai Balaji Industries Limited,INE091G01018,2,17-Jan-2025,17-Jan-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+JAKHARIA,SM,JAKHARIA FABRIC LIMITED,462872,10,08-Oct-2025,08-Oct-2025,BONUS 2:1,sme
+JAMNAAUTO,EQ,Jamna Auto Industries Limited,INE039C01016,1,05-Oct-2017,06-Oct-2017, Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+JASH,EQ,Jash Engineering Limited,INE039O01011,2,30-Oct-2024,30-Oct-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+JAYAGROGN,EQ,Jayant Agro Organics Limited,INE785A01026,5,01-Aug-2017,02-Aug-2017, Bonus 1:1  ,equities
+JAYBARMARU,EQ,Jay Bharat Maruti Limited,INE571B01028,2,07-Jun-2021,08-Jun-2021, Bonus 1:1,equities
+JAYBARMARU,EQ,Jay Bharat Maruti Limited,INE571B01028,2,26-Oct-2023,26-Oct-2023,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+JBCHEPHARM,EQ,JB Chemicals & Pharmaceuticals Limited,INE572A01028,1,18-Sep-2023,18-Sep-2023,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+JBMA,EQ,JBM Auto Limited,INE927D01010,1,21-Feb-2022,22-Feb-2022,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+JBMA,EQ,JBM Auto Limited,INE927D01010,1,31-Jan-2025,31-Jan-2025,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+JETFREIGHT,SM,Jet Freight Logistics Limited,288477,10,12-Sep-2018,14-Sep-2018, BONUS 1:1,sme
+JETFREIGHT,EQ,Jet Freight Logistics Limited,INE982V01017,5,19-May-2022,20-May-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+JFLLIFE,SM,Jfl Life Sciences Limited,431515,10,24-Sep-2024,24-Sep-2024,BONUS 2:1,sme
+JINDALSAW,EQ,Jindal Saw Limited,INE324A01024,1,09-Oct-2024,09-Oct-2024,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+JINDWORLD,EQ,Jindal Worldwide Limited,INE247D01013,1,26-Dec-2017,27-Dec-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+JINDWORLD,EQ,Jindal Worldwide Limited,INE247D01013,1,28-Feb-2025,28-Feb-2025,Bonus 4:1,equities
+JINDWORLD,EQ,Jindal Worldwide Limited,INE247D01013,1,31-Oct-2018,01-Nov-2018, Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+JMA,EQ,Jullundur Motor Agency (Delhi) Limited,INE412C01015,2,14-May-2019,15-May-2019, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+JMCPROJECT,EQ,JMC Projects (India)  Limited,INE890A01016,2,04-Oct-2018,05-Oct-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+JMTAUTOLTD,EQ,JMT Auto Limited,INE988E01010,1,21-Sep-2016,22-Sep-2016, Face Value Split From Rs 2 To Re 1,equities
+JSLL,SM,Jeena Sikho Lifecare Limited,406632,2,02-Nov-2023,02-Nov-2023,BONUS 4:5,sme
+JTLIND,EQ,JTL INDUSTRIES LIMITED,INE391J01024,1,07-Sep-2023,07-Sep-2023,Bonus 1:1,equities
+JTLIND,EQ,JTL INDUSTRIES LIMITED,INE391J01024,1,14-Nov-2024,15-Nov-2024,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+JUBLFOOD,EQ,Jubilant Foodworks Limited,INE797F01012,2,19-Apr-2022,20-Apr-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+JUBLFOOD,EQ,Jubilant Foodworks Limited,INE797F01012,2,21-Jun-2018,23-Jun-2018, Bonus 1:1,equities
+JYOTHYLAB,EQ,Jyothy Labs Limited,INE668F01031,1,28-Jun-2018,30-Jun-2018, Bonus 1:1,equities
+KAJARIACER,EQ,Kajaria Ceramics Limited,INE217B01028,1,04-Oct-2016,05-Oct-2016, Face Value Split From Rs 2 To Re 1,equities
+KAMDHENU,EQ,Kamdhenu Limited,INE390H01012,1,08-Jan-2025,08-Jan-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+KAMOPAINTS,EQ,Kamdhenu Ventures Limited,INE0BTI01029,1,01-Aug-2023,01-Aug-2023,Bonus 1:1,equities
+KAMOPAINTS,EQ,Kamdhenu Ventures Limited,INE0BTI01029,1,14-Jun-2024,14-Jun-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+KANANIIND,EQ,Kanani Industries Limited,INE879E01029,1,30-Jan-2024,30-Jan-2024,Bonus 1:1,equities
+KANPRPLA,EQ,Kanpur Plastipack Limited,INE694E01014,10,15-Sep-2021,16-Sep-2021, Bonus 1:2,equities
+KANSAINER,EQ,Kansai Nerolac Paints Limited,INE531A01016,1,04-Jul-2023,04-Jul-2023,Bonus 1:2,equities
+KAPSTON,EQ,Kapston Services Limited,INE542Z01010,5,09-Aug-2024,09-Aug-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+KAPSTON,SM,Kapston Services Limited,314853,10,27-Jan-2020,28-Jan-2020, BONUS 1:6,sme
+KARNIKA,SM,Karnika Industries Limited,458535,10,29-Aug-2025,29-Aug-2025,BONUS 4:1,sme
+KARURVYSYA,EQ,Karur Vysya Bank Limited,INE036D01010,2,14-Aug-2018,18-Aug-2018, Bonus 1:10,equities
+KARURVYSYA,EQ,Karur Vysya Bank Limited,INE036D01010,2,26-Aug-2025,26-Aug-2025,Bonus 1:5,equities
+KCK,SM,Kck Industries Limited,432229,2,30-Oct-2024,30-Oct-2024,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+KDL,SM,Kore Digital Limited,435235,10,17-Jan-2025,17-Jan-2025,BONUS 2:1,sme
+KELLTONTEC,EQ,Kellton Tech Solutions Limited,INE164B01022,1,25-Jul-2025,25-Jul-2025,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+KELLTONTEC,EQ,Kellton Tech Solutions Limited,INE164B01022,1,27-Mar-2018,29-Mar-2018, Bonus 1:1,equities
+KHFM,SM,Khfm Hospitality And Facility Management Services Limited,359681,10,16-Dec-2021,17-Dec-2021, BONUS 1:30,sme
+KIMS,EQ,Krishna Institute of Medical Sciences Limited,INE967H01017,2,13-Sep-2024,13-Sep-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+KITEX,EQ,Kitex Garments Limited,INE602G01020,1,17-Jan-2025,17-Jan-2025,Bonus 2:1,equities
+KITEX,EQ,Kitex Garments Limited,INE602G01020,1,22-Jun-2017,23-Jun-2017, Bonus 2:5,equities
+KKCL,EQ,Kewal Kiran Clothing Limited,INE401H01017,10,16-Dec-2021,17-Dec-2021, Bonus 4:1,equities
+KKVAPOW,SM,KKV Agro Powers Limited,352556,10,14-Oct-2021,18-Oct-2021, BONUS 1:4,sme
+KKVAPOW,SM,KKV Agro Powers Limited,281365,10,19-Jul-2018,20-Jul-2018, BONUS 1:4/DIVIDEND- RE 1 PER SHARE,sme
+KKVAPOW,SM,KKV Agro Powers Limited,462537,10,26-Sep-2025,26-Sep-2025,BONUS 1:10,sme
+KMEW,EQ,Knowledge Marine & Engineering Works Limited,INE0CJD01011,5,22-Dec-2025,22-Dec-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+KNRCON,EQ,KNR Constructions Limited,INE634I01011,2,03-Feb-2021,04-Feb-2021, Bonus 1:1,equities
+KODYTECH,SM,Kody Technolab Limited,434084,10,06-Dec-2024,06-Dec-2024,BONUS 1:1,sme
+KOTAKBANK,EQ,Kotak Mahindra Bank Limited,INE237A01010,1,14-Jan-2026,14-Jan-2026,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+KOTHARIPRO,EQ,Kothari Products Limited,INE823A01017,10,18-Feb-2025,18-Feb-2025,Bonus 1:1,equities
+KPIGREEN,EQ,KPI Green Energy Limited,INE542W01017,5,03-Jan-2025,03-Jan-2025,Bonus 1:2,equities
+KPIGREEN,EQ,KPI Green Energy Limited,INE542W01017,5,15-Feb-2024,15-Feb-2024,Bonus 1:2,equities
+KPIGREEN,EQ,KPI Green Energy Limited,INE542W01017,5,18-Jan-2023,18-Jan-2023,Bonus 1:1,equities
+KPIGREEN,EQ,KPI Green Energy Limited,INE542W01017,5,18-Jul-2024,18-Jul-2024,Face Value Split (Sub-Division) - From Rs10/- Per Share To Rs 5/- Per Share,equities
+KPRMILL,EQ,K.P.R. Mill Limited,INE930H01015,1,24-Sep-2021,27-Sep-2021, Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+KRISHANA,EQ,Krishana Phoschem Limited,INE506W01012,2,25-Oct-2023,25-Oct-2023,Bonus 1:1,equities
+KRITIKA,EQ,Kritika Wires Limited,INE00Z501011,2,19-Dec-2023,19-Dec-2023,Bonus 2:1,equities
+KRITIKA,EQ,Kritika Wires Limited,INE00Z501011,2,30-Aug-2022,30-Aug-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+KSB,EQ,Ksb Limited,INE999A01015,2,25-Jul-2024,25-Jul-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+KSHITIJPOL,SM,Kshitij Polyline Limited,346735,10,13-Aug-2021,17-Aug-2021, BONUS 1:6,sme
+KSHITIJPOL,EQ,Kshitij Polyline Limited,IN0000000000,2,27-Oct-2022,27-Oct-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+KSOLVES,SM,Ksolves India Limited,341033,10,04-Jun-2021,07-Jun-2021, BONUS 3:1/DIVIDEND - RS 30 PER SHARE,sme
+KSOLVES,EQ,Ksolves India Limited,INE0D6I01015,5,06-Feb-2025,06-Feb-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+KSOLVES,SM,Ksolves India Limited,347116,10,06-Sep-2021,07-Sep-2021, BONUS 1:1,sme
+KTIL,EQ,Kesar Terminals & Infrastructure Limited,INE096L01017,5,11-Aug-2016,13-Aug-2016, Bonus 1:25/ Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+KTKBANK,EQ,The Karnataka Bank Limited,INE614B01018,10,17-Mar-2020,18-Mar-2020, Bonus 1:10,equities
+KUANTUM,EQ,Kuantum Papers Limited,INE529I01013,1,14-Jul-2020,15-Jul-2020, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+LAL,EQ,Lorenzini Apparels Limited,INE740X01015,1,28-Mar-2024,28-Mar-2024,Bonus 6:11,equities
+LAL,EQ,Lorenzini Apparels Limited,INE740X01015,1,28-Mar-2024,28-Mar-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+LALPATHLAB,EQ,Dr. Lal Path Labs Ltd.,INE600L01024,10,19-Dec-2025,19-Dec-2025,Bonus 1:1,equities
+LANCER,EQ,Lancer Container Lines Limited,INE359U01010,5,16-Dec-2022,16-Dec-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+LANDSMILL,EQ,Landsmill Green Limited,INE688J01023,1,23-Jan-2018,24-Jan-2018, Bonus 2:1,equities
+LANDSMILL,EQ,Landsmill Green Limited,INE688J01023,1,28-Sep-2022,28-Sep-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+LANDSMILL,EQ,Landsmill Green Limited,INE688J01023,1,28-Sep-2022,28-Sep-2022,Bonus 1:2,equities
+LAOPALA,EQ,La Opala RG Limited,INE059D01012,2,22-Mar-2018,23-Mar-2018, Bonus 1:1,equities
+LATTEYS,SM,Latteys Industries Limited,386598,2,10-Feb-2023,10-Feb-2023,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+LATTEYS,SM,Latteys Industries Limited,382362,2,12-Oct-2022,12-Oct-2022,BONUS 3:2,sme
+LAURUSLABS,EQ,Laurus Labs Limited,INE947Q01010,2,29-Sep-2020,30-Sep-2020, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+LGBBROSLTD,EQ,LG Balakrishnan & Bros Limited,INE337A01034,10,14-Jun-2018,16-Jun-2018, Bonus 1:1,equities
+LGHL,EQ,Laxmi Goldorna House Limited,INE258Y01016,10,10-Oct-2025,10-Oct-2025,Bonus 7:5,equities
+LIBAS,EQ,Libas Consumer Products Limited,INE908V01012,10,06-Apr-2021,07-Apr-2021, Bonus 1:5,equities
+LIBAS,SM,Libas Consumer Products Limited,289819,10,21-Sep-2018,24-Sep-2018, BONUS 1:2,sme
+LIBAS,EQ,Libas Consumer Products Limited,INE908V01012,10,21-Sep-2021,22-Sep-2021, Bonus 1:5,equities
+LIKHITHA,EQ,Likhitha Infrastructure Limited,INE060901019,5,02-Dec-2022,02-Dec-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+LINC,EQ,Linc Limited,INE802B01019,5,20-Dec-2024,20-Dec-2024,Bonus 1:1,equities
+LINC,EQ,Linc Limited,INE802B01019,5,20-Dec-2024,20-Dec-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+LODHA,EQ,Lodha Developers Limited,INE670K01029,10,31-May-2023,31-May-2023,Bonus 1:1,equities
+LT,EQ,Larsen & Toubro Limited,INE018A01030,2,13-Jul-2017,14-Jul-2017, Bonus 1:2,equities
+LUMAXTECH,EQ,Lumax Auto Technologies Limited,INE872H01019,2,07-Jun-2018,08-Jun-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+LUXIND,EQ,Lux Industries Limited,INE150G01012,2,06-Jun-2016,07-Jun-2016, Face Value Split From Rs 10 To Rs 2,equities
+M&M,EQ,Mahindra & Mahindra Limited,INE101A01026,5,21-Dec-2017,23-Dec-2017, Bonus 1:1,equities
+MAANALU,EQ,Maan Aluminium Limited,INE215I01019,5,02-Aug-2021,03-Aug-2021, Bonus 1: 1,equities
+MAANALU,EQ,Maan Aluminium Limited,INE215I01019,5,10-Jul-2017,11-Jul-2017, Bonus 1:1,equities
+MAANALU,EQ,Maan Aluminium Limited,INE215I01019,5,27-Jul-2023,27-Jul-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+MAANALU,EQ,Maan Aluminium Limited,INE215I01019,5,27-Jul-2023,27-Jul-2023,Bonus 1:1,equities
+MACPOWER,SM,Macpower CNC Machines Limited,322551,10,30-Jun-2020,01-Jul-2020, BONUS 2:100,sme
+MAGADSUGAR,EQ,Magadh Sugar & Energy Limited,INE347W01011,10,27-Jun-2019,30-Jun-2019, Bonus 4:10,equities
+MAHESHWARI,EQ,Maheshwari Logistics Limited,INE263W01010,10,13-Oct-2020,14-Oct-2020, Bonus 1:1,equities
+MAHLIFE,EQ,Mahindra Lifespace Developers Limited,INE813A01018,10,14-Sep-2021,15-Sep-2021, Bonus 2:1,equities
+MAHSEAMLES,EQ,Maharashtra Seamless Limited,INE271B01025,5,25-Nov-2022,28-Nov-2022,Bonus 1:1,equities
+MANINFRA,EQ,Man Infraconstruction Limited,INE949H01015,2,17-Nov-2021,19-Nov-2021, Bonus 1:2,equities
+MANORAMA,EQ,Manorama Industries Limited,INE00VM01010,2,07-Mar-2024,08-Mar-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+MANPASAND,EQ,Manpasand Beverages Limited,INE122R01018,10,27-Sep-2017,28-Sep-2017, Bonus 1:1,equities
+MARATHON,EQ,Marathon Nextgen Realty Limited,INE182D01012,5,05-Apr-2018,06-Apr-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+MARINE,EQ,Marine Electricals (India) Limited,INE01JE01010,2,18-Feb-2021,22-Feb-2021, Face Value Split (Sub-Division) - From Rs 10 Per Share To Rs 2 Per Share,equities
+MASFIN,EQ,MAS Financial Services Limited,INE348L01012,10,22-Feb-2024,22-Feb-2024,Bonus 2:1,equities
+MAZDA,EQ,Mazda Limited,INE885E01034,2,28-Jan-2025,28-Jan-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+MAZDOCK,EQ,Mazagon Dock Shipbuilders Limited,INE249Z01012,5,27-Dec-2024,27-Dec-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+MBAPL,EQ,Madhya Bharat Agro Products Limited,INE900L01010,2,18-Oct-2022,19-Oct-2022,Bonus 1:1,equities
+MBAPL,EQ,Madhya Bharat Agro Products Limited,INE900L01010,2,20-Oct-2023,20-Oct-2023,Bonus 1:1,equities
+MCL,SM,M TEK COPPER LIMITED,297051,5,02-May-2019,04-May-2019, FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 5/- PER SHARE,sme
+MCL,SM,M TEK COPPER LIMITED,283647,5,05-Sep-2018,06-Sep-2018, BONUS 2:1,sme
+MCL,SM,M TEK COPPER LIMITED,311705,5,22-Oct-2019,23-Oct-2019, BONUS 1:1,sme
+MCX,EQ,Multi Commodity Exchange of India Limited,INE745G01035,2,02-Jan-2026,02-Jan-2026,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+MEDICO,EQ,Medico Remedies Limited,INE630Y01016,2,16-Mar-2023,16-Mar-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+MENONBE,EQ,Menon Bearings Limited,INE071D01025,1,30-Aug-2016,31-Aug-2016, Bonus 1:5,equities
+MGEL,EQ,Mangalam Global Enterprise Limited,INE0APB01016,1,04-Mar-2025,04-Mar-2025,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+MGEL,EQ,Mangalam Global Enterprise Limited,INE0APB01016,1,18-Aug-2022,19-Aug-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+MGEL,SM,Mangalam Global Enterprise Limited,326242,10,31-Aug-2020,01-Sep-2020, BONUS 1:2,sme
+MHRIL,EQ,Mahindra Holidays & Resorts India Limited,INE998I01010,10,08-Sep-2021,09-Sep-2021, Bonus 1:2,equities
+MHRIL,EQ,Mahindra Holidays & Resorts India Limited,INE998I01010,10,10-Jul-2017,11-Jul-2017, Bonus 1:2,equities
+MILTON,SM,Milton Industries Limited,311459,10,14-Oct-2019,15-Oct-2019, BONUS 1:10,sme
+MINDTECK,EQ,Mindteck (India) Limited,INE110B01017,10,20-Sep-2024,20-Sep-2024,Bonus 1:4,equities
+MINDTREE,EQ,MindTree Limited,INE018I01017,10,09-Mar-2016,10-Mar-2016, Bonus 1:1,equities
+MITTAL,EQ,Mittal Life Style Limited,INE997Y01019,1,01-Nov-2023,01-Nov-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+MITTAL,SM,Mittal Life Style Limited,300221,10,20-Jun-2019,21-Jun-2019, BONUS 2:3,sme
+MITTAL,EQ,Mittal Life Style Limited,INE997Y01019,1,31-Aug-2021,01-Sep-2021, Bonus 1:10,equities
+MKPL,SM,M K Proteins Limited,386382,10,03-Feb-2023,03-Feb-2023,BONUS 2:1,sme
+MKPL,EQ,M K Proteins Limited,INE964W01013,1,10-Nov-2023,10-Nov-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+MKPL,EQ,M K Proteins Limited,INE964W01013,1,15-Mar-2024,15-Mar-2024,Bonus 2:1,equities
+MMFL,EQ,MM Forgings Limited,INE227C01017,10,16-Jul-2024,16-Jul-2024,Bonus 1:1,equities
+MMFL,EQ,MM Forgings Limited,INE227C01017,10,18-Jul-2018,19-Jul-2018, Bonus 1:1,equities
+MMP,SM,MMP Industries Limited,313897,10,30-Dec-2019,31-Dec-2019, BONUS 1:2,sme
+MMTC,EQ,MMTC Limited,INE123F01011,1,03-May-2018,04-May-2018, Bonus 1:2,equities
+MOIL,EQ,MOIL Limited,INE490G01020,10,27-Sep-2017,28-Sep-2017, Bonus 1:1,equities
+MOKSH,EQ,Moksh Ornaments Limited,INE514Y01012,2,14-Jul-2021,15-Jul-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+MOLDTKPAC,EQ,Mold-Tek Packaging Limited,INE893J01011,5,17-Feb-2016,18-Feb-2016, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+MONARCH,EQ,Monarch Networth Capital Limited,INE903D01011,10,13-Sep-2024,13-Sep-2024,Bonus 1:1,equities
+MONEYBOXX,EQ,Moneyboxx Finance Limited,INE296Q01012,10,15-Dec-2025,15-Dec-2025,Bonus 1:1,equities
+MONNETISPA,EQ,Monnet Ispat and Energy Limited,INE743C01013,10,29-Aug-2018,30-Aug-2018, Capital Reduction Rs 10 To Rs 3.30 / Consolidation Rs 3.30 To Rs.10,equities
+MOS,SM,Mos Utility Limited,456621,2,08-Aug-2025,08-Aug-2025,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+MOS,SM,Mos Utility Limited,462531,2,14-Oct-2025,14-Oct-2025,BONUS 1:1,sme
+MOTHERSON,EQ,Samvardhana Motherson International Limited,INE775A01035,1,03-Oct-2022,05-Oct-2022,Bonus 1:2,equities
+MOTHERSON,EQ,Samvardhana Motherson International Limited,INE775A01035,1,05-Jul-2017,-, Bonus 1:2,equities
+MOTHERSON,EQ,Samvardhana Motherson International Limited,INE775A01035,1,18-Jul-2025,18-Jul-2025,Bonus 1:2,equities
+MOTHERSON,EQ,Samvardhana Motherson International Limited,INE775A01035,1,30-Oct-2018,31-Oct-2018, Bonus 1:2,equities
+MOTILALOFS,EQ,Motilal Oswal Financial Services Limited,INE338I01027,1,10-Jun-2024,10-Jun-2024,Bonus 3:1,equities
+MOTISONS,EQ,Motisons Jewellers Limited,INE0FRK01012,1,08-Nov-2024,09-Nov-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+MOTOGENFIN,EQ,The Motor & General Finance Limited,INE861B01015,5,19-Jun-2020,22-Jun-2020, Face Value Split (Sub-Division) - From Rs 10 Per Share To Rs 5  Per Share,equities
+MOXSH,SM,Moxsh Overseas Educon Limited,431795,10,09-Oct-2024,09-Oct-2024,BONUS 3:1,sme
+MSUMI,EQ,Motherson Sumi Wiring India Limited,INE0FS801015,1,16-Nov-2022,17-Nov-2022,Bonus 2:5,equities
+MSUMI,EQ,Motherson Sumi Wiring India Limited,INE0FS801015,1,18-Jul-2025,18-Jul-2025,Bonus 1:2,equities
+MUNJALAU,EQ,Munjal Auto Industries Limited,INE672B01024,2,11-Jul-2017,12-Jul-2017, Bonus 1:1,equities
+MUTHOOTCAP,EQ,Muthoot Capital Services Limited,INE296G01013,10,12-Jun-2017,13-Jun-2017, Bonus 1:10,equities
+NARMADA,SM,Narmada Agrobase Limited,316406,10,25-Feb-2020,26-Feb-2020, BONUS 8:10,sme
+NAUKRI,EQ,Info Edge (India) Limited,INE663F01024,2,07-May-2025,07-May-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+NAVA,EQ,NAVA LIMITED,INE725A01022,1,01-Sep-2016,03-Sep-2016, Bonus 1:1,equities
+NAVA,EQ,NAVA LIMITED,INE725A01022,1,20-Jan-2025,20-Jan-2025,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+NAVINFLUOR,EQ,Navin Fluorine International Limited,INE048G01018,2,19-Jul-2017,20-Jul-2017, Face Value Split From Rs 10/- Per Share To Rs 2/- Per Share,equities
+NAVKARURB,EQ,Navkar Urbanstructure Limited,INE268H01036,1,09-May-2025,09-May-2025,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+NAVKARURB,EQ,Navkar Urbanstructure Limited,INE268H01036,1,24-Apr-2025,24-Apr-2025,Bonus 3:2,equities
+NAZARA,EQ,Nazara Technologies Limited,INE418L01021,2,24-Jun-2022,27-Jun-2022,Bonus 1:1,equities
+NAZARA,EQ,Nazara Technologies Limited,INE418L01021,2,26-Sep-2025,26-Sep-2025,Bonus 1:1,equities
+NAZARA,EQ,Nazara Technologies Limited,INE418L01021,2,26-Sep-2025,26-Sep-2025,Face Value Split (Sub-Division) - From Rs 4/- Per Share To Rs 2/- Per Share,equities
+NBCC,EQ,NBCC (India) Limited,INE095N01015,1,02-Jun-2016,03-Jun-2016, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+NBCC,EQ,NBCC (India) Limited,INE095N01015,1,07-Oct-2024,07-Oct-2024,Bonus 1:2,equities
+NBCC,EQ,NBCC (India) Limited,INE095N01015,1,17-Feb-2017,21-Feb-2017, Bonus 1:2,equities
+NBCC,EQ,NBCC (India) Limited,INE095N01015,1,25-Apr-2018,26-Apr-2018, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+NBIFIN,EQ,N. B. I. Industrial Finance Company Limited,INE365I01012,5,07-Dec-2017,08-Dec-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+NDL,EQ,Nandan Denim Limited,INE875G01030,1,19-Sep-2024,19-Sep-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+NDL,EQ,Nandan Denim Limited,INE875G01030,1,24-Mar-2022,25-Mar-2022,Bonus 2:1,equities
+NDRAUTO,EQ,Ndr Auto Components Limited,INE07OG01012,10,24-Jul-2023,24-Jul-2023,Bonus 1:1,equities
+NDRAUTO,EQ,Ndr Auto Components Limited,INE07OG01012,10,25-Sep-2024,25-Sep-2024,Bonus 1:1,equities
+NESCO,EQ,Nesco Limited,INE317F01027,2,15-Sep-2017,18-Sep-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+NESTLEIND,EQ,Nestle India Limited,INE239A01016,1,05-Jan-2024,05-Jan-2024,Face Value Split (Sub-Division) - From Rs10/- Per Share To Re 1/- Per Share,equities
+NESTLEIND,EQ,Nestle India Limited,INE239A01016,1,08-Aug-2025,08-Aug-2025,Bonus 1:1,equities
+NEWGEN,EQ,Newgen Software Technologies Limited,INE619B01017,10,12-Jan-2024,12-Jan-2024,Bonus 1:1,equities
+NIACL,EQ,The New India Assurance Company Limited,INE470Y01017,5,27-Jun-2018,28-Jun-2018, Bonus 1:1/ Dividend- Rs 5 Per Share,equities
+NINSYS,EQ,NINtec Systems Limited,INE395U01014,10,03-Aug-2023,03-Aug-2023,Bonus 4:5,equities
+NIPPOBATRY,EQ,Indo-National Limited,INE567A01010,5,28-Oct-2021,29-Oct-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+NITIRAJ,SM,Nitiraj Engineers Limited,311233,10,30-Sep-2019,01-Oct-2019, BONUS 1:4,sme
+NMDC,EQ,NMDC Limited,INE584A01023,1,27-Dec-2024,27-Dec-2024,Bonus 2:1,equities
+NPST,SM,Network People Services Technologies Limited,409536,10,02-Feb-2024,02-Feb-2024,BONUS 2:1,sme
+NRL,EQ,Nupur Recyclers Limited,INE0JM501013,10,20-Mar-2024,20-Mar-2024,Bonus 1:2,equities
+NRL,SM,Nupur Recyclers Limited,362392,10,22-Feb-2022,23-Feb-2022,BONUS 1:10,sme
+NRL,SM,Nupur Recyclers Limited,385012,10,23-Dec-2022,23-Dec-2022,BONUS 1:1,sme
+NTPC,EQ,NTPC Limited,INE733E01010,10,19-Mar-2019,20-Mar-2019, Bonus 1:5,equities
+NUVAMA,EQ,Nuvama Wealth Management Limited,INE531F01015,2,26-Dec-2025,26-Dec-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+NYKAA,EQ,FSN E-Commerce Ventures Limited,INE388Y01029,1,10-Nov-2022,11-Nov-2022,Bonus 5:1,equities
+OIL,EQ,Oil India Limited,INE274J01014,10,02-Jul-2024,02-Jul-2024,Bonus 1:2,equities
+OIL,EQ,Oil India Limited,INE274J01014,10,12-Jan-2017,13-Jan-2017, Bonus 1:3,equities
+OIL,EQ,Oil India Limited,INE274J01014,10,27-Mar-2018,29-Mar-2018, Bonus 1:2,equities
+OMFURN,SM,Omfurn India Limited,405881,10,06-Oct-2023,06-Oct-2023,BONUS 1:5,sme
+ONEPOINT,EQ,One Point One Solutions Limited,INE840Y01011,2,18-Jan-2022,19-Jan-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+ONEPOINT,EQ,One Point One Solutions Limited,INE840Y01011,2,18-Jan-2022,19-Jan-2022,Bonus 1:2,equities
+ONEPOINT,SM,One Point One Solutions Limited,296777,10,24-Apr-2019,25-Apr-2019, BONUS 1:2,sme
+ONGC,EQ,Oil & Natural Gas Corporation Limited,INE213A01011,5,15-Dec-2016,16-Dec-2016, Bonus 1: 2,equities
+ORBTEXP,EQ,Orbit Exports Limited,INE231G01010,10,14-Feb-2017,15-Feb-2017, Bonus 1:1/Interim Dividend Rs 2/- Per Share (Purpose Revised),equities
+ORIENTTECH,EQ,Orient Technologies Limited,INE0PPK01015,10,05-Jan-2026,05-Jan-2026,Bonus 1:10,equities
+OSIAHYPER,EQ,Osia Hyper Retail Limited,INE06IR01013,1,13-Mar-2023,13-Mar-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+OSIAHYPER,SM,Osia Hyper Retail Limited,368521,10,20-Jun-2022,21-Jun-2022,BONUS 3:5,sme
+OSWALSEEDS,EQ,ShreeOswal Seeds And Chemicals Limited,INE00IK01011,2,02-Feb-2024,02-Feb-2024,Bonus 1:5,equities
+OSWALSEEDS,EQ,ShreeOswal Seeds And Chemicals Limited,INE00IK01011,2,18-Aug-2023,18-Aug-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+PAISALO,EQ,Paisalo Digital Limited,INE420C01042,1,20-Mar-2024,20-Mar-2024,Bonus 1:1,equities
+PAISALO,EQ,Paisalo Digital Limited,INE420C01042,1,30-Jun-2022,01-Jul-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+PANACHE,SM,Panache Digilife Limited,302185,10,18-Jul-2019,19-Jul-2019, BONUS 1:1,sme
+PANAMAPET,EQ,Panama Petrochem Limited,INE305C01011,2,03-Oct-2017,04-Oct-2017, Bonus 1:2,equities
+PAR,SM,Par Drugs and Chemicals Limited,340524,10,27-Apr-2021,28-Apr-2021, BONUS 1:1,sme
+PARAMPARA,SM,PARAMPARA DAIRY DELIGHTS LIMITED,300897,10,01-Jul-2019,02-Jul-2019, BONUS 3:1,sme
+PARAS,EQ,Paras Defence and Space Technologies Limited,INE045601015,5,04-Jul-2025,04-Jul-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+PARTYCRUS,SM,Party Cruisers Limited,389425,10,18-Apr-2023,18-Apr-2023,BONUS 1:1,sme
+PATANJALI,EQ,Patanjali Foods Limited,INE619A01035,2,11-Sep-2025,11-Sep-2025,Bonus 2:1,equities
+PAVNAIND,EQ,Pavna Industries Limited,INE07S101020,1,01-Sep-2025,01-Sep-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+PAVNAIND,SM,Pavna Industries Limited,375644,10,05-Sep-2022,06-Sep-2022,BONUS 1:1,sme
+PCBL,EQ,PCBL Chemical Limited,INE602A01023,1,11-Apr-2022,12-Apr-2022,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+PCBL,EQ,PCBL Chemical Limited,INE602A01023,1,19-Apr-2018,20-Apr-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+PCJEWELLER,EQ,PC Jeweller Limited,INE785M01013,1,06-Jul-2017,07-Jul-2017, Bonus 1:1,equities
+PCJEWELLER,EQ,PC Jeweller Limited,INE785M01013,1,16-Dec-2024,16-Dec-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+PDSL,EQ,PDS Limited,INE111Q01013,2,26-Aug-2022,29-Aug-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+PERSISTENT,EQ,Persistent Systems Limited,INE262H01013,5,28-Mar-2024,01-Apr-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+PETRONET,EQ,Petronet LNG Limited,INE347G01014,10,03-Jul-2017,04-Jul-2017, Bonus 1:1,equities
+PFC,EQ,Power Finance Corporation Limited,INE134E01011,10,21-Sep-2023,21-Sep-2023,Bonus 1:4,equities
+PFC,EQ,Power Finance Corporation Limited,INE134E01011,10,26-Aug-2016,29-Aug-2016, Bonus 1:1,equities
+PGEL,EQ,PG Electroplast Limited,INE457L01011,1,10-Jul-2024,10-Jul-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+PGIL,EQ,Pearl Global Industries Limited,INE940H01014,5,05-Jan-2024,05-Jan-2024,Face Value Split (Sub-Division) - From Rs10/- Per Share To Rs 5/- Per Share,equities
+PHOENIXLTD,EQ,The Phoenix Mills Limited,INE211B01039,2,20-Sep-2024,21-Sep-2024,Bonus 1:1,equities
+PIDILITIND,EQ,Pidilite Industries Limited,INE318A01026,1,23-Sep-2025,23-Sep-2025,Bonus 1:1,equities
+PILANIINVS,EQ,Pilani Investment and Industries Corporation Limited,INE417C01014,10,31-Dec-2020,02-Jan-2021, Bonus 2:5,equities
+PILITA,EQ,PIL ITALICA LIFESTYLE LIMITED,INE600A01027,1,24-Aug-2016,25-Aug-2016, Face Value Split (Sub-Division) - From Rs 4/- Per Share To Re 1/- Per Share,equities
+PINCON,EQ,Pincon Spirit Limited,INE675G01018,10,23-Jun-2016,25-Jun-2016, Bonus 1:1,equities
+PLASTIBLEN,EQ,Plastiblends India Limited,INE083C01014,5,03-Jul-2017,04-Jul-2017, Bonus 1:1,equities
+PNCINFRA,EQ,PNC Infratech Limited,INE195J01011,2,12-Aug-2016,16-Aug-2016, Face Value Split From Rs 10 To Rs 2,equities
+POCL,EQ,Pondy Oxides & Chemicals Limited,INE063E01046,2,16-Oct-2024,16-Oct-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+POKARNA,EQ,Pokarna Limited,INE637C01017,2,18-Oct-2017,23-Oct-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+POLYMED,EQ,Poly Medicure Limited,INE205C01013,5,24-Mar-2017,28-Mar-2017, Bonus 1:1,equities
+POWERGRID,EQ,Power Grid Corporation of India Limited,INE752E01010,10,12-Sep-2023,12-Sep-2023,Bonus 1:3,equities
+POWERGRID,EQ,Power Grid Corporation of India Limited,INE752E01010,10,29-Jul-2021,30-Jul-2021, Bonus 1:3,equities
+POWERMECH,EQ,Power Mech Projects Limited,INE211R01019,10,08-Oct-2024,08-Oct-2024,Bonus 1:1,equities
+PRAKASHSTL,EQ,Prakash Steelage Limited,INE696K01016,1,03-Mar-2016,04-Mar-2016, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+PRECWIRE,EQ,Precision Wires India Limited,INE372C01011,1,21-Mar-2016,22-Mar-2016, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+PRECWIRE,EQ,Precision Wires India Limited,INE372C01011,1,22-Dec-2021,23-Dec-2021, Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+PRECWIRE,EQ,Precision Wires India Limited,INE372C01011,1,22-Dec-2022,22-Dec-2022,Bonus 1:2,equities
+PREMEXPLN,EQ,Premier Explosives Limited,INE863B01011,2,21-Jun-2024,21-Jun-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+PREMIERPOL,EQ,Premier Polyfilm Limited,INE247401016,1,05-Nov-2024,05-Nov-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+PRITI,SM,Priti International Limited,357018,10,20-Oct-2021,21-Oct-2021, BONUS 3:1,sme
+PRITIKA,SM,Pritika Engineering Components Limited,436194,5,14-Feb-2025,14-Feb-2025,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 5/- PER SHARE,sme
+PTL,EQ,PTL Enterprises Limited,INE034D01031,1,23-Dec-2021,24-Dec-2021, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+PULZ,SM,Pulz Electronics Limited,388079,10,01-Mar-2023,01-Mar-2023,BONUS 1:1,sme
+PULZ,SM,Pulz Electronics Limited,432201,10,25-Oct-2024,25-Oct-2024,BONUS 1:1,sme
+PULZ,SM,Pulz Electronics Limited,310991,10,26-Sep-2019,27-Sep-2019, BONUS 1:1,sme
+QUADPRO,SM,Quadpro Ites Limited,381768,2,03-Oct-2022,03-Oct-2022,BONUS 1:1,sme
+RADHIKAJWE,EQ,Radhika Jeweltech Limited,INE583V01013,2,26-May-2023,26-May-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+RADIOCITY,EQ,Music Broadcast Limited,INE919I01016,2,12-Mar-2020,13-Mar-2020, Bonus 1:4,equities
+RADIOCITY,EQ,Music Broadcast Limited,INE919I01016,2,13-Jan-2023,13-Jan-2023,Scheme Of Arrangement - Bonus Ncrps 1:10,equities
+RADIOCITY,EQ,Music Broadcast Limited,INE919I01016,2,20-Feb-2019,21-Feb-2019, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+RAJMET,EQ,Rajnandini Metal Limited,INE00KV01014,1,02-Sep-2021,03-Sep-2021, Bonus 1:2,equities
+RAJMET,SM,Rajnandini Metal Limited,325826,10,03-Sep-2020,04-Sep-2020, BONUS 1:1,sme
+RAJMET,EQ,Rajnandini Metal Limited,INE00KV01014,1,15-Sep-2022,16-Sep-2022,Bonus 1:2,equities
+RAJMET,EQ,Rajnandini Metal Limited,INE00KV01014,1,30-Nov-2022,30-Nov-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+RAJRATAN,EQ,Rajratan Global Wire Limited,INE451D01011,2,15-Mar-2022,16-Mar-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+RAMAPHO,EQ,Rama Phosphates Limited,INE809A01024,5,07-Feb-2025,07-Feb-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+RAMASTEEL,EQ,Rama Steel Tubes Limited,INE230R01019,1,06-Jan-2023,06-Jan-2023,Bonus 4:1,equities
+RAMASTEEL,EQ,Rama Steel Tubes Limited,INE230R01019,1,14-Mar-2016,15-Mar-2016, Bonus 4:1/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+RAMASTEEL,EQ,Rama Steel Tubes Limited,INE230R01019,1,19-Mar-2024,19-Mar-2024,Bonus 2:1,equities
+RAMASTEEL,EQ,Rama Steel Tubes Limited,INE230R01019,1,25-Aug-2022,26-Aug-2022,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+RAMRAT,EQ,Ram Ratna Wires Limited,INE207E01023,5,26-Dec-2025,26-Dec-2025,Bonus 1:1,equities
+RAMRAT,EQ,Ram Ratna Wires Limited,INE207E01023,5,28-Sep-2022,29-Sep-2022,Bonus 1:1,equities
+RATNAMANI,EQ,Ratnamani Metals & Tubes Limited,INE703B01027,2,30-Jun-2022,01-Jul-2022,Bonus 1:2,equities
+RECLTD,EQ,REC Limited,INE020B01018,10,17-Aug-2022,18-Aug-2022,Bonus 1:3,equities
+RECLTD,EQ,REC Limited,INE020B01018,10,28-Sep-2016,29-Sep-2016, Bonus 1:1,equities
+REDINGTON,EQ,Redington Limited,INE891D01018,2,18-Aug-2021,20-Aug-2021, Bonus 1:1,equities
+REDTAPE,EQ,Redtape Limited,INE0LXT01019,2,04-Feb-2025,04-Feb-2025,Bonus 3:1,equities
+REFEX,EQ,Refex Industries Limited,INE056I01017,2,22-Mar-2024,22-Mar-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+RELAXO,EQ,Relaxo Footwears Limited,INE131B01021,1,26-Jun-2019,27-Jun-2019, Bonus 1:1,equities
+RELIABLE,SM,Reliable Data Services Limited,311227,10,03-Oct-2019,05-Oct-2019, BONUS 1:5,sme
+RELIANCE,EQ,Reliance Industries Limited,INE002A01018,10,07-Sep-2017,09-Sep-2017, Bonus 1:1,equities
+RELIANCE,EQ,Reliance Industries Limited,INE002A01018,10,28-Oct-2024,28-Oct-2024,Bonus 1:1,equities
+REMSONSIND,EQ,Remsons Industries Limited,INE474C01015,2,05-Jul-2024,05-Jul-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+REMUS,SM,Remus Pharmaceuticals Limited,452745,10,04-Jul-2025,04-Jul-2025,BONUS 1:1,sme
+REMUS,SM,Remus Pharmaceuticals Limited,413818,10,06-Jun-2024,06-Jun-2024,BONUS 3:1,sme
+RGL,EQ,Renaissance Global Limited,INE722H01016,2,19-Jul-2022,20-Jul-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+RITES,EQ,RITES Limited,INE320J01015,10,08-Aug-2019,11-Aug-2019, Bonus  1:4,equities
+RITES,EQ,RITES Limited,INE320J01015,10,20-Sep-2024,20-Sep-2024,Bonus 1:1,equities
+RKFORGE,EQ,Ramkrishna Forgings Limited,INE399G01015,2,14-Mar-2022,15-Mar-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+RMDRIP,EQ,R M Drip and Sprinklers Systems Limited,INE219Y01018,1,26-Sep-2025,26-Sep-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+ROLEXRINGS,EQ,Rolex Rings Limited,INE645S01016,1,17-Oct-2025,17-Oct-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+ROTO,EQ,Roto Pumps Limited,INE535D01029,1,07-Jul-2023,08-Jul-2023,Bonus 1:1,equities
+ROTO,EQ,Roto Pumps Limited,INE535D01029,1,08-Nov-2024,08-Nov-2024,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+ROTO,EQ,Roto Pumps Limited,INE535D01029,1,11-Jul-2025,11-Jul-2025,Bonus 2:1,equities
+RPEL,EQ,Raghav Productivity Enhancers Limited,INE912T01018,10,29-Nov-2024,29-Nov-2024,Bonus 1:1,equities
+RPPL,EQ,Rajshree Polypack Limited,INE760W01015,5,17-Sep-2024,18-Sep-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+RPPL,EQ,Rajshree Polypack Limited,INE760W01015,5,26-Feb-2024,26-Feb-2024,Bonus 2:1,equities
+RUBYMILLS,EQ,The Ruby Mills Limited,INE301D01018,5,23-Sep-2022,26-Sep-2022,Bonus 1:1,equities
+RUCHIRA,EQ,Ruchira Papers Limited,INE803H01014,10,10-Oct-2022,11-Oct-2022,Bonus 1:10,equities
+RUSHIL,EQ,Rushil Decor Limited,INE573K01017,1,09-Aug-2024,09-Aug-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SADHNANIQ,EQ,Sadhana Nitrochem Limited,INE888C01040,1,05-Jul-2023,05-Jul-2023,Bonus 2:9,equities
+SAFARI,EQ,Safari Industries (India) Limited,INE429E01023,2,12-Dec-2023,12-Dec-2023,Bonus 1:1,equities
+SAGARDEEP,EQ,Sagardeep Alloys Limited,INE976T01013,10,05-Oct-2020,06-Oct-2020, Bonus 1:2,equities
+SAGCEM,EQ,Sagar Cements Limited,INE229C01013,2,17-Aug-2021,18-Aug-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SAHAJSOLAR,SM,Sahaj Solar Limited,438217,10,02-Apr-2025,02-Apr-2025,BONUS 1:1,sme
+SAIFL,SM,Sameera Agro And Infra Limited,440550,10,11-Jun-2025,11-Jun-2025,BONUS 4:1,sme
+SAKSOFT,EQ,Saksoft Limited,INE667G01015,1,19-Sep-2024,19-Sep-2024,Bonus 1:4,equities
+SAKSOFT,EQ,Saksoft Limited,INE667G01015,1,23-Sep-2022,26-Sep-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SAKUMA,EQ,Sakuma Exports Limited,INE190H01016,1,09-Aug-2024,10-Aug-2024,Bonus 4:1,equities
+SAKUMA,EQ,Sakuma Exports Limited,INE190H01016,1,12-Nov-2018,13-Nov-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SALASAR,EQ,Salasar Techno Engineering Limited,INE170V01019,1,01-Feb-2024,01-Feb-2024,Bonus 4:1,equities
+SALASAR,EQ,Salasar Techno Engineering Limited,INE170V01019,1,13-Jul-2021,14-Jul-2021, Bonus 1:1,equities
+SALASAR,EQ,Salasar Techno Engineering Limited,INE170V01019,1,27-Jun-2022,28-Jun-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 1/- Per Share,equities
+SANCO,SM,Sanco Industries Limited,240724,10,10-Aug-2016,11-Aug-2016, BONUS 1:5,sme
+SANDUMA,EQ,Sandur Manganese & Iron Ores Limited,INE149K01016,10,02-Feb-2024,02-Feb-2024,Bonus 5:1,equities
+SANDUMA,EQ,Sandur Manganese & Iron Ores Limited,INE149K01016,10,22-Sep-2025,22-Sep-2025,Bonus 2:1,equities
+SANGHVIMOV,EQ,Sanghvi Movers Limited,INE989A01024,1,27-Sep-2024,27-Sep-2024,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+SANWARIA,EQ,Sanwaria Consumer Limited,INE890C01046,1,03-Jul-2017,04-Jul-2017, Bonus 1:1,equities
+SAPPHIRE,EQ,Sapphire Foods India Limited,INE806T01012,2,05-Sep-2024,05-Sep-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SARDAEN,EQ,Sarda Energy & Minerals Limited,INE385C01013,1,04-Aug-2023,04-Aug-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SAREGAMA,EQ,Saregama India Limited,INE979A01017,1,26-Apr-2022,27-Apr-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SARVESHWAR,EQ,Sarveshwar Foods Limited,INE324X01018,1,15-Sep-2023,15-Sep-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SARVESHWAR,EQ,Sarveshwar Foods Limited,INE324X01018,1,15-Sep-2023,15-Sep-2023,Bonus 2:1,equities
+SATIA,EQ,Satia Industries Limited,INE170E01015,1,15-Oct-2019,16-Oct-2019, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SBC,EQ,SBC Exports Limited,INE04AK01010,1,10-Mar-2025,10-Mar-2025,Bonus 1:2,equities
+SBC,EQ,SBC Exports Limited,INE04AK01010,1,19-Jan-2024,19-Jan-2024,Bonus 1:2,equities
+SBC,EQ,SBC Exports Limited,INE04AK01010,1,22-Feb-2022,23-Feb-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SBC,EQ,SBC Exports Limited,INE04AK01010,1,22-Feb-2022,23-Feb-2022,Bonus 1:1,equities
+SBCL,EQ,Shivalik Bimetal Controls Limited,INE386D01027,2,12-Oct-2022,13-Oct-2022,Bonus 1:2,equities
+SBGLP,EQ,Suratwwala Business Group Limited,INE05ST01010,1,18-Apr-2024,18-Apr-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SCHAEFFLER,EQ,Schaeffler India Limited,INE513A01014,2,08-Feb-2022,09-Feb-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SDBL,EQ,Som Distilleries & Breweries Limited,INE480C01012,2,15-Oct-2020,16-Oct-2020, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SDBL,EQ,Som Distilleries & Breweries Limited,INE480C01012,2,24-May-2024,24-May-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+SECL,SM,Salasar Exteriors and Contour Limited,389678,1,03-May-2023,03-May-2023,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO Re 1/- PER SHARE,sme
+SECL,SM,Salasar Exteriors and Contour Limited,369185,1,06-Jul-2022,07-Jul-2022,BONUS 1:4,sme
+SECURCRED,EQ,SecUR Credentials Limited,INE195Y01010,10,04-Jan-2023,04-Jan-2023,Bonus 3:1,equities
+SECURCRED,SM,SecUR Credentials Limited,365864,10,18-May-2022,19-May-2022,BONUS 110:100,sme
+SECURKLOUD,EQ,SECUREKLOUD TECHNOLOGIES LIMITED,INE650K01021,5,10-Oct-2016,13-Oct-2016, Bonus 1:3/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SENCO,EQ,Senco Gold Limited,INE602W01019,5,31-Jan-2025,31-Jan-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SERVOTECH,EQ,Servotech Renewable Power System Limited,INE782X01017,1,03-Feb-2023,03-Feb-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SERVOTECH,EQ,Servotech Renewable Power System Limited,INE782X01017,1,28-Jul-2023,28-Jul-2023,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+SESHAPAPER,EQ,Seshasayee Paper and Boards Limited,INE630A01016,2,19-Aug-2019,20-Aug-2019, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SFL,EQ,Sheela Foam Limited,INE916U01025,5,21-Dec-2022,22-Dec-2022,Bonus 1:1,equities
+SHAH,EQ,Shah Metacorp Limited,INE482J01021,1,13-Oct-2016,14-Oct-2016, Face Value Split From Rs 10 To Re 1,equities
+SHAILY,EQ,Shaily Engineering Plastics Limited,INE151G01010,2,23-Nov-2023,23-Nov-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SHAIVAL,SM,Shaival Reality Limited,269761,10,17-Oct-2017,18-Oct-2017, BONUS 5:1,sme
+SHAKTIPUMP,EQ,Shakti Pumps (India) Limited,INE908D01010,10,25-Nov-2024,25-Nov-2024,Bonus 5:1,equities
+SHANTI,SM,Shanti Overseas (India) Limited,311699,10,22-Oct-2019,23-Oct-2019, BONUS 1:2,sme
+SHARDAMOTR,EQ,Sharda Motor Industries Limited,INE597I01010,2,04-Jul-2025,04-Jul-2025,Bonus 1:1,equities
+SHARDAMOTR,EQ,Sharda Motor Industries Limited,INE597I01010,2,16-Apr-2021,19-Apr-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SHAREINDIA,EQ,Share India Securities Limited,INE932X01018,2,27-Jun-2024,27-Jun-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SHILPAMED,EQ,Shilpa Medicare Limited,INE790G01023,1,03-Oct-2025,03-Oct-2025,Bonus 1:1,equities
+SHRADHA,EQ,Shradha Realty Limited,INE715Y01015,2,10-Dec-2024,10-Dec-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+SHRADHA,SM,Shradha Realty Limited,330602,10,16-Sep-2020,17-Sep-2020, BONUS 5:100,sme
+SHRADHA,EQ,Shradha Realty Limited,INE715Y01015,2,20-Jan-2023,21-Jan-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SHRENIK,EQ,Shrenik Limited,INE632X01014,1,08-Oct-2020,10-Oct-2020, Bonus 2:1,equities
+SHRENIK,EQ,Shrenik Limited,INE632X01014,1,08-Oct-2020,10-Oct-2020, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+SHRENIK,SM,Shrenik Limited,279485,2,09-Jul-2018,10-Jul-2018, FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+SHRIPISTON,EQ,SPR Auto Technologies Limited,INE526E01018,10,24-Jul-2023,24-Jul-2023,Bonus 1:1,equities
+SHRIRAMFIN,EQ,Shriram Finance Limited,INE721A01013,2,10-Jan-2025,10-Jan-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SIDDHIKA,SM,Siddhika Coatings Limited,416257,10,19-Jul-2024,19-Jul-2024,BONUS 1:1,sme
+SIGACHI,EQ,Sigachi Industries Limited,INE0D0K01014,1,09-Oct-2023,09-Oct-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SIGMA,EQ,Sigma Solve Limited,INE0A0S01010,1,06-Oct-2025,06-Oct-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SIGMA,SM,Sigma Solve Limited,381840,10,07-Oct-2022,10-Oct-2022,BONUS 3:2,sme
+SIKKO,EQ,Sikko Industries Limited,INE112X01017,1,08-Dec-2025,08-Dec-2025,Bonus 1:1,equities
+SIKKO,SM,Sikko Industries Limited,339172,10,18-Mar-2021,19-Mar-2021, BONUS 1:1,sme
+SIKKO,EQ,Sikko Industries Limited,INE112X01017,1,27-Nov-2025,27-Nov-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SIKKO,EQ,Sikko Industries Limited,INE112X01017,1,28-Oct-2022,28-Oct-2022,Bonus 1:2,equities
+SILGO,SM,Silgo Retail Limited,336373,10,07-Jan-2021,08-Jan-2021, BONUS 1:4,sme
+SIRCA,SM,Sirca Paints India Limited,301385,10,09-Jul-2019,10-Jul-2019, BONUS 1:2,sme
+SIRCA,EQ,Sirca Paints India Limited,INE792Z01011,10,11-May-2023,11-May-2023,Bonus 1:1,equities
+SIS,EQ,SIS LIMITED,INE285J01010,5,15-Jan-2020,16-Jan-2020, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SIYSIL,EQ,Siyaram Silk Mills Limited,INE076B01010,2,25-Oct-2017,26-Oct-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SKMEGGPROD,EQ,SKM Egg Products Export (India) Limited,INE411D01015,5,12-Jan-2026,12-Jan-2026,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SKYGOLD,EQ,SKY GOLD AND DIAMONDS LIMITED,INE01IU01018,10,16-Dec-2024,16-Dec-2024,Bonus 9:1,equities
+SMCGLOBAL,EQ,SMC Global Securities Limited,INE103C01036,2,14-Nov-2025,14-Nov-2025,Bonus 1:1,equities
+SMVD,SM,SMVD Poly Pack Limited,382048,10,11-Oct-2022,11-Oct-2022,BONUS 102:100,sme
+SOLEX,SM,Solex Energy Limited,428261,10,20-Sep-2024,20-Sep-2024,BONUS 1:4,sme
+SONAMLTD,EQ,SONAM LIMITED,INE00LM01011,5,10-May-2024,10-May-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SONAMLTD,EQ,SONAM LIMITED,INE00LM01011,5,14-Jul-2022,16-Jul-2022,Bonus 1:1,equities
+SONATSOFTW,EQ,Sonata Software Limited,INE269A01021,1,08-Sep-2022,10-Sep-2022,Bonus 1:3,equities
+SONATSOFTW,EQ,Sonata Software Limited,INE269A01021,1,12-Dec-2023,12-Dec-2023,Bonus 1:1,equities
+SOTL,EQ,Savita Oil Technologies Limited,INE035D01012,2,01-Sep-2022,02-Sep-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SOUTHWEST,SM,South West Pinnacle Exploration Limited,296196,10,04-Apr-2019,06-Apr-2019, BONUS 1:1,sme
+SPLPETRO,EQ,Supreme Petrochem Limited,INE663A01025,2,06-Jan-2023,06-Jan-2023,Face Value Split (Sub-Division) - From Rs 4/- Per Share To Rs 2/- Per Share,equities
+SPORTKING,EQ,Sportking India Limited,INE885H01011,1,13-Sep-2024,13-Sep-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SRF,EQ,SRF Limited,INE647A01010,10,13-Oct-2021,14-Oct-2021, Bonus 4:1,equities
+SRPL,EQ,Shree Ram Proteins Limited,INE008Z01012,1,19-May-2023,19-May-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SSWL,EQ,Steel Strips Wheels Limited,INE802C01017,1,10-Nov-2022,11-Nov-2022,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+SSWL,EQ,Steel Strips Wheels Limited,INE802C01017,1,18-Nov-2021,22-Nov-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+STEELCAS,EQ,Steelcast Limited,INE124E01020,1,29-Aug-2025,29-Aug-2025,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 1/- Per Share,equities
+STEELXIND,EQ,STEEL EXCHANGE INDIA LIMITED,INE503B01013,1,12-Jul-2022,13-Jul-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SUKHJITS,EQ,Sukhjit Starch & Chemicals Limited,INE450E01011,5,25-Oct-2024,25-Oct-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SUMEETINDS,EQ,Sumeet Industries Limited,INE235C01010,2,02-Aug-2018,04-Aug-2018, Bonus 1:4,equities
+SUMEETINDS,EQ,Sumeet Industries Limited,INE235C01010,2,03-Oct-2025,03-Oct-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+SUMIT,SM,Sumit Woods Limited,301907,10,16-Jul-2019,17-Jul-2019, BONUS 1:1,sme
+SUNILHITEC,EQ,Sunil Hitech Engineers Limited,INE305H01010,1,01-Dec-2016,03-Dec-2016, Bonus 1:1/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SUNTECK,EQ,Sunteck Realty Limited,INE805D01026,1,25-Jul-2017,26-Jul-2017, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Rs 1/- Per Share,equities
+SUPREMEENG,EQ,Supreme Engineering Limited,INE319Z01013,1,03-Mar-2022,04-Mar-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+SURYAROSNI,EQ,Surya Roshni Limited,INE335A01012,5,01-Jan-2025,01-Jan-2025,Bonus 1:1,equities
+SURYAROSNI,EQ,Surya Roshni Limited,INE335A01012,5,06-Oct-2023,06-Oct-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+SUTLEJTEX,EQ,Sutlej Textiles and Industries Limited,INE645H01019,1,26-Sep-2017,27-Sep-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share ,equities
+SUULD,EQ,Suumaya Industries Limited,INE591Q01016,10,30-Mar-2022,01-Apr-2022,Bonus 1:1,equities
+SVLL,SM,Shree Vasu Logistics Limited,382157,10,11-Oct-2022,11-Oct-2022,BONUS 1:2,sme
+SWARAJ,SM,Swaraj Suiting Limited,390280,10,19-May-2023,19-May-2023,BONUS 1:1,sme
+SWELECTES,EQ,Swelect Energy Systems Limited,INE409B01013,10,22-Aug-2019,23-Aug-2019, Bonus 1:2,equities
+SYMPHONY,EQ,Symphony Limited,INE225D01019,2,14-Sep-2016,15-Sep-2016, Bonus 1:1,equities
+SYNGENE,EQ,Syngene International Limited,INE398R01022,10,11-Jun-2019,12-Jun-2019, Bonus 1:1,equities
+TAC,SM,TAC Infosec Limited,463077,10,15-Oct-2025,15-Oct-2025,BONUS 1:1,sme
+TALBROAUTO,EQ,Talbros Automotive Components Limited,INE187D01011,2,27-Oct-2023,27-Oct-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+TARACHAND,EQ,Tara Chand InfraLogistic Solutions Limited,INE555Z01012,2,05-Dec-2024,05-Dec-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+TARIL,EQ,Transformers And Rectifiers (India) Limited,INE763I01026,1,14-Feb-2025,14-Feb-2025,Bonus 1:1,equities
+TARIL,EQ,Transformers And Rectifiers (India) Limited,INE763I01026,1,28-Sep-2017,30-Sep-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+TATAELXSI,EQ,Tata Elxsi Limited,INE670A01012,10,18-Sep-2017,19-Sep-2017, Bonus 1:1,equities
+TATAINVEST,EQ,Tata Investment Corporation Limited,INE672A01018,1,14-Oct-2025,14-Oct-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+TATASTEEL,EQ,Tata Steel Limited,INE081A01012,1,28-Jul-2022,29-Jul-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+TCS,EQ,Tata Consultancy Services Limited,INE467B01029,1,31-May-2018,02-Jun-2018, Bonus 1:1 /Dividend- Rs 29 Per Share,equities
+TDPOWERSYS,EQ,TD Power Systems Limited,INE419M01019,1,31-Oct-2022,01-Nov-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+TECHNO,EQ,Techno Electric & Engineering Company Limited,INE286K01024,2,06-Sep-2016,07-Sep-2016, Bonus 1:1,equities
+TEMBO,SM,Tembo Global Industries Limited,338657,10,03-Mar-2021,04-Mar-2021, BONUS 1:1,sme
+TFCILTD,EQ,Tourism Finance Corporation of India Limited,INE305A01015,2,19-Sep-2025,19-Sep-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+THANGAMAYL,EQ,Thangamayil Jewellery Limited,INE085J01014,10,17-Jul-2023,17-Jul-2023,Bonus 1:1,equities
+THEJO,SM,Thejo Engineering Limited,356300,10,12-Oct-2021,13-Oct-2021, BONUS 2:1,sme
+THEMISMED,EQ,Themis Medicare Limited,INE083B01016,1,10-Oct-2023,10-Oct-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+THYROCARE,EQ,Thyrocare Technologies Limited,INE594H01019,10,28-Nov-2025,28-Nov-2025,Bonus 2:1,equities
+TIMESCAN,SM,Timescan Logistics (India) Limited,413290,10,17-May-2024,17-May-2024,BONUS 1:1,sme
+TIMETECHNO,EQ,Time Technoplast Limited,INE508G01029,1,23-Sep-2025,23-Sep-2025,Bonus 1:1,equities
+TIPSMUSIC,EQ,Tips Music Limited,INE716B01029,1,21-Apr-2023,21-Apr-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+TIRUMALCHM,EQ,Thirumalai Chemicals Limited,INE338A01016,1,14-Aug-2018,17-Aug-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+TIRUPATIFL,SM,Tirupati Forge Limited,311173,10,03-Oct-2019,04-Oct-2019, BONUS 6:10,sme
+TIRUPATIFL,EQ,Tirupati Forge Limited,INE319Y01016,2,07-Oct-2021,09-Oct-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+TIRUPATIFL,EQ,Tirupati Forge Limited,INE319Y01016,2,07-Oct-2021,09-Oct-2021, Bonus 3:4,equities
+TORNTPHARM,EQ,Torrent Pharmaceuticals Limited,INE685A01028,5,08-Jul-2022,11-Jul-2022,Bonus 1:1,equities
+TOUCHWOOD,SM,Touchwood Entertainment Limited,306225,10,22-Aug-2019,24-Aug-2019, BONUS 1.5:1,sme
+TPHQ,EQ,Teamo Productions HQ Limited,INE065J01016,1,14-Dec-2023,14-Dec-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+TPLPLASTEH,EQ,TPL Plastech Limited,INE413G01014,2,16-Sep-2021,18-Sep-2021, Bonus 1:1,equities
+TPLPLASTEH,EQ,TPL Plastech Limited,INE413G01014,2,19-Oct-2022,20-Oct-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+TRENT,EQ,Trent Limited,INE849A01012,1,12-Sep-2016,14-Sep-2016, Face Value Split From Rs 10 To Re 1,equities
+TRIDENT,EQ,Trident Limited,INE064C01014,1,13-Dec-2019,16-Dec-2019, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 1/- Per Share,equities
+TTKPRESTIG,EQ,TTK Prestige Limited,INE690A01010,1,14-Dec-2021,15-Dec-2021, Face Value Split (Sub-Division) - From Rs 10 Per Share To Re 1 Per Share,equities
+TTKPRESTIG,EQ,TTK Prestige Limited,INE690A01010,1,15-May-2019,16-May-2019, Bonus 1:5,equities
+TTL,EQ,T T Limited,INE592B01016,1,12-Feb-2025,12-Feb-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+TVSHLTD,EQ,TVS Holdings Limited,INE105A01035,5,24-Mar-2023,24-Mar-2023,Bonus Ncrps 1:116,equities
+TVSMOTOR,EQ,TVS Motor Company Limited,INE494B01015,1,25-Aug-2025,25-Aug-2025,Scheme Of Arrangement - Bonus Ncrps 4:1,equities
+UEL,EQ,Ujaas Energy Limited,INE899L01030,1,10-Oct-2025,10-Oct-2025,Bonus 2:1,equities
+UEL,EQ,Ujaas Energy Limited,INE899L01030,1,20-Sep-2024,20-Sep-2024,Bonus 1:4,equities
+UEL,EQ,Ujaas Energy Limited,INE899L01030,1,30-May-2025,30-May-2025,Bonus 17:25,equities
+UNIPLY,EQ,Uniply Industries Limited,INE950G01015,2,25-Jun-2018,26-Jun-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+UNITDSPR,EQ,United Spirits Limited,INE854D01024,2,15-Jun-2018,18-Jun-2018, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+UNITEDPOLY,EQ,United Polyfab Gujarat Limited,INE368U01011,1,02-May-2025,02-May-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+UNITEDPOLY,SM,United Polyfab Gujarat Limited,338029,10,17-Feb-2021,18-Feb-2021, BONUS 2:1,sme
+UNIVASTU,EQ,Univastu India Limited,INE562X01013,10,13-Oct-2025,13-Oct-2025,Bonus 2:1,equities
+UNIVASTU,SM,Univastu India Limited,313804,10,19-Dec-2019,20-Dec-2019, BONUS 1:1,sme
+UNOMINDA,EQ,UNO Minda Limited,INE405E01023,2,07-Jul-2022,08-Jul-2022,Bonus 1:1,equities
+UNOMINDA,EQ,UNO Minda Limited,INE405E01023,2,11-Jul-2018,12-Jul-2018, Bonus 2:1/Dividend- Rs 1.60 Per Share,equities
+UNOMINDA,EQ,UNO Minda Limited,INE405E01023,2,12-Sep-2016,14-Sep-2016, Face Value Split From Rs 10 To Rs 2,equities
+UPL,EQ,UPL Limited,INE628A01036,2,02-Jul-2019,03-Jul-2019, Bonus 1:2,equities
+URAVIDEF,SM,Uravi Defence and Technology Limited,369400,10,11-Jul-2022,12-Jul-2022,BONUS 1:1,sme
+URBAN,SM,Urban Enviro Waste Management Limited,436153,10,07-Feb-2025,07-Feb-2025,BONUS 1:1,sme
+USASEEDS,SM,Upsurge Seeds Of Agriculture Limited,462637,10,10-Oct-2025,10-Oct-2025,BONUS 3:7,sme
+USHAFIN,SM,Usha Financial Services Limited,457801,10,19-Aug-2025,19-Aug-2025,BONUS 1:1,sme
+VAIBHAVGBL,EQ,Vaibhav Global Limited,INE884A01019,2,07-May-2021,10-May-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+VAISHALI,EQ,Vaishali Pharma Limited,INE972X01014,2,15-Oct-2024,15-Oct-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+VAISHALI,EQ,Vaishali Pharma Limited,INE972X01014,2,15-Oct-2024,15-Oct-2024,Bonus 1:1,equities
+VAISHALI,SM,Vaishali Pharma Limited,311739,10,17-Oct-2019,18-Oct-2019, BONUS 3:5,sme
+VAKRANGEE,EQ,Vakrangee Limited,INE051B01021,1,21-Dec-2017,23-Dec-2017, Bonus 1:1,equities
+VALIANTORG,EQ,Valiant Organics Limited,INE565V01010,10,24-Dec-2020,28-Dec-2020, Bonus 1:1,equities
+VARDMNPOLY,EQ,Vardhman Polytex Limited,INE835A01011,1,17-May-2024,18-May-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+VBL,EQ,Varun Beverages Limited,INE200M01013,2,06-Jun-2022,07-Jun-2022,Bonus 1:2,equities
+VBL,EQ,Varun Beverages Limited,INE200M01013,2,10-Jun-2021,12-Jun-2021, Bonus 1:2,equities
+VBL,EQ,Varun Beverages Limited,INE200M01013,2,12-Sep-2024,12-Sep-2024,Face Value Split (Sub-Division) - From Rs 5/- Per Share To Rs 2/- Per Share,equities
+VBL,EQ,Varun Beverages Limited,INE200M01013,2,15-Jun-2023,15-Jun-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share,equities
+VBL,EQ,Varun Beverages Limited,INE200M01013,2,25-Jul-2019,27-Jul-2019, Bonus 1:2,equities
+VCL,EQ,Vaxtex Cotfab Limited,INE098201010,1,15-Feb-2023,15-Feb-2023,Face Value Split (Sub-Division) - From Rs 2/- Per Share To Re 1/- Per Share,equities
+VCL,SM,Vaxtex Cotfab Limited,360195,2,27-Dec-2021,28-Dec-2021,BONUS 2:3,sme
+VCL,SM,Vaxtex Cotfab Limited,363683,2,28-Mar-2022,29-Mar-2022,FACE VALUE SPLIT (SUB-DIVISION) - FROM RS 10/- PER SHARE TO RS 2/- PER SHARE,sme
+VEEDOL,EQ,Veedol Corporation Limited,INE484C01030,2,16-Mar-2016,17-Mar-2016, Bonus 1:1/Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 5/- Per Share ,equities
+VEEDOL,EQ,Veedol Corporation Limited,INE484C01030,2,26-Jul-2021,27-Jul-2021, Bonus 1:1,equities
+VEEDOL,EQ,Veedol Corporation Limited,INE484C01030,2,26-Jul-2021,27-Jul-2021, Face Value Split (Sub-Division) - From Rs 5/- Per Share To Re 2/- Per Share,equities
+VERTOZ,SM,Vertoz Limited,314265,10,02-Jan-2020,03-Jan-2020, BONUS 1:1,sme
+VERTOZ,EQ,Vertoz Limited,INE188Y01015,10,05-Jul-2024,05-Jul-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+VERTOZ,EQ,Vertoz Limited,INE188Y01015,10,05-Jul-2024,05-Jul-2024,Bonus 1:1,equities
+VERTOZ,EQ,Vertoz Limited,INE188Y01015,10,25-Jun-2025,25-Jun-2025,Consolidation Of Equity Shares From Re 1 Per Share To Rs 10 Per Share,equities
+VESUVIUS,EQ,Vesuvius India Limited,INE386A01015,1,10-Jun-2025,10-Jun-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+VGUARD,EQ,V-Guard Industries Limited,INE951I01019,1,15-Mar-2017,16-Mar-2017, Bonus 2:5,equities
+VGUARD,EQ,V-Guard Industries Limited,INE951I01019,1,30-Aug-2016,31-Aug-2016, Face Value Split From Rs 10 To Re 1,equities
+VIJIFIN,EQ,Viji Finance Limited,INE159N01019,1,04-Aug-2017,07-Aug-2017, Bonus 1:10,equities
+VIMTALABS,EQ,Vimta Labs Limited,INE579C01029,2,13-Jun-2025,13-Jun-2025,Bonus 1:1,equities
+VINATIORGA,EQ,Vinati Organics Limited,INE410B01029,1,05-Feb-2020,06-Feb-2020, Face Value Split (Sub-Division) - From Rs 2/- Per Share To Rs 1/- Per Share,equities
+VINNY,EQ,Vinny Overseas Limited,INE01KI01019,1,24-Feb-2023,24-Feb-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+VINNY,EQ,Vinny Overseas Limited,INE01KI01019,1,24-Feb-2023,24-Feb-2023,Bonus 13:10,equities
+VINNY,SM,Vinny Overseas Limited,366394,10,26-May-2022,27-May-2022,BONUS 1:10,sme
+VISAKAIND,EQ,Visaka Industries Limited,INE392A01013,2,15-May-2023,15-May-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+VISHAL,EQ,Vishal Fabrics Limited,INE755Q01025,5,10-Mar-2022,11-Mar-2022,Bonus 2:1,equities
+VISHAL,EQ,Vishal Fabrics Limited,INE755Q01025,5,16-Dec-2020,17-Dec-2020, Bonus 1:2,equities
+VISHNU,EQ,Vishnu Chemicals Limited,INE270I01014,2,13-Jan-2023,13-Jan-2023,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+VISHWARAJ,EQ,Vishwaraj Sugar Industries Limited,INE430N01014,2,21-Oct-2021,22-Oct-2021, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+VIVIANA,SM,Viviana Power Tech Limited,464846,10,19-Nov-2025,19-Nov-2025,BONUS 3:5,sme
+VIVIDHA,EQ,Visagar Polytex Limited,INE370E01029,1,30-Mar-2016,02-Apr-2016, Bonus 1:3,equities
+VIVIMEDLAB,EQ,Vivimed Labs Limited,INE526G01013,2,06-Apr-2016,08-Apr-2016, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+VMART,EQ,V-Mart Retail Limited,INE665J01013,10,23-Jun-2025,23-Jun-2025,Bonus 3:1,equities
+VRLLOG,EQ,VRL Logistics Limited,INE366I01010,10,14-Aug-2025,14-Aug-2025,Bonus 1:1,equities
+VSSL,EQ,Vardhman Special Steels Limited,INE050M01012,10,26-May-2023,26-May-2023,Bonus 1:1,equities
+VSTIND,EQ,VST Industries Limited,INE710A01016,10,06-Sep-2024,06-Sep-2024,Bonus 10:1,equities
+VTL,EQ,Vardhman Textiles Limited,INE825A01012,2,24-Mar-2022,26-Mar-2022,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
+WALPAR,SM,Walpar Nutritions Limited,419741,10,14-Aug-2024,14-Aug-2024,BONUS 1:1,sme
+WEALTH,SM,Wealth First Portfolio Managers Limited,332092,10,25-Sep-2020,-, BONUS 2:3,sme
+WEBELSOLAR,EQ,Websol Energy System Limited,INE855C01015,1,14-Nov-2025,14-Nov-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+WEL,SM,Wonder Electricals Limited,356633,10,06-Oct-2021,07-Oct-2021, BONUS 3:5,sme
+WEL,EQ,Wonder Electricals Limited,INE02WG01016,1,12-Nov-2024,12-Nov-2024,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share,equities
+WELSPUNLIV,EQ,Welspun Living Limited,INE192B01031,1,21-Mar-2016,22-Mar-2016, Interim Div - Rs 6/- Per Share + Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share ,equities
+WEWIN,SM,WE WIN LIMITED,339846,10,30-Mar-2021,02-Apr-2021, BONUS 2:1,sme
+WHEELS,EQ,Wheels India Limited,INE715A01015,10,08-Aug-2018,09-Aug-2018, Bonus 1:1,equities
+WIPRO,EQ,Wipro Limited,INE075A01022,2,03-Dec-2024,03-Dec-2024,Bonus 1:1,equities
+WIPRO,EQ,Wipro Limited,INE075A01022,2,06-Mar-2019,07-Mar-2019, Bonus 1:3,equities
+WIPRO,EQ,Wipro Limited,INE075A01022,2,13-Jun-2017,14-Jun-2017, Bonus 1:1,equities
+XPROINDIA,EQ,Xpro India Limited,INE445C01015,10,01-Jul-2022,04-Jul-2022,Bonus 1:2,equities
+YESBANK,EQ,Yes Bank Limited,INE528G01019,2,21-Sep-2017,22-Sep-2017, Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share ,equities
+ZENSARTECH,EQ,Zensar Technologies Limited,INE520A01019,2,07-Sep-2018,10-Sep-2018, Face Value Split (Sub-Division) - From Rs 10 /- Per Share To Rs 2/- Per Share,equities
+ZIMLAB,EQ,Zim Laboratories Limited,INE518E01015,10,22-Dec-2022,22-Dec-2022,Bonus 2:1,equities
+ZODIAC,SM,Zodiac Energy Limited,332217,10,08-Oct-2020,09-Oct-2020, BONUS 1:1,sme
+ZOTA,SM,Zota Health Care LImited,302705,10,25-Jul-2019,26-Jul-2019, BONUS 4:10,sme
+ZYDUSWELL,EQ,Zydus Wellness Limited,INE768C01010,2,18-Sep-2025,18-Sep-2025,Face Value Split (Sub-Division) - From Rs 10/- Per Share To Rs 2/- Per Share,equities
