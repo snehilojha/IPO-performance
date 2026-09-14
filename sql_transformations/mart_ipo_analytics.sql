@@ -1,57 +1,91 @@
-DROP TABLE IF EXISTS mart_ipo_analytics_1;
+-- One row per listed equity IPO on NSE (mainboard and SME). Nothing is dropped for missing data:
+-- has_subscription_data / has_market_data say what is available.
+-- Requires variable: snapshot_date
 
-CREATE TABLE mart_ipo_analytics_1 AS
-SELECT 
-    ipo.ticker,
-    ipo.company_name,
-    ipo.ipo_start_dt,
-    ipo.ipo_end_dt,
-    ipo.listing_dt,
-    ipo.security_type,
-    ipo.issue_price,
-    
-    sub.total_issued_in_cr,
-    sub.qib_x                   AS subscription_qib_times,
-    sub.nii_x                   AS subscription_nii_times,
-    sub.retail_x                AS subscription_retail_times,
-    sub.total_x                 AS subscription_total_times,
-    sub.ipo_type,
-    sub.year                    AS ipo_year,
+CREATE OR REPLACE TABLE mart_ipo_analytics AS
+WITH base AS (
+    SELECT
+        ipo.ticker,
+        ipo.company_name,
+        ipo.segment,
+        ipo.security_type,
+        ipo.ipo_start_dt,
+        ipo.ipo_end_dt,
+        YEAR(ipo.ipo_end_dt)                         AS issue_year,
+        ipo.listing_dt,
+        ipo.listing_dt_reported,
+        ipo.listing_dt_flag,
+        ipo.issue_price,
+        ipo.issue_price_band_low,
+        ipo.issue_price_band_high,
+        ipo.issue_price_source,
 
-    tt.sector,
-    tt.subindustry,
-    tt.current_market_cap,
-    tt.last_price               AS current_price,
-    tt.current_pe_ratio,
-    tt.current_roe_ratio,
-    tt.current_pb_ratio,
-    tt.return_last_4w_pct       AS return_4week_pct,
-    tt.return_last_1d_pct       AS return_1day_pct,
-    
+        sm.subscription_key IS NOT NULL              AS has_subscription_data,
+        sm.match_method                              AS subscription_match_method,
+        sm.match_score                               AS subscription_match_score,
+        sub.issue_size_cr,
+        sub.qib_x                                    AS subscription_qib_x,
+        sub.nii_x                                    AS subscription_nii_x,
+        sub.snii_x                                   AS subscription_snii_x,
+        sub.bnii_x                                   AS subscription_bnii_x,
+        sub.retail_x                                 AS subscription_retail_x,
+        sub.employee_x                               AS subscription_employee_x,
+        sub.total_x                                  AS subscription_total_x,
+        sub.applications,
+        -- Many SME issues have no QIB category at all; that is a level, not a zero.
+        CASE WHEN sm.subscription_key IS NOT NULL THEN sub.qib_x IS NOT NULL END AS has_qib_category,
 
-    CASE 
-        WHEN ipo.issue_price > 0 AND tt.last_price IS NOT NULL 
-        THEN ROUND(((tt.last_price - ipo.issue_price) / ipo.issue_price * 100), 2)
-        ELSE NULL 
-    END AS listing_gains_pct,
+        mm.tickertape_sid IS NOT NULL                AS has_market_data,
+        mm.match_method                              AS market_match_method,
+        mm.match_score                               AS market_match_score,
+        tt.tickertape_sid,
+        tt.ticker                                    AS current_ticker,
+        tt.company_name                              AS current_company_name,
+        tt.sector,
+        tt.subindustry,
+        tt.market_cap_cr,
+        tt.last_price                                AS current_price,
+        tt.pe_ratio,
+        tt.roe_pct,
+        tt.pb_ratio,
+        tt.is_lossmaking,
+        tt.return_4w_pct,
+        tt.return_1d_pct,
 
+        getvariable('snapshot_date')::DATE           AS snapshot_date
+    FROM stg_past_ipo ipo
+    LEFT JOIN int_ipo_subscription_match sm
+        ON sm.ticker = ipo.ticker AND sm.ipo_end_dt = ipo.ipo_end_dt
+    LEFT JOIN stg_ipo_subscription sub
+        ON sub.subscription_key = sm.subscription_key
+    LEFT JOIN int_ipo_market_match mm
+        ON mm.ticker = ipo.ticker AND mm.ipo_end_dt = ipo.ipo_end_dt
+    LEFT JOIN stg_tickertape tt
+        ON tt.tickertape_sid = mm.tickertape_sid
+    WHERE ipo.is_listed_ipo
+      AND ipo.ipo_end_dt <= getvariable('snapshot_date')::DATE
+),
 
-    CURRENT_TIMESTAMP AS etl_processed_timestamp
+returns AS (
+    SELECT
+        *,
+        -- Measured from issue close (when the issue price is paid) to the snapshot date.
+        snapshot_date - ipo_end_dt                   AS holding_days,
+        -- Price-to-price only: not adjusted for splits, bonuses or dividends.
+        CASE
+            WHEN issue_price > 0 AND current_price IS NOT NULL
+            THEN (current_price - issue_price) / issue_price * 100
+        END                                          AS return_since_issue_raw
+    FROM base
+)
 
-FROM stg_past_ipo_table_1 ipo
-
--- Join with subscription table on company name and IPO dates
-LEFT JOIN stg_pastipo_subscription_table_1 sub
-    ON TRIM(UPPER(ipo.company_name)) = TRIM(UPPER(sub.company_name))
-    AND ipo.ipo_start_dt = sub.ipo_start_dt
-    AND ipo.ipo_end_dt = sub.ipo_end_dt
-
--- Join with tickertape data on ticker symbol
-LEFT JOIN stg_tickertape_data_table_1 tt
-    ON TRIM(UPPER(ipo.ticker)) = TRIM(UPPER(tt.ticker))
-
-WHERE ipo.listing_dt IS NOT NULL
-    AND sub.company_name IS NOT NULL
-    AND tt.ticker IS NOT NULL
--- Order by most recent IPOs first
-ORDER BY ipo.listing_dt DESC NULLS LAST, ipo.ipo_end_dt DESC;
+SELECT
+    * EXCLUDE (return_since_issue_raw),
+    ROUND(holding_days / 365.25, 2)                  AS holding_years,
+    ROUND(return_since_issue_raw, 2)                 AS return_since_issue_pct,
+    CASE
+        WHEN holding_days >= 182 AND return_since_issue_raw IS NOT NULL
+        THEN ROUND((POWER(1 + return_since_issue_raw / 100, 365.25 / holding_days) - 1) * 100, 2)
+    END                                              AS annualized_return_pct
+FROM returns
+ORDER BY ipo_end_dt DESC, ticker;

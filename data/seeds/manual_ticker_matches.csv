@@ -1,0 +1,36 @@
+ticker,tickertape_sid,decision,note
+BLACKBUCK,BLACK,accept,Zinka Logistics Solutions trades as Blackbuck
+KRISHIVAL,KRISI,accept,Empyrean Cashews renamed Krishival Foods
+AWL,AWL,accept,Adani Wilmar renamed AWL Agri Business
+SIS,SECR,accept,Security and Intelligence Services (India) trades as SIS
+THELEELA,THEL,accept,Schloss Bangalore trades as Leela Palaces Hotels & Resorts
+LIBAS,LIBA,accept,Libas Designs renamed Libas Consumer Products
+KAPSTON,KAPS,accept,Kapston Facilities Management renamed Kapston Services
+LODHA,LOD,accept,Macrotech Developers renamed Lodha Developers
+IKIO,IKI,accept,IKIO Lighting renamed IKIO Technologies
+SUULD,SUUM,accept,Suumaya Lifestyle renamed Suumaya Industries
+VERTOZ,VERZ,accept,Vertoz Advertising renamed Vertoz
+HDFCLIFE,HDFL,accept,HDFC Standard Life Insurance renamed HDFC Life Insurance
+SERVOTECH,SERO,accept,Servotech Power Systems renamed Servotech Renewable Power System
+FUSION,FUS,accept,Fusion Micro Finance renamed Fusion Finance
+ZOMATO,ZOM,accept,Zomato renamed Eternal
+LTI,LRTI,accept,Larsen & Toubro Infotech absorbed Mindtree and was renamed LTIMindtree
+RNAM,NIPF,accept,Reliance Nippon Life Asset Management renamed Nippon Life India Asset Management
+ANGELBRKG,ANGE,accept,Angel Broking renamed Angel One
+AMIORG,AMIO,accept,Ami Organics renamed Acutaas Chemicals
+GLS,GLS,accept,Glenmark Life Sciences renamed Alivus Life Sciences
+BURGERKING,BUR,accept,Burger King India renamed Restaurant Brands Asia
+AHL,AHL,accept,Abans Holdings renamed Abans Financial Services
+DRL,DRL,reject,Disha Resources is a different company
+WORTH,WORT,reject,Worth Investment & Trading is a different company
+CREATIVE,CRE,reject,Creative Castings is a different company
+INNOVATIVE,INN,reject,Innovative Ideals and Services is a different company
+NIKITA,NIKI,reject,Unverified rename (Nikita Papers -> Nikita Greentech Recycling); recheck with Phase 2 price history
+FROG,FROG,reject,Unverified rename (Frog Cellsat -> Frog Innovations); recheck with Phase 2 price history
+SHRADHA,SHDH,reject,Unverified rename (Shradha Infraprojects -> Shradha Realty); recheck with Phase 2 price history
+GLOBE,GLOX,reject,Unverified rename (Globe Textiles -> Globe Enterprises); recheck with Phase 2 price history
+PARIN,PARU,reject,Unverified rename (Parin Furniture -> Parin Enterprises); recheck with Phase 2 price history
+SATKARTAR,SATK,reject,Unverified rename (Sat Kartar Shopping -> Sat Kartar Life); recheck with Phase 2 price history
+ALUWIND,ALUW,reject,Unverified rename (Aluwind Architectural -> Aluwind Infra-Tech); recheck with Phase 2 price history
+UNIHEALTH,UNIHE,reject,Unverified rename (Unihealth Consultancy -> Unihealth Hospitals); recheck with Phase 2 price history
+NAMAN,NAMA,reject,Unverified rename (Naman In-Store -> Naman Industries Proxima); recheck with Phase 2 price history
