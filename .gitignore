@@ -20,3 +20,6 @@ __pycache__/
 
 # Notebook checkpoints
 .ipynb_checkpoints/
+
+# Downloaded NSE files (re-fetchable)
+data/cache/
