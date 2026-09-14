@@ -1,6 +1,11 @@
 # IPO Analysis — Indian IPOs, 2016–2025
 
-> **Status: work in progress.** The data warehouse, including listing-day prices and split-adjusted returns, is built and checked, and the data overview notebook is done. The core analysis has not been written yet. No findings are claimed here until they are backed by executed notebooks. See [ROADMAP.md](ROADMAP.md) for the plan.
+> **Status: work in progress.** The data warehouse, including listing-day prices and split-adjusted returns, is built and checked. The data overview and core analysis notebooks are done; the model, the dashboard and the final write-up are still to come. See [ROADMAP.md](ROADMAP.md) for the plan.
+
+**Early findings** (snapshot 2026-02-15; details and confidence intervals in [notebook 02](notebooks/02_subscription_vs_returns.ipynb)):
+- **Subscription strongly predicts the listing-day gain in both segments** (rank correlation 0.76 mainboard, 0.70 SME), and not just because of hot years. Mainboard IPOs subscribed 3.5× or less open at a median of −1%; those subscribed 79× or more open at +45%.
+- **It says nothing about what happens after listing day.** Someone buying at the listing-day close typically trailed NIFTY over the next year (median −16 pp SME; −8 pp mainboard, which is borderline once the number of tests is accounted for), however big the pop or the subscription.
+- **Who bids matters differently by segment.** For mainboard, QIB demand is a stronger signal than retail demand. For recent SME IPOs, QIB demand is the weakest of the three categories.
 
 ## What this is
 
@@ -58,8 +63,9 @@ Raw data is kept as dated snapshots in `data/raw/` (2026-01-22, 2026-01-30, 2026
 | Notebook | What it covers |
 |---|---|
 | [01_data_overview](notebooks/01_data_overview.ipynb) | Coverage and structural gaps, return distributions, base rates by year and segment, why `return_since_issue_pct` can't be compared across years, survivorship, and what the data can and can't support |
+| [02_subscription_vs_returns](notebooks/02_subscription_vs_returns.ipynb) | Does subscription predict the listing gain? QIB vs retail vs NII demand, whether listing pops persist, and hot vs cold years. Rank correlations and median differences with bootstrap CIs, within-year checks, median regression and a verdict table |
 
-Notebooks read the latest mart export through `src/data.py` (set `IPO_SNAPSHOT=YYYY-MM-DD` to pick another) and save their charts to `reports/figures/`.
+Notebooks read the latest mart export through `src/data.py` (set `IPO_SNAPSHOT=YYYY-MM-DD` to pick another) and save their charts to `reports/figures/`. Statistics helpers are in `src/stats.py`.
 
 ## Running it
 
@@ -81,6 +87,7 @@ pytest
 
 # Re-run a notebook and save its outputs
 jupyter nbconvert --to notebook --execute --inplace notebooks/01_data_overview.ipynb
+jupyter nbconvert --to notebook --execute --inplace notebooks/02_subscription_vs_returns.ipynb   # ~2 minutes (bootstraps)
 ```
 
 ## Known issues
@@ -92,6 +99,8 @@ jupyter nbconvert --to notebook --execute --inplace notebooks/01_data_overview.i
 - A horizon return is empty when the stock had no NSE trade in the 30 days before the horizon date. This affects 11 of 940 due 1-year returns and 20 of 494 due 3-year returns, all SME and mostly thinly traded 2016–2019 stocks.
 - Chittorgarh has no SME subscription records for 2016 and lists most 2017 SME issues without numbers (`has_subscription_figures`), so SME subscription analysis effectively starts in 2018.
 - Tickertape fields (market cap, P/E, ROE, P/B) describe each company at the snapshot date, not at listing.
+- Chittorgarh uses `9999` as a placeholder for a missing subscription multiple (Salasar Techno's QIB figure); it is stored as unknown.
+- SME QIB subscription figures exist mainly from 2023, so QIB comparisons for SME describe recent issues only.
 
 ## Disclaimer
 

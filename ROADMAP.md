@@ -184,24 +184,45 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 3. Do listing pops persist or fade? 1-year excess return vs NIFTY by listing-gain quartile and by subscription quartile.
 4. Does the relationship hold in hot vs cold IPO years?
 
-### Methods — in `src/stats.py`, unit-tested in `tests/test_stats.py`
-- [ ] `decile_table()` — median and IQR by subscription decile/quartile. Medians, not means: the data is heavily right-skewed.
-- [ ] `bootstrap_spearman()` — rank correlation with 95% bootstrap CI.
-- [ ] `bootstrap_median_diff()` — top vs bottom subscription quartile, 10,000 resamples, fixed seed.
-- [ ] Confound check: stratify within year × segment (and sector for mainboard). Optional: `statsmodels` quantile regression of listing gain on log subscription with year, sector and log issue size controls.
-- [ ] Report effect sizes in percentage points; note multiple comparisons.
+- [x] *Found before starting — warehouse fix:* Chittorgarh records Salasar Techno's (2017) QIB multiple as `9999`, a placeholder. `stg_ipo_subscription` now nulls 9999 in every category and keeps `qib_reported`, so `has_qib_category` stays true. `mainboard_qib_present` checks the category rather than the value. New check `subscription_multiples_plausible` rejects any multiple ≥ 5,000× (the largest real one is 2,556×). Test seen failing first; the rebuilt mart differs from the previous one in that single value.
 
-### Charts — 5–6 maximum, saved to `reports/figures/`
-- [ ] Median listing gain by subscription decile with IQR band, one panel per segment.
-- [ ] QIB vs retail subscription against listing gain.
-- [ ] Listing gain vs 1-year excess return (the fade).
-- [ ] Base rate by listing year with counts annotated.
-- [ ] Cohort excess return vs NIFTY.
+### Sample
+- Listing price and subscription figures present; SME from 2018 (1,037 IPOs: 448 mainboard, 589 SME).
+- Listing gains at a ceiling are kept and flagged. *Added:* `src/data.py` `listing_ceiling_pct()` / `at_listing_ceiling()` apply both SME ceilings (+20% before 2018-04-26, +90% from 2024-07-04), using the same one-tick rule as the SQL `listing_capped`.
+
+### Methods — in `src/stats.py`, unit-tested in `tests/test_stats.py`
+- [x] `decile_table()` — n, median, IQR, share above zero and share at a ceiling by subscription decile/quartile.
+- [x] `bootstrap_spearman()` — rank correlation with a 95% percentile bootstrap CI (10,000 resamples, fixed seed; vectorised, ties get average ranks).
+- [x] `bootstrap_median_diff()` — top vs bottom quartile; also `bootstrap_median()`.
+- [x] *Added:* `bootstrap_spearman_diff()` — paired difference in ρ between two predictors (QIB vs retail) on the same resamples.
+- [x] Confound check: `stratified_spearman()` (size-weighted within-year ρ, and within-sector for mainboard) plus a `statsmodels` median regression on log2 subscription with year, log issue size and sector controls. For SME it is also fitted on the period with no listing ceiling.
+- [x] *Added:* `stratified_spearman_group_diff()` — within-year ρ in hot years minus cold years (Q4).
+- [x] Effect sizes in pp. Multiple comparisons: 24 headline estimates go through a registry in the notebook, and the verdict table shows each with a 95% and a Bonferroni-adjusted interval.
+
+### Changed from the plan
+- **Q3 uses `aftermarket_excess_return_*` (from the listing-day close).** Returns measured from the issue price contain the listing gain, so they are bound to rise with it. The allottee view is still shown alongside.
+- **Q4 hot/cold is a year's median listing gain vs the segment's typical year, with ρ compared within years.** Rank correlation within a year doesn't depend on the year's level, so this isn't circular. A first version split quarters by issuance volume, but volume grew through the decade, so "hot" meant "recent" (every SME quarter in 2023–2025 was hot). It was dropped, along with a hot-vs-cold level table whose cells had 3–9 IPOs.
+- **Two planned charts were replaced.** "Base rate by listing year" and "cohort excess return" are already in notebook 01. In their place: ρ by investor category and ρ by horizon.
+
+### Charts — 6, saved to `reports/figures/02_*.png`
+- [x] Median listing gain by subscription decile with IQR band, share at a ceiling annotated.
+- [x] QIB vs retail: ρ by investor category with CIs, and a QIB × retail thirds grid (cells under 10 IPOs greyed).
+- [x] Listing gain vs 1-year excess return: allottee vs listing-day buyer, by listing-gain quartile.
+- [x] *Added:* ρ of listing gain and subscription with the buyer's return at 1m / 6m / 1y / 3y.
+- [x] ρ by listing year, hot and cold years marked.
 
 ### Verdict
-- [ ] A plain-language answer to each question, with numbers and CIs. **Write it even if the answer is "no".**
+- [x] Plain answers with numbers and CIs, including the null result, plus "what this doesn't show".
 
 **Done when:** every question has a numeric answer with a CI; notebook executed with outputs saved.
+
+> ✅ **Verified 2026-09-14** (snapshot 2026-02-15): all 22 checks pass after the warehouse fix. `jupyter nbconvert --execute` runs all 41 cells with no errors or stderr, and two runs give identical outputs (fixed seeds). Notebook 01 re-executed on the rebuilt mart; one value changed (mainboard QIB-figure availability 99.6% → 99.3%). `pytest`: 54 passed (9 in `tests/test_stats.py`, 1 new in each of `test_data.py` and `test_warehouse.py`).
+> **Q1:** ρ(subscription, listing gain) = 0.76 [0.72, 0.79] mainboard, 0.70 [0.65, 0.74] SME; within year 0.72 / 0.60. Top vs bottom quartile median gain +46 pp [+39, +56] mainboard, at least +89 pp SME (top-quartile median at the +90% ceiling). About +7 pp per doubling of subscription after controls.
+> **Q2:** mainboard ρ QIB 0.72 vs retail 0.59, difference +0.13 [+0.07, +0.19]; QIB vs NII not distinguishable. SME (293 of 309 from 2023+): QIB is the weakest, −0.07 [−0.12, −0.03] vs retail, borderline after adjustment.
+> **Q3:** for listing-day buyers, ρ(listing gain, 1y excess) = −0.01 / +0.07 with CIs spanning 0; median 1y excess −7.9 pp [−12.2, −0.4] / −15.8 pp [−23.2, −9.9]; allottees +16.4 / +10.5 pp. The only non-zero horizon correlation is SME at 1 month (0.12 [0.03, 0.20]; not caused by the ceiling; gone by 6 months).
+> **Q4:** mainboard within-year ρ 0.74 hot vs 0.70 cold (difference +0.05 [−0.05, +0.15]). SME 0.70 vs 0.44 (+0.26 [+0.13, +0.40]), but three of the four cold years are 2018–2021, the thin early SME market.
+> Carried into Phase 5: subscription is a strong listing-day signal, so a model must beat the "subscription > N×" baseline to be worth having; use SME QIB features only for 2023+ (or `has_qib_category` plus imputation); a > 0 target is unaffected by the ceilings, but a > 10% target is still defined at the ceiling (+20% and +90% both exceed 10%); state the allotment and final-day caveats.
+> Carried into Phase 7: the notebooks are generated by builder scripts that are not in the repo. Either commit them or treat the `.ipynb` files as the source.
 
 ---
 
