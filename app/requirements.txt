@@ -1,0 +1,9 @@
+# Dashboard only (Streamlit Community Cloud reads this file, next to the entrypoint). Python 3.11.
+# Versions match the root requirements.txt; no scraping, DuckDB or notebooks at runtime.
+pandas==3.0.5
+numpy==2.4.6
+pyarrow==25.0.1
+scipy==1.17.1
+matplotlib==3.11.2
+plotly==7.0.0
+streamlit==1.63.0
