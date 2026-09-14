@@ -1,0 +1,8 @@
+# Ruff's default rules for the version pinned in requirements.txt; CI runs the same version.
+target-version = "py311"
+line-length = 120
+
+[lint.isort]
+# A local, gitignored duckdb/ folder would otherwise make isort treat the package as first-party
+known-third-party = ["duckdb"]
+known-first-party = ["app", "pipeline", "scrapers", "src"]
