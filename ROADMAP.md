@@ -13,7 +13,7 @@ The single source of truth for finishing this project. Work top to bottom, tick 
 
 ## Why this roadmap exists — verified problems
 
-Checked against `data/staged/mart_ipo_analytics_20260215.csv` (snapshot 2026-02-15) and `data/duckdb/ipo.duckdb`.
+Checked against the pre-Phase 1 export `data/staged/mart_ipo_analytics_20260215.csv` (snapshot 2026-02-15, since removed) and `data/duckdb/ipo.duckdb`.
 
 | # | Problem | Evidence | Fixed in |
 |---|---|---|---|
@@ -57,68 +57,68 @@ Checked against `data/staged/mart_ipo_analytics_20260215.csv` (snapshot 2026-02-
 
 ## Phase 1 — Fix the warehouse (SQL, matching, checks)
 
-Files: `sql_transformations/stg_*.sql`, new `sql_transformations/int_*.sql`, `sql_transformations/mart_ipo_analytics.sql`, `pipeline.py`, new `sql_checks/`, new `data/seeds/`, new `tests/`.
+Files: `sql_transformations/` (`00_macros`, `stg_*`, `int_*`, `mart_ipo_analytics`, `audit_join_funnel`), `pipeline.py`, `sql_checks/`, `data/seeds/`, `tests/`.
 
 ### 1.1 `stg_past_ipo`
-- [ ] Filter `securitytype IN ('EQ', 'BE', 'SME')`.
-- [ ] `issue_price` = `TRY_CAST(TRIM(issueprice) AS DECIMAL(10,2))`; fall back to the price-band regex only when null.
-- [ ] Add `segment` (`SME` if security type is SME, else `MAINBOARD`).
-- [ ] Add `company_name_norm`: upper-case, strip `LIMITED|LTD|PVT|PRIVATE|THE|INDIA|CO|COMPANY` and all non-alphanumerics.
-- [ ] Add `date_quality_flag` for impossible dates (listing before issue close — e.g. Ruchi Soya: 2022 issue, 2003 listing).
-- [ ] Drop the `_1` suffix from all table names (and remove the stale unsuffixed tables).
+- [x] Filter `securitytype IN ('EQ', 'BE', 'SME')`.
+- [x] `issue_price`: the feed's `issueprice` **only when it lies inside the price band**, otherwise the band's upper end. *Changed from plan:* `issueprice` falls outside the band for ~140 issues (e.g. NPST 2,177 against a Rs 76–80 band — a post-migration price). `issue_price_source` records which was used.
+- [x] Add `segment` (`SME` if security type is SME, else `MAINBOARD`).
+- [x] Add `company_name_norm` (macro `norm_company_name` in `00_macros.sql`).
+- [x] `listing_dt_flag`. *Found:* for 128 SME IPOs NSE reports the **SME → mainboard migration date** as the listing date (1–8 years after issue); 2 mainboard rows (CAMS, Protean) show a similar later date. `listing_dt` is NULL for these; `listing_dt_reported` keeps the raw value.
+- [x] *Added:* `exclusion_reason` — FPOs and withdrawn issues (by name), partly-paid / demerger listings (`data/seeds/excluded_issues.csv`), and follow-on issues (a later issue under an already-used symbol).
+- [x] Drop the `_1` suffix; the DuckDB file is now recreated on every run, so stale tables can't survive.
 
 ### 1.2 `stg_ipo_subscription`
-- [ ] `company_name = COALESCE(Company, "Company Name")`.
-- [ ] `ipo_end_dt = COALESCE("~Issue_Close_Date", TRY_STRPTIME(COALESCE("Closing Date", "Close Date"), '%b %d, %Y'))`; `ipo_start_dt` may be null.
-- [ ] Keep `sNII (x)`, `bNII (x)`, `Applications`.
-- [ ] Add `company_name_norm`.
-- [ ] Dedupe on `(company_name_norm, ipo_end_dt)` with a deterministic `ORDER BY`.
+- [x] `company_name = COALESCE(Company, "Company Name")`.
+- [x] `ipo_end_dt = COALESCE("~Issue_Close_Date", STRPTIME(COALESCE("Closing Date", "Close Date")))`, same for `ipo_start_dt`. *Found:* `~Issue_Close_Date` is populated for both layouts in all three snapshots — the rows were lost because the old join also required exact names **and** equal open dates (open date is NULL for 110 issues).
+- [x] Keep `sNII (x)`, `bNII (x)`, `Employee (x)`, `Applications` (parsed from `2,11,219` style).
+- [x] Add `company_name_norm` and `subscription_key`.
+- [x] Dedupe on `(segment, company_name_norm, ipo_end_dt)` with a deterministic `ORDER BY`.
 
 ### 1.3 `stg_tickertape`
-- [ ] Keep `sid` and `name`.
-- [ ] Remove `COALESCE(..., 0)` on `pe`, `roe`, `pb` — leave NULL.
-- [ ] Add `is_lossmaking = (pe < 0 OR roe < 0)`; NULL when both unknown.
-- [ ] Add `company_name_norm`.
+- [x] Keep `tickertape_sid` and name.
+- [x] Ratios stay NULL when missing.
+- [x] `is_lossmaking = (pe < 0 OR roe < 0)`; NULL when both unknown.
+- [x] Add `company_name_norm`.
 
-### 1.4 `int_ipo_subscription_match` (new)
-- [ ] Candidate pairs: `ABS(ipo.ipo_end_dt − sub.ipo_end_dt) ≤ 3` and `jaro_winkler_similarity(norm, norm) ≥ 0.90`.
-- [ ] Keep the best candidate per IPO **and** per subscription row (one-to-one via `ROW_NUMBER`).
-- [ ] Store `match_score`, `match_method` (`exact` / `fuzzy` / `manual`).
-- [ ] Apply overrides from `data/seeds/manual_subscription_matches.csv`.
+### 1.4 `int_ipo_subscription_match`
+- [x] Candidates: close dates within ±3 days and Jaro-Winkler ≥ 0.90 on normalised names; same segment ranks first.
+- [x] One-to-one: best candidate per IPO **and** per subscription record.
+- [x] `match_score`, `close_date_diff_days`, `match_method` (`exact` / `fuzzy` / `manual`).
+- [x] `data/seeds/manual_subscription_matches.csv` (L&T Infotech, Angel Broking). The 33 IPOs still unmatched are almost all 2016–17 SME issues that Chittorgarh doesn't cover.
 
-### 1.5 `int_ipo_market_match` (new)
-- [ ] Join on ticker, then rank candidates by name similarity; accept only the best, and only above threshold.
-- [ ] Seed `data/seeds/manual_ticker_matches.csv` for legitimate renames: Adani Wilmar → AWL Agri Business, Schloss Bangalore → Leela Palaces Hotels & Resorts, Empyrean Cashews → Krishival Foods, IKIO Lighting → IKIO Technologies (review the rest of the low-similarity list by hand).
-- [ ] Unmatched IPOs are **kept** with `has_market_data = false`.
+### 1.5 `int_ipo_market_match`
+- [x] Same-ticker candidates ranked by name similarity (resolves GSTL, KEL, MAL, ZEAL, RAJPUTANA, SEL, FOCUS, BRIGHT); accepted at ≥ 0.90.
+- [x] *Added:* identical normalised name under a different ticker (`name` method) — recovers 11 changed symbols such as WORTH → WORTHPERI.
+- [x] `data/seeds/manual_ticker_matches.csv`: 22 reviewed renames accepted (Adani Wilmar → AWL, Zomato → Eternal, LTI → LTIMindtree, …); 13 low-similarity pairs rejected, 9 of them marked *unverified* for Phase 2.
+- [x] Unmatched IPOs are kept with `has_market_data = false` (45; mostly delisted or merged, e.g. Equitas Holdings, Ujjivan Financial).
 
 ### 1.6 Rebuild `mart_ipo_analytics`
-- [ ] Base = all listed equity IPOs; `LEFT JOIN` both match tables. Delete the `WHERE` that silently drops rows.
-- [ ] Flags: `has_subscription_data`, `has_market_data`, `has_qib_category` ("no QIB category" is a level, never zero).
-- [ ] Rename `listing_gains_pct` → `return_since_issue_pct`; add `snapshot_date` (scrape date, not `CURRENT_DATE`).
-- [ ] Add `holding_days`, `holding_years`, `annualized_return_pct` (NULL when `holding_days < 182`).
-- [ ] Export `data/mart/mart_ipo_analytics.parquet` (committed) plus the dated CSV.
+- [x] Base = all listed IPOs; `LEFT JOIN` both matches. No silent drops (enforced by a check).
+- [x] Flags: `has_subscription_data`, `has_market_data`, `has_qib_category`.
+- [x] `listing_gains_pct` → `return_since_issue_pct`; `snapshot_date` from the CLI snapshot.
+- [x] `holding_days` (from **issue close** — when the issue price is paid, and available even when the listing date isn't), `holding_years`, `annualized_return_pct` (NULL under 182 days).
+- [x] Export `data/mart/mart_ipo_analytics_<snapshot>.parquet` and `.csv` (dated like the raw snapshots). The old `data/staged/` exports were removed.
 
 ### 1.7 Join funnel
-- [ ] `audit_join_funnel` table: row counts at each stage (raw → equity filter → listed → subscription match → market match → mart). Log it; export `reports/join_funnel.csv`.
+- [x] `audit_join_funnel`, by segment: raw → equity → IPOs → listed → mart → with subscription → with market → with both. Logged each run; exported to `reports/join_funnel_<snapshot>.csv`.
 
 ### 1.8 Data-quality checks (pipeline stage 5 — fail loudly)
-Each `sql_checks/*.sql` returns violating rows; any row fails the run.
-- [ ] `(ticker, listing_dt)` unique.
-- [ ] `issue_price > 0`.
-- [ ] `listing_dt >= ipo_end_dt` (excluding flagged rows).
-- [ ] All accepted matches above threshold.
-- [ ] Mart row count ≥ 1,000.
-- [ ] Subscription coverage ≥ 90%.
-- [ ] Mainboard QIB null rate = 0%.
+- [x] 11 checks in `sql_checks/`; any returned row raises `DataQualityError` before anything is exported. Thresholds live in `THRESHOLDS` in `pipeline.py`.
+  - `(ticker, ipo_end_dt)` and `(ticker, listing_dt)` unique
+  - `issue_price > 0`; `listing_dt >= ipo_end_dt`
+  - every listed IPO is in the mart
+  - automatic matches above threshold; matches one-to-one
+  - mart rows ≥ 1,000; subscription and market coverage ≥ 90% **per segment**
+  - no mainboard issue with a missing QIB figure
 
 ### 1.9 Tests
-- [ ] `tests/test_warehouse.py` runs stages 2–5 against small CSVs in `tests/fixtures/`, covering:
-  - GSTL-style ticker collision resolves to the right company;
-  - second subscription layout's dates parse and join;
-  - debt / REIT / InvIT rows excluded;
-  - no duplicate `(ticker, listing_dt)`.
+- [x] `tests/test_warehouse.py` — 16 tests building stages 2–5 from `tests/fixtures/`: ticker collision, second subscription layout, non-equity / FPO / withdrawn / partly-paid / follow-on exclusion, no duplicates, migration listing date, issue-price rule, best fuzzy candidate, ±days match, manual / name / rejected market matches, NULL ratios, returns, a failing check stops the export, missing snapshot. Mutation-checked: breaking the ranking or the migration rule makes the suite fail.
 
 **Done when:** pipeline passes all checks, mart has ~1,050–1,100 rows, funnel is published, `pytest` is green.
+
+> ✅ **Verified 2026-09-14** (snapshot 2026-02-15): all 11 checks pass; mart **1,132** IPOs (450 mainboard, 682 SME); subscription data **1,099 (97%)**, market data **1,087 (96%)**, both 1,057. QIB category present for 100% of mainboard and 48% of SME issues. `pytest`: 16 passed. Snapshots 2026-01-22 and 2026-01-30 also build and pass (1,145 and 1,144 rows — the earlier NSE scrapes contained more rows).
+> Carried forward: `return_since_issue_pct` is not adjusted for splits/bonuses (Phase 2); `ruff` import-order and datetime findings (Phase 7).
 
 ---
 
@@ -135,6 +135,10 @@ Each `sql_checks/*.sql` returns violating rows; any row fails the run.
   - `listing_day_close_gain_pct`
   - `return_1m_pct`, `return_6m_pct`, `return_1y_pct`, `return_3y_pct` from issue price (NULL if the horizon hasn't elapsed)
   - matching NIFTY returns and `excess_return_*`
+- [ ] **Adjust for splits and bonuses.** Tickertape's price is unadjusted, so `return_since_issue_pct` is wrong for any stock that split or issued bonus shares. Use adjusted prices and an adjustment factor on the issue price.
+- [ ] **Recover the real listing date** for the 130 IPOs with a later-event listing date (`listing_dt_flag = 'listing_date_is_later_event'`): first trading day in the price history.
+- [ ] Re-check the 9 *unverified* rejected renames in `data/seeds/manual_ticker_matches.csv` (a matching stock must have prices from its IPO date).
+- [ ] Check IPOs with no listing date in the NSE feed (e.g. NSDL, listed Aug 2025) against price history.
 - [ ] Checks: listing price present for ≥ 85% of mainboard and ≥ 75% of SME; listing open within sanity bounds.
 - [ ] Add price coverage to the join funnel.
 
@@ -146,7 +150,7 @@ Each `sql_checks/*.sql` returns violating rows; any row fails the run.
 
 - [ ] Shared helpers:
   - `src/config.py` — paths, snapshot date
-  - `src/data.py` — `load_mart()` from Parquet
+  - `src/data.py` — `load_mart()` from `data/mart/mart_ipo_analytics_<snapshot>.parquet`
   - `src/plotting.py` — one chart style, `save_fig()` → `reports/figures/`
 - [ ] Coverage: join funnel, IPO count by year × segment, missingness by segment (QIB is structural for SME).
 - [ ] Distributions of `listing_gain_pct` and `excess_return_1y_pct` (log/symlog axis, median marked).
@@ -206,7 +210,7 @@ Each `sql_checks/*.sql` returns violating rows; any row fails the run.
 
 ## Phase 6 — Streamlit dashboard (`app/streamlit_app.py`)
 
-- [ ] Reads `data/mart/mart_ipo_analytics.parquet` only — no scraping or DuckDB at runtime. Plotly charts, `@st.cache_data`.
+- [ ] Reads `data/mart/mart_ipo_analytics_<snapshot>.parquet` only — no scraping or DuckDB at runtime. Plotly charts, `@st.cache_data`.
 - [ ] Pages:
   - **Overview** — KPI tiles (IPO count, median listing gain, % positive, by segment) and join funnel.
   - **Explore** — filters (segment, year, sector, issue size); subscription vs listing gain scatter (log x); decile chart.
@@ -236,7 +240,7 @@ Each `sql_checks/*.sql` returns violating rows; any row fails the run.
 - [ ] `reports/findings.md` — one page for a non-technical reader.
 - [ ] CI: GitHub Actions workflow running `ruff` and `pytest` on fixture data (no scraping).
 - [ ] Git: land work as logical per-phase commits. Set repo description and topics: `sql`, `duckdb`, `etl`, `analytics-engineering`, `web-scraping`, `streamlit`, `ipo`, `indian-stock-market`. Pin the repo.
-- [ ] Clean up: delete or move this roadmap to `docs/`; remove stale staged CSVs and logs from the tree.
+- [ ] Clean up: delete or move this roadmap to `docs/`; remove stale logs from the tree.
 
 **Done when:** someone can clone the repo, rebuild the mart from the saved snapshot, run the notebooks and the app, and see the headline finding within 30 seconds of opening the README.
 
