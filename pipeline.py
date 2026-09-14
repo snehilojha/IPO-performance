@@ -9,12 +9,20 @@ Pipeline Stages:
 3. DuckDB Load: Import CSVs into DuckDB raw tables
 4. Data Cleaning: Process and clean data in staging tables
 5. Analytics Mart: Create final mart_ipo_analytics table
+
+Raw files live in data/raw/<YYYY-MM-DD>/, one folder per scrape.
+
+Usage:
+    python pipeline.py                                    # scrape today's snapshot, then build
+    python pipeline.py --snapshot 2026-02-15 --skip-scrape  # rebuild from a saved snapshot
 """
 
-import sys
+import argparse
 import logging
-from datetime import datetime
+import sys
+from datetime import date, datetime
 from pathlib import Path
+
 import duckdb
 
 # Add project root to path
@@ -34,35 +42,60 @@ CONFIG = {
     'log_dir': PROJECT_ROOT / 'logs',
 }
 
+logger = logging.getLogger('IPO_Pipeline')
+
+
 # Setup logging
 def setup_logging():
     """Configure logging for the pipeline"""
     log_dir = CONFIG['log_dir']
     log_dir.mkdir(exist_ok=True, parents= True)
-    
+
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     log_file = log_dir / f'pipeline_{timestamp}.log'
-    
+
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler(log_file),
+            logging.FileHandler(log_file, encoding='utf-8'),
             logging.StreamHandler(sys.stdout)
         ]
     )
-    return logging.getLogger('IPO_Pipeline')
-
-logger = setup_logging()
 
 
 class IPODataPipeline:
     """Main pipeline orchestrator"""
-    
-    def __init__(self):
+
+    def __init__(self, snapshot: date, skip_scrape: bool = False):
         self.duckdb_conn = None
         self.config = CONFIG
-        
+        self.snapshot = snapshot
+        self.skip_scrape = skip_scrape
+        self.raw_dir = CONFIG['raw_data_dir'] / snapshot.isoformat()
+
+    def validate_snapshot(self):
+        """Refuse to overwrite an existing snapshot or build from a missing one"""
+        if self.skip_scrape:
+            if not self.raw_dir.is_dir():
+                available = sorted(p.name for p in self.config['raw_data_dir'].iterdir() if p.is_dir())
+                raise FileNotFoundError(
+                    f"No raw snapshot at {self.raw_dir}. Available snapshots: {', '.join(available) or 'none'}"
+                )
+            return
+
+        # Scrapers always fetch today's data, so a past date would mislabel it
+        if self.snapshot != date.today():
+            raise ValueError(
+                f"Cannot scrape into snapshot {self.snapshot}: scraping captures today's data. "
+                "Use --skip-scrape to rebuild from an existing snapshot."
+            )
+        if self.raw_dir.is_dir() and any(self.raw_dir.glob('*.csv')):
+            raise FileExistsError(
+                f"Snapshot {self.raw_dir} already exists and will not be overwritten. "
+                "Use --skip-scrape to rebuild from it."
+            )
+
     def connect_duckdb(self):
         """Establish DuckDB connection"""
         logger.info(f"Connecting to DuckDB: {self.config['duckdb_path']}")
@@ -77,8 +110,12 @@ class IPODataPipeline:
         logger.info("=" * 70)
         logger.info("STAGE 1: WEB SCRAPING")
         logger.info("=" * 70)
-        
-        raw_dir = self.config['raw_data_dir']
+
+        if self.skip_scrape:
+            logger.info(f"Skipped (--skip-scrape): using existing snapshot {self.raw_dir}\n")
+            return
+
+        raw_dir = self.raw_dir
         raw_dir.mkdir(exist_ok=True, parents=True)
         
         scrapers = [
@@ -113,8 +150,8 @@ class IPODataPipeline:
         logger.info("=" * 70)
         logger.info("STAGE 2: CSV TO RAW TABLES")
         logger.info("=" * 70)
-        
-        raw_dir = self.config['raw_data_dir']
+
+        raw_dir = self.raw_dir
         
         # Define CSV to table mappings
         csv_mappings = [
@@ -192,7 +229,7 @@ class IPODataPipeline:
                 logger.info(f"Executing {script_name}...")
                 
                 # Read and execute SQL
-                with open(script_path, 'r') as f:
+                with open(script_path, 'r', encoding='utf-8') as f:
                     sql_script = f.read()
                 
                 self.duckdb_conn.execute(sql_script)
@@ -228,7 +265,7 @@ class IPODataPipeline:
             if not mart_script_path.exists():
                 raise FileNotFoundError(f"Mart script not found: {mart_script_path}")            
             
-            with open(mart_script_path, 'r') as f:
+            with open(mart_script_path, 'r', encoding='utf-8') as f:
                 mart_sql = f.read()
             
             # Execute mart creation
@@ -271,7 +308,7 @@ class IPODataPipeline:
         staged_dir = self.config['staged_data_dir']
         staged_dir.mkdir(exist_ok=True, parents=True)
         
-        output_path = staged_dir / f"mart_ipo_analytics_{datetime.now().strftime('%Y%m%d')}.csv"
+        output_path = staged_dir / f"mart_ipo_analytics_{self.snapshot.strftime('%Y%m%d')}.csv"
         
         try:
             self.duckdb_conn.execute(f"""
@@ -292,9 +329,12 @@ class IPODataPipeline:
         logger.info("+" + "-" * 68 + "+")
         logger.info("|" + " " * 20 + "IPO ANALYTICS PIPELINE" + " " * 26 + "|")
         logger.info("+" + "-" * 68 + "+")
-        logger.info(f"Pipeline started at: {start_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
-        
+        logger.info(f"Pipeline started at: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        logger.info(f"Snapshot: {self.snapshot} ({'rebuild, no scraping' if self.skip_scrape else 'scrape + build'})\n")
+
         try:
+            self.validate_snapshot()
+
             # Connect to DuckDB
             self.connect_duckdb()
             
@@ -328,6 +368,25 @@ class IPODataPipeline:
                 logger.info("DuckDB connection closed")
 
 
+def parse_args(argv=None):
+    """Parse command-line arguments"""
+    parser = argparse.ArgumentParser(description="Run the IPO analytics pipeline.")
+    parser.add_argument(
+        '--snapshot',
+        type=date.fromisoformat,
+        default=date.today(),
+        help="Snapshot date (YYYY-MM-DD); raw files live in data/raw/<snapshot>/. Defaults to today.",
+    )
+    parser.add_argument(
+        '--skip-scrape',
+        action='store_true',
+        help="Rebuild from an existing raw snapshot without scraping.",
+    )
+    return parser.parse_args(argv)
+
+
 if __name__ == "__main__":
-    pipeline = IPODataPipeline()
+    args = parse_args()
+    setup_logging()
+    pipeline = IPODataPipeline(snapshot=args.snapshot, skip_scrape=args.skip_scrape)
     pipeline.run()
