@@ -1,6 +1,6 @@
 # IPO Analysis — Indian IPOs, 2016–2025
 
-> **Status: work in progress.** The data warehouse is built and checked; the analysis has not been written yet. No findings are claimed here until they are backed by executed notebooks. See [ROADMAP.md](ROADMAP.md) for the plan.
+> **Status: work in progress.** The data warehouse — including listing-day prices and split-adjusted returns — is built and checked; the analysis has not been written yet. No findings are claimed here until they are backed by executed notebooks. See [ROADMAP.md](ROADMAP.md) for the plan.
 
 ## What this is
 
@@ -9,11 +9,11 @@ An analytics project on NSE-listed IPOs (SME and mainboard). It asks whether sub
 ## Pipeline
 
 ```
-scrapers (NSE, Chittorgarh, Tickertape)
-   → data/raw/<snapshot>/*.csv                 one folder per scrape, never overwritten
-   → DuckDB raw_* tables + seed_* tables       data/seeds/ (reviewed manual matches and exclusions)
+scrapers (NSE past issues, Chittorgarh, Tickertape, NSE bhavcopy + index + corporate actions)
+   → data/raw/<snapshot>/                      one folder per scrape, never overwritten
+   → DuckDB raw_* tables + seed_* tables       data/seeds/ (reviewed matches, listings, exclusions, actions)
    → stg_*        clean each source            sql_transformations/stg_*.sql
-   → int_*        match IPOs to subscription and market data
+   → int_*        listing day, price history (renames, splits, bonuses), matches, horizon returns
    → mart_ipo_analytics + audit_join_funnel
    → checks       sql_checks/*.sql — any violation stops the run
    → data/mart/mart_ipo_analytics_<snapshot>.parquet / .csv
@@ -26,21 +26,31 @@ scrapers (NSE, Chittorgarh, Tickertape)
 |---|---|
 | NSE past issues | Symbol, company, issue dates, listing date, security type, price band, issue price |
 | Chittorgarh | Subscription by category (QIB, NII, retail, total), applications, issue size |
-| Tickertape screener | Current price, market cap, sector, PE/ROE/PB |
+| Tickertape screener | Current market cap, sector, PE/ROE/PB |
+| NSE CM bhavcopy (daily) | Unadjusted open/close and previous close of every NSE security, SME included — listing-day prices and price history |
+| NSE index closing file (daily) | NIFTY 50 benchmark |
+| NSE corporate actions | Bonus issues, splits and consolidations, used to adjust prices |
 
-Raw data is kept as dated snapshots in `data/raw/` (2026-01-22, 2026-01-30, 2026-02-15).
+Raw data is kept as dated snapshots in `data/raw/` (2026-01-22, 2026-01-30, 2026-02-15). Only 2026-02-15 carries the price files; add them to another snapshot with `python -m scrapers.nse_price_scraper --snapshot <date>`. Downloaded NSE daily files are cached in `data/cache/nse/` (not committed).
 
 ## Coverage (snapshot 2026-02-15)
 
 | Step | Mainboard | SME | All |
 |---|---:|---:|---:|
 | Equity issues in the NSE feed | 467 | 703 | 1,170 |
-| Listed IPOs (excl. FPOs, withdrawn, partly-paid, follow-ons) = mart rows | 450 | 682 | 1,132 |
-| With subscription data | 448 | 651 | 1,099 |
-| With market data | 442 | 645 | 1,087 |
-| With both | 440 | 617 | 1,057 |
+| IPOs (excl. FPOs, withdrawn, partly-paid, follow-ons) | 457 | 697 | 1,154 |
+| Listed on NSE = mart rows | 452 | 691 | 1,143 |
+| With listing-day prices | 450 | 691 | 1,141 |
+| With subscription data | 450 | 660 | 1,110 |
+| With market data | 449 | 679 | 1,128 |
+| With listing prices and subscription data | 448 | 660 | 1,108 |
+| With a 1-year return (listed ≥ 1 year before the snapshot and still trading) | 356 | 573 | 929 |
 
-IPOs are matched to subscription records on issue close date (±3 days) plus company-name similarity, and to Tickertape stocks on ticker plus name similarity. Renames below the similarity threshold were reviewed by hand and recorded in `data/seeds/`.
+**Listing day.** The listing is the IPO's first trade in the NSE bhavcopy within 30 days of issue close. On that day the bhavcopy's previous close is the exchange's base price, which equals the issue price derived from the NSE feed for 99.6% of listings — a check on both the listing day and the issue price. Where the two differ but the base price is one of the feed's prices for the issue, the base price is used (4 issues).
+
+**Returns.** Every return is measured from the issue price and adjusted for bonuses and splits by following the security through renames and ISIN changes. Horizons (1m, 6m, 1y, 3y) are counted from the listing date; NIFTY 50 is measured over the same money-at-risk period (issue close → horizon). Adjusted returns match Yahoo Finance's split-adjusted prices on a sample of 18 IPOs with corporate actions.
+
+**Matching.** IPOs are matched to subscription records on issue close date (±3 days) plus company-name similarity, and to Tickertape stocks mainly through their current NSE symbol. Cases the rules can't settle were reviewed by hand and recorded in `data/seeds/`.
 
 ## Running it
 
@@ -63,9 +73,11 @@ pytest
 
 ## Known issues
 
-- `return_since_issue_pct` is issue price → scrape-date price. It is **not** the listing-day gain, and it is not adjusted for splits or bonus issues. Listing-day prices and adjusted returns come in Phase 2.
-- For 128 SME IPOs the NSE feed gives the mainboard migration date instead of the listing date; `listing_dt` is left empty for them (`listing_dt_flag` explains why).
-- Tickertape lists only currently traded stocks, so delisted and merged companies have no market data (`has_market_data = false`).
+- Returns are price returns: dividends are not included (nor are they in the NIFTY 50 price index used as the benchmark).
+- Demergers are not adjusted. A large one shows up as an unexplained price gap (QUESS, SHANKARA); returns measured across such a gap are left empty (`price_gap_dt`).
+- From 2024-07-04 NSE caps an SME IPO's opening price at 90% over the issue price, so later SME listing gains are truncated (`listing_capped`).
+- CAMS, PROTEAN and NSDL listed on BSE only at IPO: CAMS and PROTEAN have no listing prices; NSDL is not in the mart.
+- Horizon returns are empty when the stock stopped trading on NSE before the horizon (delisted, suspended or moved), which biases long-horizon averages towards survivors.
 - Chittorgarh has no subscription data for most 2016–17 SME issues.
 
 ## Disclaimer

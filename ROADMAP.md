@@ -124,25 +124,31 @@ Files: `sql_transformations/` (`00_macros`, `stg_*`, `int_*`, `mart_ipo_analytic
 
 ## Phase 2 — Listing-day prices and NIFTY benchmark
 
-- [ ] **Coverage spike first:** fetch 50 random tickers (25 SME, 25 mainboard) via `yfinance` as `SYMBOL.NS`; record hit rate. Use the current Tickertape ticker where the company was renamed.
-- [ ] New `scrapers/price_history_scraper.py`: daily OHLC from `listing_dt` to snapshot date per IPO, plus `^NSEI` (NIFTY 50). Per-ticker cache, retry with backoff, output `data/raw/<snapshot>/price_history.parquet`.
-- [ ] **Fallback** if SME coverage < ~85%: listing-day open/close from NSE daily bhavcopy archives (CM + SME files) for each distinct listing date (~1,100 dates).
-- [ ] Verify the NSE SME pre-open listing-price cap (90% over issue price, introduced ~2025 — confirm the circular and effective date). Add `listing_capped` flag.
-- [ ] New `stg_price_history`.
-- [ ] New mart columns:
-  - `listing_open`, `listing_close`
-  - `listing_gain_pct` — open vs issue price (the real listing gain)
-  - `listing_day_close_gain_pct`
-  - `return_1m_pct`, `return_6m_pct`, `return_1y_pct`, `return_3y_pct` from issue price (NULL if the horizon hasn't elapsed)
-  - matching NIFTY returns and `excess_return_*`
-- [ ] **Adjust for splits and bonuses.** Tickertape's price is unadjusted, so `return_since_issue_pct` is wrong for any stock that split or issued bonus shares. Use adjusted prices and an adjustment factor on the issue price.
-- [ ] **Recover the real listing date** for the 130 IPOs with a later-event listing date (`listing_dt_flag = 'listing_date_is_later_event'`): first trading day in the price history.
-- [ ] Re-check the 9 *unverified* rejected renames in `data/seeds/manual_ticker_matches.csv` (a matching stock must have prices from its IPO date).
-- [ ] Check IPOs with no listing date in the NSE feed (e.g. NSDL, listed Aug 2025) against price history.
-- [ ] Checks: listing price present for ≥ 85% of mainboard and ≥ 75% of SME; listing open within sanity bounds.
-- [ ] Add price coverage to the join funnel.
+Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`, `stg_nifty50`, `stg_corporate_actions`, `int_ipo_listing`, `int_ipo_price_history`, `int_ipo_horizon_returns`), `sql_checks/prices_*`, `data/seeds/manual_listings.csv`, `data/seeds/manual_corporate_actions.csv`, `tests/`.
+
+- [x] **Coverage spike first.** 50 random IPOs (25 SME, 25 mainboard) on `yfinance`: data for 96% of mainboard but **64% of SME**, and Yahoo's first trading day equals the listing day for only 36% of SME. Yahoo's "unadjusted" open is also split-adjusted (SALASAR shows 2.50 against a 108 issue price). → *Changed from plan:* NSE archives are the only price source; `yfinance` is used only to cross-check.
+- [x] `scrapers/nse_price_scraper.py`: the NSE CM bhavcopy for every trading day since the first issue close (old format to 2024-07-05, UDiFF after; SME series included), the daily index file (NIFTY 50), and the NSE corporate-actions API (bonus / split / consolidation). Per-day cache in `data/cache/nse/` (gitignored, ~320 MB), 4 threads, retry with backoff; holidays are remembered. Output to `data/raw/<snapshot>/`: `nse_prices.parquet` (9.6 MB, the ~1,300 securities linked to IPO symbols through shared symbols, ISINs or ISIN issuer prefixes, plus new listings at an IPO's issue price), `nifty50.csv`, `corporate_actions.csv`.
+- [x] ~~Fallback to bhavcopy if SME coverage < 85%~~ — bhavcopy is the primary source for everything.
+- [x] **SME listing cap verified:** NSE caps an SME IPO's opening price at 90% over the issue price from **2024-07-04** ([Business Standard, 4 Jul 2024](https://www.business-standard.com/markets/ipo/sme-ipo-opening-price-to-be-capped-at-90-in-pre-open-on-listing-day-nse-124070400429_1.html)). The data agrees: SME listings opened up to 4.9× the issue price before that date and never above 1.900× after it. `listing_cap_applies`, `listing_capped` (43 SME IPOs capped).
+- [x] `stg_nse_prices`, `stg_nifty50`, `stg_corporate_actions` (ratios parsed from the subject text; bonus preference shares and debentures ignored).
+- [x] `int_ipo_listing`: first NSE trade within 30 days of issue close — under the feed's symbol (1,131), or *added:* another symbol's first trade at a base price equal to the issue price (10, e.g. DCX → DCXINDIA, Sterling & Wilson → SWSOLAR), or a reviewed seed. On listing day the bhavcopy's previous close is the exchange base price; it equals the feed-derived issue price for 1,136 of 1,141 listings (99.6%).
+- [x] *Added:* issue price reconciled with the listing base price when that price is one the feed gives for the issue (4 SME issues: WFL, RPPL, SUPREMEENG, ICEMAKE). The one remaining difference is AUBANK (base price 525 = its listing price, issue price 358).
+- [x] `int_ipo_price_history`: each IPO's security followed from its listing row as a chain of (symbol, ISIN) periods — same ISIN (renames), same symbol or ISIN issuer prefix within 30 days (splits, SME → mainboard migrations). 862k daily rows.
+- [x] **Split and bonus adjustment:** 325 factors applied from NSE corporate actions. *Found:* NSE files past actions under the company's **current** symbol (KARDA's 2021 split is listed under DHARAN), so actions are matched on any symbol of the chain. Two actions missing from the API were added from `data/seeds/manual_corporate_actions.csv` after checking the record dates (JSLL split, GICL bonus + split). Every factor with a trade on its ex-date agrees with the actual price move (270 of 270). Cross-checked against Yahoo split-adjusted closes for 18 IPOs with corporate actions: identical to 3 decimals.
+- [x] *Added:* `int_ipo_price_gaps` — overnight moves no corporate action explains (share-adjusted open < 60% or > 167% of the previous close). 6 remain: two demergers (QUESS, SHANKARA) and four illiquid SME stocks. Returns measured across a gap are NULL; `price_gap_dt` flags them.
+- [x] Mart columns: `listing_dt` (now from the bhavcopy), `listing_dt_source`, `listing_method`, `listing_symbol`, `listing_base_price`, `listing_open`, `listing_close`, `listing_volume`, `listing_gain_pct` (open vs issue price), `listing_day_close_gain_pct`, `return_{1m,6m,1y,3y}_pct` (issue price → adjusted close at listing + horizon), `nifty_return_*` (issue close → horizon), `excess_return_*`, `aftermarket_excess_return_*` (from the listing-day close), `last_trade_dt`, `is_trading_at_snapshot`, `share_multiplier`, `corporate_action_count`, `price_gap_dt`. `return_since_issue_pct` is now split/bonus-adjusted and measured to the last NSE trade. A horizon return is NULL if the horizon is after the snapshot, or the stock hadn't traded for 30 days before it (11 IPOs at 1y, 17 at 3y).
+- [x] **Recovered real listing dates:** 129 IPOs whose feed listing date was a later event (128, mostly SME migrations) or before issue close (1), plus the 11 below with no feed listing date.
+- [x] **Re-checked the 9 unverified rejected renames:** all 9 are the IPO's own security (the Tickertape ticker is the latest symbol of its ISIN chain), so the rejects were wrong and were removed. *Added:* market match method `nse_symbol` — the Tickertape ticker is the IPO's current NSE symbol. Market data 1,095 → 1,128; every IPO still trading on NSE now has it. No existing match changed.
+- [x] **IPOs with no listing date in the feed:** 11 recovered from prices (9 SME, DCX, Sterling & Wilson). NSDL and CAMS listed on BSE only at IPO; CAMS's later NSE start is rejected in `data/seeds/manual_listings.csv`; PROTEAN stays without prices.
+- [x] 10 checks in `sql_checks/prices_*`: listing price coverage per segment (≥ 85% mainboard, ≥ 75% SME), base price = issue price (≥ 98%), bhavcopy listing date = feed date where the feed was valid, listing open/close within 0.2–10× issue price, SME cap respected, corporate-action factors match price moves, one price row per day, horizon returns only when valid, ≤ 15 unexplained gaps, NIFTY present for every trading day.
+- [x] Price coverage in the join funnel (listing price, 1-year return, listing price and subscription).
+- [x] Tests: 34 (`test_warehouse.py` fixtures now include prices, NIFTY and corporate actions; `test_nse_price_scraper.py` covers both bhavcopy formats, the index file and security linking). Mutation-checked: removing chain-wide corporate-action matching, new-listing detection, ISIN-prefix linking, the price-gap guard, the SME cap or the duplicate-row guard each fails the suite.
 
 **Done when:** true listing gain and fixed-horizon excess returns are in the mart with coverage reported.
+
+> ✅ **Verified 2026-09-14** (snapshot 2026-02-15): all 21 checks pass. Mart **1,143** IPOs (452 mainboard, 691 SME). Listing prices **1,141 (99.8%)** — 450 mainboard, 691 SME. 1-year return 929 of the 940 IPOs listed at least a year before the snapshot; 3-year 474 of 494. Market data 1,128, subscription 1,110, listing price and subscription 1,108. Phase 1 still holds: the pipeline was re-run clean before starting, a fresh venv installs with `pip check` clean, and snapshot 2026-01-30 rebuilds and passes all checks once its price files are fetched (its feed has exact duplicate rows, which exposed a join bug now fixed and tested).
+> Older snapshots (2026-01-22, 2026-01-30) don't carry price files in the repo; `python -m scrapers.nse_price_scraper --snapshot <date>` adds them from the cache.
+> Carried forward: returns exclude dividends (as does the NIFTY 50 price index); demergers smaller than the gap threshold are not adjusted; `ruff` datetime and import-order findings in the new scraper (Phase 7).
 
 ---
 
@@ -236,7 +242,7 @@ Files: `sql_transformations/` (`00_macros`, `stg_*`, `int_*`, `mart_ipo_analytic
   9. Limitations.
   10. Reproduce: Python version, `--skip-scrape` rebuild, which sources are still live.
   11. Next steps.
-- [ ] **Limitations** to state explicitly: survivorship (Tickertape lists survivors), single snapshot date, NSE feed starts 2016, structural QIB missingness for SME, allotment caveat, share of fuzzy/manual matches.
+- [ ] **Limitations** to state explicitly: survivorship (Tickertape lists survivors; NSE prices stop at delisting), single snapshot date, NSE feed starts 2016, structural QIB missingness for SME, allotment caveat, share of fuzzy/manual matches, returns exclude dividends, demergers, the SME listing cap from 2024-07-04.
 - [ ] `reports/findings.md` — one page for a non-technical reader.
 - [ ] CI: GitHub Actions workflow running `ruff` and `pytest` on fixture data (no scraping).
 - [ ] Git: land work as logical per-phase commits. Set repo description and topics: `sql`, `duckdb`, `etl`, `analytics-engineering`, `web-scraping`, `streamlit`, `ipo`, `indian-stock-market`. Pin the repo.
