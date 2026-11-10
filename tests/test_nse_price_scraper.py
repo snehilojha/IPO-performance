@@ -3,6 +3,7 @@
 from datetime import date
 
 import pandas as pd
+import pytest
 
 from scrapers.nse_price_scraper import (
     NSEPriceScraper,
@@ -110,3 +111,27 @@ def test_linked_prices_follow_renames_splits_and_new_listings(tmp_path):
     assert set(linked['symbol']) == {'ZOMATO', 'ETERNAL', 'DCXINDIA', 'OLDCO'}
     assert set(linked.loc[linked['symbol'] == 'DCXINDIA', 'isin']) == {'INE0KL801015', 'INE0KL801023'}
     assert list(linked.columns) == ['trade_dt', 'symbol', 'series', 'isin', 'open', 'close', 'prev_close', 'volume']
+
+
+@pytest.mark.parametrize('code', ['EQ', 'BE', 'Equity', 'SME'])
+def test_read_ipo_symbols_accepts_every_equity_code_in_the_seed(tmp_path, code):
+    """
+    The scraper decides which symbols to download prices for. It reads the equity codes from
+    data/seeds/security_types.csv, so a feed rename (EQ and BE became EQUITY during 2026) cannot
+    quietly leave a whole segment without listing prices.
+    """
+    raw_dir = tmp_path / 'raw'
+    raw_dir.mkdir()
+    pd.DataFrame({
+        'symbol': ['ZOMATO', 'SOMENCD'],
+        'ipoenddate': ['16-JUL-2021', '10-MAR-2024'],
+        'pricerange': ['Rs.72 to Rs.76', 'Rs.1000'],
+        'issueprice': ['76', '1000'],
+        'securitytype': [code, 'N0'],
+    }).to_csv(raw_dir / 'ipo_metadata.csv', index=False)
+
+    scraper = NSEPriceScraper(date(2026, 2, 15), raw_dir=raw_dir, cache_dir=tmp_path / 'cache')
+    symbols, start = scraper.read_ipo_symbols()
+
+    assert symbols == ['ZOMATO']       # the NCD is left out
+    assert start == date(2021, 7, 16)

@@ -31,7 +31,7 @@ import duckdb
 import pandas as pd
 import requests
 
-from scrapers import IST
+from scrapers import IST, equity_security_types
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -50,7 +50,8 @@ CORPORATE_ACTIONS_API = "https://www.nseindia.com/api/corporates-corporateAction
 
 # Series an equity trades under: normal, trade-for-trade surveillance, and the SME platform
 EQUITY_SERIES = ('EQ', 'BE', 'BZ', 'SM', 'ST', 'SZ')
-IPO_SECURITY_TYPES = ('EQ', 'BE', 'SME')
+# Which feed codes are equity IPOs comes from data/seeds/security_types.csv, the same contract
+# stg_past_ipo.sql uses, because NSE renames them (EQ and BE became EQUITY during 2026).
 CORPORATE_ACTION_PATTERN = r'(?i)bonus|split|sub-division|consolidat'
 
 PRICE_COLUMNS = ['trade_dt', 'symbol', 'series', 'isin', 'open', 'high', 'low', 'close', 'prev_close',
@@ -175,7 +176,7 @@ class NSEPriceScraper:
 
     def read_ipo_symbols(self) -> tuple[list[str], date]:
         metadata = pd.read_csv(self.raw_dir / 'ipo_metadata.csv', dtype=str)
-        metadata = metadata[metadata['securitytype'].str.strip().isin(IPO_SECURITY_TYPES)]
+        metadata = metadata[metadata['securitytype'].str.strip().str.upper().isin(equity_security_types())]
         close_dates = pd.to_datetime(metadata['ipoenddate'].str.strip(), format='%d-%b-%Y', errors='coerce')
         return sorted(metadata['symbol'].str.strip().unique()), close_dates.min().date()
 
@@ -259,6 +260,7 @@ class NSEPriceScraper:
         """)
         con.execute("CREATE TABLE symbols AS SELECT UNNEST(?::VARCHAR[]) AS symbol", [ipo_symbols])
         # A first trade within 30 days of an IPO's close, with a previous close equal to a price in its band
+        equity_types_sql = ', '.join(f"'{t}'" for t in equity_security_types())  # codes come from the seed
         con.execute(f"""
             CREATE TABLE ipo_bands AS
             WITH ipo AS (
@@ -267,7 +269,7 @@ class NSEPriceScraper:
                     list_transform(regexp_extract_all(pricerange || ' ' || COALESCE(issueprice, ''), '\\d+(?:\\.\\d+)?'),
                                    x -> TRY_CAST(x AS DOUBLE)) AS prices
                 FROM read_csv('{(self.raw_dir / 'ipo_metadata.csv').as_posix()}', all_varchar=true)
-                WHERE TRIM(securitytype) IN {IPO_SECURITY_TYPES}
+                WHERE UPPER(TRIM(securitytype)) IN ({equity_types_sql})
             )
             SELECT ipo_end_dt, prices FROM ipo WHERE ipo_end_dt IS NOT NULL
         """)
