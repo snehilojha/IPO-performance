@@ -23,7 +23,7 @@ One row per NSE-listed equity IPO, mainboard and SME: 1,143 rows in snapshot 202
 | `ticker` | text | NSE | Symbol in the past-issues feed, at the time of the IPO. With `ipo_end_dt` it identifies an IPO. |
 | `company_name` | text | NSE | Company name as in the feed. |
 | `segment` | text | NSE | `MAINBOARD` or `SME`, from the security type. Analyse the two separately. |
-| `security_type` | text | NSE | `EQ`, `BE` (mainboard, trade-for-trade) or `SME`. Debt, REITs, InvITs and warrants are excluded upstream. |
+| `security_type` | text | NSE | The feed's code, upper-cased. `EQ`, `BE` (mainboard, trade-for-trade) or `SME` in snapshots up to 2026-02-15; NSE collapsed `EQ` and `BE` into `EQUITY` later in 2026. `data/seeds/security_types.csv` maps every code to its segment, and codes with no segment (debt, NCDs, REITs, InvITs) are excluded upstream. |
 | `ipo_start_dt` | date | NSE | Issue open date. |
 | `ipo_end_dt` | date | NSE | Issue close date, the day the issue price is paid. |
 | `issue_year` | integer | derived | Year of `ipo_end_dt`. |

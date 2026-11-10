@@ -1,6 +1,6 @@
 # IPO Analysis — Roadmap
 
-How this project was finished, phase by phase: the plan, what changed from it, and how each phase was verified. Phases 0–7 are done. Paths are relative to the repo root.
+How this project was finished, phase by phase: the plan, what changed from it, and how each phase was verified. Phases 0–8 are done. Paths are relative to the repo root.
 
 **End state:** a trustworthy warehouse → a clearly stated question answered with the right statistics → one small, honest model → a live Streamlit dashboard → a README that leads with the finding.
 
@@ -341,6 +341,31 @@ Files: `scrapers/nse_price_scraper.py`, `sql_transformations/` (`stg_nse_prices`
 > - **Notebooks after the lint edits:** all three re-execute with identical text outputs, no errors or stderr, and byte-identical figures.
 > - **Sources, one request each:** NSE past issues, bhavcopy, index close, corporate actions and Tickertape all respond; Chittorgarh does not return data.
 > - **On GitHub:** pushed, and the first CI run passed (ruff and pytest). Description, the eight topics and the profile pin are set. The dashboard is deployed (Phase 6).
+
+---
+
+## Phase 8 — Keeping the sources honest
+
+Added 2026-11-10, after a source check found the NSE feed had changed under the project.
+
+- [x] **The feed's security-type vocabulary is now a seed, not a hard-coded list.** `data/seeds/security_types.csv` maps every code NSE has returned to its segment, or to no segment when the issue is not an equity IPO. `stg_past_ipo.sql` joins to it instead of `WHERE securitytype IN ('EQ', 'BE', 'SME')`.
+- [x] **New check `past_ipo_known_security_types.sql`** fails the run on any code the seed doesn't classify, so the next vocabulary change is an error rather than missing rows.
+- [x] **Two tests** in `tests/test_warehouse.py`: the whole mart rebuilds unchanged under the renamed codes, and an unclassified code stops the pipeline.
+
+### What had broken
+NSE collapsed `EQ` and `BE` into a single mixed-case `Equity` during 2026, and `IV` / `RR` into `INVIT` / `REIT`. The old filter matched none of them:
+
+| | Mainboard | SME |
+|---|---:|---:|
+| Live feed under the old filter | **0** | 772 |
+| Live feed under the seed | 577 | 772 |
+
+A fresh scrape would have kept every SME IPO, dropped every mainboard IPO, and passed silently — the coverage checks are ratios within what survives staging, so none of them would have fired.
+
+### Found while classifying, not fixed
+Anupam Rasayan (2021) and Music Broadcast (2017) are real mainboard IPOs that the feed files under `W1` and `P1`. They have never been in the mart. They are classified as dropped in the seed so the rebuild stays byte-identical; admitting them would change the mart, every notebook figure and the README. Decide it as its own change, with the numbers regenerated.
+
+**Done when:** a vocabulary change fails loudly. ✅ **Verified 2026-11-10** (snapshot 2026-02-15): `pipeline.py --snapshot 2026-02-15 --skip-scrape` passes all 23 checks and rewrites byte-identical exports; `pytest` 68 passed; `ruff check .` clean; the new check reports no unclassified codes against the live feed.
 
 ---
 

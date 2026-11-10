@@ -17,7 +17,7 @@ scrapers   NSE past issues · Chittorgarh subscription · Tickertape screener ·
    → stg_*                       clean each source                                      sql_transformations/stg_*.sql
    → int_*                       listing day, price history (renames, splits, bonuses), matching, horizon returns
    → mart_ipo_analytics          one row per IPO, nothing dropped; + audit_join_funnel
-   → checks                      22 rules in sql_checks/*.sql; any violation stops the run
+   → checks                      23 rules in sql_checks/*.sql; any violation stops the run
    → exports                     data/mart/mart_ipo_analytics_<snapshot>.parquet / .csv, reports/join_funnel_<snapshot>.csv
    → notebooks/  ·  app/         analysis and dashboard read the exports only
 ```
@@ -109,6 +109,7 @@ Its probabilities came out too optimistic for 2024–25 (mean forecast 87% vs 78
 - **Matching.** 1,093 of 1,110 subscription matches are exact (same normalised name and close date), 15 fuzzy and 2 manual. Market matches: 1,086 through the current NSE symbol, 19 by ticker and name similarity, 1 by name and 22 reviewed by hand.
 - **Known gaps.**
   - IRCTC (2019) and AU Small Finance Bank (2017) have no subscription match.
+  - Anupam Rasayan (2021) and Music Broadcast (2017) are missing: the NSE feed files them under the security types `W1` and `P1` rather than an equity code, so they never reach the mart. Found 2026-11-10 and left as it is, because including them would move every number in this README; see `data/seeds/security_types.csv`.
   - CAMS, PROTEAN and NSDL listed on BSE only at IPO: CAMS and PROTEAN have no listing prices, and NSDL is not in the mart.
 - **Returns exclude dividends,** as does the NIFTY 50 price index used as the benchmark.
 - **Demergers aren't adjusted.** A large one shows up as an unexplained price gap (QUESS, SHANKARA), and returns across it are left empty.
@@ -125,7 +126,7 @@ python -m venv .venv
 .venv\Scripts\activate          # Windows; use `source .venv/bin/activate` elsewhere
 pip install -r requirements.txt
 
-# Rebuild the warehouse from the committed snapshot (seconds; runs all 22 checks, rewrites data/mart/ and reports/)
+# Rebuild the warehouse from the committed snapshot (seconds; runs all 23 checks, rewrites data/mart/ and reports/)
 python pipeline.py --snapshot 2026-02-15 --skip-scrape
 
 # Dashboard (reads the exports only; app/requirements.txt is the smaller runtime set used for deployment)
@@ -143,11 +144,11 @@ jupyter nbconvert --to notebook --execute --inplace notebooks/03_listing_gain_mo
 
 The notebooks are the source files. Re-executing them on the same export gives identical outputs and charts, because the seeds are fixed.
 
-**Scraping a new snapshot** (`python pipeline.py` scrapes into `data/raw/<today>/`, then `python -m scrapers.nse_price_scraper --snapshot <today>` adds prices) depends on the sources still answering. Checked 2026-09-14:
+**Scraping a new snapshot** (`python pipeline.py` scrapes into `data/raw/<today>/`, then `python -m scrapers.nse_price_scraper --snapshot <today>` adds prices) depends on the sources still answering. Checked 2026-11-10:
 
 | Source | Status |
 |---|---|
-| NSE past issues API | Working |
+| NSE past issues API | Working. It renamed its security types during 2026 (`EQ`/`BE` → `EQUITY`, `IV` → `INVIT`, `RR` → `REIT`); both vocabularies are classified in `data/seeds/security_types.csv`, and `sql_checks/past_ipo_known_security_types.sql` fails the run on any code that file doesn't list. |
 | NSE bhavcopy, index close and corporate actions | Working. Daily files are cached in `data/cache/nse/`, which is not committed; a first run downloads about 320 MB. |
 | Tickertape screener API | Working |
 | Chittorgarh subscription reports | **Broken:** the API now answers "No params data found" for every year, so a fresh scrape fails at the subscription step |
