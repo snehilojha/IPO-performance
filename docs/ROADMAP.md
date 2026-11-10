@@ -351,6 +351,8 @@ Added 2026-11-10, after a source check found the NSE feed had changed under the 
 - [x] **The feed's security-type vocabulary is now a seed, not a hard-coded list.** `data/seeds/security_types.csv` maps every code NSE has returned to its segment, or to no segment when the issue is not an equity IPO. `stg_past_ipo.sql` joins to it instead of `WHERE securitytype IN ('EQ', 'BE', 'SME')`.
 - [x] **New check `past_ipo_known_security_types.sql`** fails the run on any code the seed doesn't classify, so the next vocabulary change is an error rather than missing rows.
 - [x] **Two tests** in `tests/test_warehouse.py`: the whole mart rebuilds unchanged under the renamed codes, and an unclassified code stops the pipeline.
+- [x] **The price scraper reads the same seed.** `scrapers/nse_price_scraper.py` carried its own copy of the tuple in two places, and it decides which symbols and listing dates to download prices for — so under the new vocabulary it would have fetched no mainboard listing prices at all. `scrapers.equity_security_types()` now reads the seed, and `tests/test_nse_price_scraper.py` runs it over each equity code.
+- [x] **Weekly source check.** `.github/workflows/source-check.yml` runs `scripts/check_sources.py` every Monday: it probes all four sources and validates the feed's vocabulary against the seed. It takes no snapshot and commits nothing. A source expected to work that stops answering, or an unclassified code, fails the run and mails the owner; sources already known down are reported without failing.
 
 ### What had broken
 NSE collapsed `EQ` and `BE` into a single mixed-case `Equity` during 2026, and `IV` / `RR` into `INVIT` / `REIT`. The old filter matched none of them:
@@ -365,7 +367,10 @@ A fresh scrape would have kept every SME IPO, dropped every mainboard IPO, and p
 ### Found while classifying, not fixed
 Anupam Rasayan (2021) and Music Broadcast (2017) are real mainboard IPOs that the feed files under `W1` and `P1`. They have never been in the mart. They are classified as dropped in the seed so the rebuild stays byte-identical; admitting them would change the mart, every notebook figure and the README. Decide it as its own change, with the numbers regenerated.
 
-**Done when:** a vocabulary change fails loudly. ✅ **Verified 2026-11-10** (snapshot 2026-02-15): `pipeline.py --snapshot 2026-02-15 --skip-scrape` passes all 23 checks and rewrites byte-identical exports; `pytest` 68 passed; `ruff check .` clean; the new check reports no unclassified codes against the live feed.
+**Done when:** a vocabulary change fails loudly, and a source going quiet is noticed within a week.
+
+> ✅ **Verified 2026-11-10** (snapshot 2026-02-15): `pipeline.py --snapshot 2026-02-15 --skip-scrape` passes all 23 checks and rewrites byte-identical exports; `pytest` 72 passed; `ruff check .` clean. `scripts/check_sources.py` run locally reports NSE past issues (1,611 rows, 577 mainboard and 772 SME, every code classified), NSE bhavcopy and Tickertape all OK, Chittorgarh down as known, and exits 0.
+> Not yet verified from GitHub's runners: NSE sometimes refuses datacentre IPs, so the workflow needs one manual run before the schedule can be trusted.
 
 ---
 

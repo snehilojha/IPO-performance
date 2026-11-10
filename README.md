@@ -144,7 +144,7 @@ jupyter nbconvert --to notebook --execute --inplace notebooks/03_listing_gain_mo
 
 The notebooks are the source files. Re-executing them on the same export gives identical outputs and charts, because the seeds are fixed.
 
-**Scraping a new snapshot** (`python pipeline.py` scrapes into `data/raw/<today>/`, then `python -m scrapers.nse_price_scraper --snapshot <today>` adds prices) depends on the sources still answering. Checked 2026-11-10:
+**Scraping a new snapshot** (`python pipeline.py` scrapes into `data/raw/<today>/`, then `python -m scrapers.nse_price_scraper --snapshot <today>` adds prices) depends on the sources still answering. [`.github/workflows/source-check.yml`](.github/workflows/source-check.yml) re-checks them every Monday and fails if one stops answering or the NSE feed returns a security type the seed doesn't classify. Checked 2026-11-10:
 
 | Source | Status |
 |---|---|
