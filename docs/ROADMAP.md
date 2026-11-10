@@ -370,7 +370,7 @@ Anupam Rasayan (2021) and Music Broadcast (2017) are real mainboard IPOs that th
 **Done when:** a vocabulary change fails loudly, and a source going quiet is noticed within a week.
 
 > ✅ **Verified 2026-11-10** (snapshot 2026-02-15): `pipeline.py --snapshot 2026-02-15 --skip-scrape` passes all 23 checks and rewrites byte-identical exports; `pytest` 72 passed; `ruff check .` clean. `scripts/check_sources.py` run locally reports NSE past issues (1,611 rows, 577 mainboard and 772 SME, every code classified), NSE bhavcopy and Tickertape all OK, Chittorgarh down as known, and exits 0.
-> Not yet verified from GitHub's runners: NSE sometimes refuses datacentre IPs, so the workflow needs one manual run before the schedule can be trusted.
+> ✅ **Also verified on GitHub's runners** (manual run 42852352080, 2026-11-10): NSE does answer from a datacentre IP. The workflow reported the same four rows and exited 0, so the Monday schedule can be trusted.
 
 ---
 
