@@ -5,6 +5,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import duckdb
+import pandas as pd
 import pytest
 
 from pipeline import DataQualityError, IPODataPipeline
@@ -349,3 +350,50 @@ def test_price_coverage_check_fails_when_listing_prices_missing(tmp_path, raw_ro
 def test_missing_snapshot_raises(tmp_path, raw_root):
     with pytest.raises(FileNotFoundError, match='2020-01-01'):
         make_pipeline(tmp_path, raw_root, snapshot=date(2020, 1, 1)).run()
+
+
+# ---- the feed's security-type vocabulary -----------------------------------------------------------------
+
+def rescued_raw_root(tmp_path, raw_root, replacements):
+    """Copy of the fixture snapshot with securitytype values remapped, to stand in for a feed vocabulary change"""
+    root = tmp_path / 'raw_remapped'
+    shutil.copytree(raw_root, root)
+    metadata = root / SNAPSHOT.isoformat() / 'ipo_metadata.csv'
+    feed = pd.read_csv(metadata)
+    feed['securitytype'] = feed['securitytype'].replace(replacements)
+    feed.to_csv(metadata, index=False)
+    return root
+
+
+def test_renamed_security_types_still_build_the_same_mart(tmp_path, raw_root):
+    """
+    During 2026 NSE replaced EQ and BE with a single mixed-case 'Equity', IV with INVIT and RR with REIT.
+    The seed lists both vocabularies, so the same IPOs must reach the mart in the same segments.
+    """
+    root = rescued_raw_root(tmp_path, raw_root, {'EQ': 'Equity', 'IV': 'INVIT', 'RR': 'REIT'})
+    out_dir = tmp_path / 'renamed'
+    make_pipeline(out_dir, root).run()
+
+    con = duckdb.connect(str(out_dir / 'ipo.duckdb'), read_only=True)
+    try:
+        tickers = {row[0] for row in con.execute("SELECT ticker FROM mart_ipo_analytics").fetchall()}
+        assert tickers == {'GSTL', 'ALPHA', 'GOEL', 'MIGR', 'FOLL', 'FORGE', 'ZOMATO', 'DRL', 'TMB',
+                           'NEWSYM', 'CAPD', 'BSEONLY'}
+
+        segments = dict(con.execute(
+            "SELECT ticker, segment FROM mart_ipo_analytics WHERE ticker IN ('ZOMATO', 'GSTL')"
+        ).fetchall())
+        assert segments == {'ZOMATO': 'MAINBOARD', 'GSTL': 'SME'}
+
+        # The REIT and InvIT rows are still dropped under their new codes
+        types = {row[0] for row in con.execute("SELECT DISTINCT security_type FROM stg_past_ipo").fetchall()}
+        assert types == {'EQUITY', 'SME'}
+    finally:
+        con.close()
+
+
+def test_unclassified_security_type_stops_the_pipeline(tmp_path, raw_root):
+    """A code missing from the seed would silently drop its issues, so the schema contract fails the run"""
+    root = rescued_raw_root(tmp_path, raw_root, {'EQ': 'E7'})
+    with pytest.raises(DataQualityError, match='past_ipo_known_security_types'):
+        make_pipeline(tmp_path / 'unknown', root).run()

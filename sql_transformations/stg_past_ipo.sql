@@ -1,5 +1,8 @@
 -- One row per equity issue in the NSE past-issues feed.
--- Non-equity security types (DEBT, NCDs, REITs, InvITs, warrants) are dropped here.
+-- Which security types are equity, and which segment each belongs to, is defined in
+-- data/seeds/security_types.csv: a type with no segment is dropped here (DEBT, NCDs, REITs, InvITs).
+-- The seed is the contract with the feed's vocabulary. NSE collapsed EQ and BE into EQUITY during 2026,
+-- so both spellings are listed; sql_checks/past_ipo_known_security_types.sql fails on any code not in it.
 -- Issues that are not IPOs (FPOs, withdrawn, partly-paid, follow-ons) are kept but carry an
 -- exclusion_reason, so the join funnel can count them. Whether an IPO listed is decided in int_ipo_listing.
 
@@ -9,8 +12,8 @@ WITH parsed AS (
         TRIM(symbol)                                                  AS ticker,
         TRIM(company)                                                 AS company_name,
         norm_company_name(company)                                    AS company_name_norm,
-        TRIM(securitytype)                                            AS security_type,
-        CASE WHEN TRIM(securitytype) = 'SME' THEN 'SME' ELSE 'MAINBOARD' END AS segment,
+        UPPER(TRIM(securitytype))                                     AS security_type,
+        t.segment                                                     AS segment,
         TRY_STRPTIME(TRIM(ipostartdate), '%d-%b-%Y')::DATE            AS ipo_start_dt,
         TRY_STRPTIME(TRIM(ipoenddate), '%d-%b-%Y')::DATE              AS ipo_end_dt,
         TRY_STRPTIME(NULLIF(TRIM(listingdate), '-'), '%d-%b-%Y')::DATE AS listing_dt_reported,
@@ -21,7 +24,8 @@ WITH parsed AS (
         )                                                             AS band,
         TRY_CAST(TRIM(issueprice) AS DECIMAL(12, 2))                  AS issueprice_reported
     FROM raw_past_ipo
-    WHERE TRIM(securitytype) IN ('EQ', 'BE', 'SME')
+    JOIN seed_security_types t ON t.security_type = UPPER(TRIM(securitytype))
+    WHERE t.segment IS NOT NULL
 ),
 
 priced AS (

@@ -103,6 +103,8 @@ SEED_TABLES = [
     ('manual_listings.csv', 'seed_manual_listings',
      {'ticker': 'VARCHAR', 'ipo_end_dt': 'DATE', 'trading_symbol': 'VARCHAR', 'decision': 'VARCHAR',
       'note': 'VARCHAR'}),
+    ('security_types.csv', 'seed_security_types',
+     {'security_type': 'VARCHAR', 'segment': 'VARCHAR', 'note': 'VARCHAR'}),
 ]
 
 STAGING_MODELS = [

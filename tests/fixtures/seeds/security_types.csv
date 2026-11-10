@@ -1,0 +1,33 @@
+security_type,segment,note
+EQ,MAINBOARD,Mainboard equity
+BE,MAINBOARD,Mainboard equity settled trade-for-trade
+EQUITY,MAINBOARD,Mainboard equity. NSE replaced EQ and BE with this single code during 2026
+SME,SME,NSE Emerge SME platform
+DEBT,,Debt issue
+IV,,InvIT units (legacy code)
+INVIT,,InvIT units. NSE replaced IV with this code during 2026
+RR,,REIT units (legacy code)
+REIT,,REIT units. NSE replaced RR with this code during 2026
+E1,,Partly-paid equity series (SSFLPP). Not an IPO; partly-paid issues are excluded by design
+W1,,Anupam Rasayan 2021 mainboard IPO carries this code in the feed. Dropped pending review - see docs/ROADMAP.md
+P1,,Music Broadcast 2017 mainboard IPO carries this code in the feed. Dropped pending review - see docs/ROADMAP.md
+N0,,NCD series
+N1,,NCD series
+N2,,NCD series
+N3,,NCD series
+N6,,NCD series
+N7,,NCD series
+NC,,NCD series
+ND,,NCD series
+NE,,NCD series
+NF,,NCD series
+NI,,NCD series
+NL,,NCD series
+NM,,NCD series
+NX,,NCD series
+NZ,,NCD series
+Y5,,NCD series
+YC,,NCD series
+YD,,NCD series
+Z9,,NCD series
+ZB,,NCD series
